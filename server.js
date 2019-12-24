@@ -7,14 +7,18 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 
-require('dotenv').config();
+//not necessary unless planning to use .env file 
+// require('dotenv').config();
 
+//setting up server 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 //tests 
 app.listen(port, () => {
@@ -22,7 +26,6 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => res.send("Hello World!!"));
-
 
 
 // database 
@@ -41,12 +44,13 @@ connection.once('open', function() {
 
 app.use(express.static(path.join(__dirname, "frontend", "build")));
 
-
-
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
 
 
 //routes 
+
+app.use("/api/users", users);
+
 
