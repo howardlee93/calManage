@@ -26,11 +26,8 @@ app.listen(port, () => {
 
 // database 
 
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err));
-
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  
 
 const connection = mongoose.connection;
 connection.once('open', function() {
@@ -55,7 +52,7 @@ app.get("/", (req, res) => res.send("Hello World!!"));
 const users = require( "./routes/users_route");
 app.use("/api/users", users);
 
-// const todos = require('./routes/todos_route');
-// app.use('/api/todos', todos);
+const todos = require('./routes/todos_route');
+app.use('/api/todos', todos);
 
 

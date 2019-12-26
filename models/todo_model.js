@@ -20,6 +20,7 @@ const TodoSchema = new Schema({
   	}
   	category:{
   		type: string,
+      required: true
 
   	}
 
