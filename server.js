@@ -4,13 +4,14 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./config/keys').mongoURI;
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 
 //not necessary unless planning to use .env file 
 // require('dotenv').config();
 
 //setting up server 
+app.use(express.urlencoded({ extended: true }));
 const app = express();
 const port = process.env.PORT || 5000;
 
