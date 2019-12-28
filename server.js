@@ -11,12 +11,14 @@ const mongoose = require('mongoose');
 // require('dotenv').config();
 
 //setting up server 
-app.use(express.urlencoded({ extended: true }));
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
+
 
 //tests 
 app.listen(port, () => {
