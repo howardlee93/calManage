@@ -3,27 +3,21 @@
 import axios from 'axios';
 
 
-export const postUser = (user) =>(
-	 axios({
-		url: '/api/users',
-		method:'POST',
-		data: {user}
-	})
+export const setAuthToken = token =>{
+	if (token){
+		axios.defaults.headers.common['Authorization'] = token;
+	}else{
+		delete axios.defaults.headers.common['Authorization'];
+	}
+}
+
+export const signup = (user) =>(
+	axios.post('/api/users/register', user)
+
 );
 
 
-export const postSession = (user) =>(
-	axios({
-		url:'/api/session',
-		method:'POST',
-		data: {user}
-	})
-);
-
-export const deleteSession = () =>(
-	axios({
-		url:'/api/session',
-		method:'DELETE'
-	})
+export const login = (user) =>(
+	axios.post('/api/users/login', user)
 );
 
