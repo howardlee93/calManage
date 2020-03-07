@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
 import * as dateFns from "date-fns";
 import './calendar.css';
+import {openModal} from '../../actions/modal_actions';
+
 
 
 class Calendar extends Component {
@@ -95,6 +97,8 @@ class Calendar extends Component {
     this.setState({
       selectedDate: day
     });
+    //add todo here 
+    openModal()
   };
 
   nextMonth = () => {

@@ -17,7 +17,7 @@ export const receiveUserTodo = todo => ({
 });
 
 export const receiveNewTodo = todo => ({
-	type:RECEIVE_NEW_TODO,
+	type: RECEIVE_NEW_TODO,
 	todo
 });
 
