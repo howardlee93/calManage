@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
-import * as dateFns from "date-fns";
+
 import './calendar.css';
 import {openModal} from '../../actions/modal_actions';
 
@@ -117,6 +117,7 @@ class Calendar extends Component {
     return (
       <div className="calendar">
         <h2> Calendar</h2>
+        <Modal/>
         {this.renderHeader()}
         {this.renderDays()}
         {this.renderCells()}

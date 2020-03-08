@@ -7,12 +7,24 @@ const mongoose = require('mongoose');
 // const bodyParser = require('body-parser');
 
 
+
+const users = require( "./routes/users_route");
+const todos = require('./routes/todos_route');
+
+
+
+
 //not necessary unless planning to use .env file 
 // require('dotenv').config();
 
 //setting up server 
 const app = express();
 const port = process.env.PORT || 5000;
+
+
+// app.use(passport.initialize());
+// require('./config/passport')(passport);
+
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -52,10 +64,8 @@ connection.once('open', function() {
 app.get("/", (req, res) => res.send("Hello World!!"));
 
 
-const users = require( "./routes/users_route");
 app.use("/api/users", users);
 
-const todos = require('./routes/todos_route');
 app.use('/api/todos', todos);
 
 

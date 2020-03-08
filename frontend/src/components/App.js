@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div className="App">
-    <Modal/>
     <header>
     	<h1>CalManage</h1>
     </header>
