@@ -1,9 +1,7 @@
 import React from 'react';
 import '../assets/style/App.css';
 import {Switch, Link } from 'react-router-dom';
-import Modal from './modal';
 
-import CalendarContainer from './calendar/calendar_container';
 
 
 function App() {
@@ -13,7 +11,6 @@ function App() {
     <header>
     	<h1>CalManage</h1>
     </header>
-    <CalendarContainer/>
 
     <footer className="main-footer">
 
