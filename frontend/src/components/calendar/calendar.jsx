@@ -22,7 +22,18 @@ class Calendar extends React.Component {
 		return(
 			<div className ="calendar">
 
+				<table> 
+					 <thead>
+                      <tr className="calendar-header">
+                          <td colSpan="3">
+                              <this.MonthNav />
+                              {" "}
+                              <this.YearNav />
+                          </td>
+                        </tr>
+                    </thead>
 
+				</table>
 
 			</div>
 			)
