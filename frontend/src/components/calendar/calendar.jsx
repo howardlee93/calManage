@@ -1,6 +1,10 @@
 import React from 'react';
 
+import moment from 'moment';
+
 import './calendar.css';
+
+
 
 
 class Calendar extends React.Component {
@@ -20,24 +24,13 @@ class Calendar extends React.Component {
 	}
 	render(){
 		return(
-			<div className ="calendar">
-
-				<table> 
-					 <thead>
-                      <tr className="calendar-header">
-                          <td colSpan="3">
-                              <this.MonthNav />
-                              {" "}
-                              <this.YearNav />
-                          </td>
-                        </tr>
-                    </thead>
-
-				</table>
-
-			</div>
+      		<div>
+        		<div>Header</div>
+        		<div>Days</div>
+        		<div>Cells</div>
+      		</div>
 			)
-	}
+		}
 };
 
 export default Calendar;
