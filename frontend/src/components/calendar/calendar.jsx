@@ -11,13 +11,37 @@ class Calendar extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			dataObject: moment()
+			dataObject: moment(),
+			allmonths :moment.months()
+
 
 		}
 	}
 
+	monthList(props){
+		let months = [];
+		props.data.map(data =>{
+			months.push(
+				<td key={data}
+          		className="calendar-month"
+          		onClick={e => {
+            	this.setMonth(data);
+          		}}
+        		>
+          		<span>{data}</span>
+       			</td>
+				)
+		
+			} 
+		)
+	}
 
-	firstDayOfMonth = () =>{
+	currentDay = () => (
+		this.state.dataObject.format("D");
+
+	)
+
+	firstDayOfMonth() {
 		let dataObject = this.state.dataObject;
 		let firstDay = moment(dataObject)
 						.startOf("month")
@@ -27,11 +51,37 @@ class Calendar extends React.Component {
 	}
 
 
-
+	month = () => (
+		this.state.dataObject.format("MMM")
+	);
 
 
 
 	render(){
+
+		// calendar day 
+
+		let daysInMonth =[];
+		for (let i = 0; i <this.daysInMonth(); i ++){
+			let currentDay = d == this.currentDay() ? "today" : "";
+
+			daysInMonth.push(
+				<td key={i} className="calendar-day">
+          			{i}
+        		</td>
+ 
+				)
+		}
+
+		const weekdayshort = moment.weekdaysShort();
+
+		let weekdayshortname = this. weekdayshort.map(day => {
+			return (
+				<th key={day}>
+					{day}
+				</th>
+			);
+		});
 
 		//calendar structure 
 
@@ -70,31 +120,14 @@ class Calendar extends React.Component {
 				)
 		}
 
-		// calendar day 
-
-		let daysInMonth =[];
-		for (let i = 0; i <this.daysInMonth(); i ++){
-			daysInMonth.push(
-				<td key={i} className="calendar-day">
-          			{i}
-        		</td>
- 
-				)
-		}
-
-
-		const weekdayshort = moment.weekdaysShort();
-
-		let weekdayshortname = this. weekdayshort.map(day => {
-			return (
-				<th key={day}>
-					{day}
-				</th>
-			);
-		});
-
 		return(
       		<div>
+
+      		<div className="tail-datetime-calendar">
+        	 <div className="calendar-navi">
+        	 {this.month()}
+      		</div>
+
         		{weekdayshortname}
 
 
