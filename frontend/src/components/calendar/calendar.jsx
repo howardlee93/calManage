@@ -33,6 +33,34 @@ class Calendar extends React.Component {
 
 	render(){
 
+		//calendar structure 
+
+
+		let totalSlots = [...blankCells, ...daysInMonth];
+		let rows = [];
+		let cells = [];
+
+		totalSlots.forEach((row, i) => {
+			if (i % 7){
+				cells.push(row)
+			}else{
+				rows.push(cells);
+				cells = [];
+				cells.push(row);
+
+			}
+
+			if ( i == totalSlots.lenght -1){
+				rows.push(cells);
+
+			}
+		})
+
+		let daysinmonth = rows.map((d, i) => {
+      		return <tr>{d}</tr>;
+    	});
+
+
 
 		//empty calendar day cell
 		let blankCells = [];
@@ -68,6 +96,14 @@ class Calendar extends React.Component {
 		return(
       		<div>
         		{weekdayshortname}
+
+
+		    	 <table className="calendar-day">
+		            <thead>
+		              <tr>{weekdayshortname}</tr>
+		            </thead>
+		            <tbody>{daysinmonth}</tbody>
+		         </table>
       		</div>
 			)
 		}
