@@ -12,11 +12,23 @@ class Calendar extends React.Component {
 		super(props);
 		this.state = {
 			dataObject: moment(),
-			allmonths :moment.months()
-
-
+			allmonths :moment.months(),
+			selectedDay: null,
+			showYearTable: false,
+			showMonthTable: false,
+			showDateTable: false
 		}
 	}
+
+	daysInMonth(){
+		return this.state.dataObject.daysInMonth();
+
+	}
+
+	year(){
+		return this.state.dataObject.format("Y")
+	}
+
 
 	monthList(props){
 		let months = [];
@@ -36,7 +48,7 @@ class Calendar extends React.Component {
 		)
 	}
 
-	currentDay = () => (
+	today = () => (
 		this.state.dataObject.format("D");
 
 	)
@@ -55,7 +67,26 @@ class Calendar extends React.Component {
 		this.state.dataObject.format("MMM")
 	);
 
+	showMonth(e, month){
+		this.setState({
+			showDateTable: !this.state.showDateTable,
+			showMonthTable: !this.state.showMonthTable
+		});
 
+	}
+
+
+	setMonth(month){
+		let monthNum = this.state.allmonths.indexOf(month);
+		let dataObject = Object.assign({}, this.state.dataObject);
+		dateObject = moment(dateObject).set("month", monthNo);
+
+		this.setState({
+			dateObject: dataObject,
+			showMonthTable: !this.state.showMonthTable,
+			showDateTable : !this.state.showDateTable
+		})
+	}
 
 	render(){
 
@@ -141,5 +172,4 @@ class Calendar extends React.Component {
 			)
 		}
 };
-
 export default Calendar;
