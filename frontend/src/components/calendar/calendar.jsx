@@ -11,7 +11,7 @@ class Calendar extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			dataObject: moment(),
+			dateObject: moment(),
 			allmonths :moment.months(),
 			selectedDay: null,
 			showYearTable: false,
@@ -20,13 +20,16 @@ class Calendar extends React.Component {
 		}
 	}
 
+	weekdayshort = moment.weekdaysShort();
+
+
 	daysInMonth(){
-		return this.state.dataObject.daysInMonth();
+		return this.state.dateObject.daysInMonth();
 
 	}
 
 	year(){
-		return this.state.dataObject.format("Y")
+		return this.state.dateObject.format("Y")
 	}
 
 
@@ -47,10 +50,10 @@ class Calendar extends React.Component {
 		let cells = [];
 		let rows = [];
 		months.forEach((row,i)=>{
-			if ( i % 3 !== 0 || i == 0){
+			if ( i % 3 !== 0 || i === 0){
 				cells.push(row);
 			}else{
-				rows.push(cell);
+				rows.push(cells);
 				cells = [];
 				cells.push(row);
 
@@ -74,15 +77,20 @@ class Calendar extends React.Component {
 			)
 
 	}
+	onDayClick(e, d){
+		this.setState({
+			selectedDay: d
+		})
+	}
 
 	today = () => (
-		this.state.dataObject.format("D");
+		this.state.dateObject.format("D")
 
 	)
 
 	firstDayOfMonth() {
-		let dataObject = this.state.dataObject;
-		let firstDay = moment(dataObject)
+		let dateObject = this.state.dateObject;
+		let firstDay = moment(dateObject)
 						.startOf("month")
                  		.format("d"); 
         return firstDay;
@@ -91,7 +99,7 @@ class Calendar extends React.Component {
 
 
 	month = () => (
-		this.state.dataObject.format("MMM")
+		this.state.dateObject.format("MMM")
 	);
 
 	showMonth(e, month){
@@ -105,11 +113,11 @@ class Calendar extends React.Component {
 
 	setMonth(month){
 		let monthNum = this.state.allmonths.indexOf(month);
-		let dataObject = Object.assign({}, this.state.dataObject);
-		dateObject = moment(dateObject).set("month", monthNo);
+		let dateObject = Object.assign({}, this.state.dateObject);
+		dateObject = moment(dateObject).set("month", monthNum);
 
 		this.setState({
-			dateObject: dataObject,
+			dateObject: dateObject,
 			showMonthTable: !this.state.showMonthTable,
 			showDateTable : !this.state.showDateTable
 		})
@@ -121,19 +129,18 @@ class Calendar extends React.Component {
 
 		let daysInMonth =[];
 		for (let i = 0; i <this.daysInMonth(); i ++){
-			let currentDay = d == this.currentDay() ? "today" : "";
+			let currentDay = i === this.today() ? "today" : "";
 
 			daysInMonth.push(
-				<td key={i} className="calendar-day">
+				<td key={i} className={`calendar-day ${currentDay}`}>
           			{i}
         		</td>
  
 				)
 		}
 
-		const weekdayshort = moment.weekdaysShort();
 
-		let weekdayshortname = this. weekdayshort.map(day => {
+		let weekdayshortname = this.weekdayshort.map(day => {
 			return (
 				<th key={day}>
 					{day}
@@ -143,6 +150,16 @@ class Calendar extends React.Component {
 
 		//calendar structure 
 
+
+		//empty calendar day cell
+		let blankCells = [];
+		for (let i = 0; i < this.firstDayOfMonth();  i ++){
+			blankCells.push(
+				<td className="days">{" "}</td>
+				)
+		}
+
+		
 
 		let totalSlots = [...blankCells, ...daysInMonth];
 		let rows = [];
@@ -158,7 +175,7 @@ class Calendar extends React.Component {
 
 			}
 
-			if ( i == totalSlots.lenght -1){
+			if ( i === totalSlots.length -1){
 				rows.push(cells);
 
 			}
@@ -170,20 +187,13 @@ class Calendar extends React.Component {
 
 
 
-		//empty calendar day cell
-		let blankCells = [];
-		for (let i = 0; i < this.firstDayOfMonth();  i ++){
-			blankCells.push(
-				<td className="days">{" "}</td>
-				)
-		}
-
 		return(
       		<div>
 
       		<div className="tail-datetime-calendar">
         	 <div className="calendar-navi">
         	 {this.month()}
+      		</div>
       		</div>
 
         		{weekdayshortname}

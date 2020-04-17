@@ -3,6 +3,10 @@ import '../assets/style/App.css';
 import {Switch, Link } from 'react-router-dom';
 
 
+import Calendar from './calendar/calendar';
+
+
+
 
 function App() {
 
@@ -11,6 +15,7 @@ function App() {
     <header>
     	<h1>CalManage</h1>
     </header>
+    <Calendar/>
 
     <footer className="main-footer">
 
