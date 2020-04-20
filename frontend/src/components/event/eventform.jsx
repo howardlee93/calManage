@@ -4,7 +4,7 @@
 import React from 'react';
 
 
-const eventForm = () =>{
+const eventForm = (props) =>{
 
 
 
@@ -19,9 +19,17 @@ const eventForm = () =>{
 
 	}
 
+	const setEmail = () => {
+
+	}
+
+	const setTitle = () => {
+		
+	}
+
 	return (
 		<div className="event-form">
-			<form onSubmit{e => createEvent()}>
+			<form onSubmit={ e => createEvent()}>
 			<fieldset>
 
 				<datepicker>
@@ -30,7 +38,6 @@ const eventForm = () =>{
 				<input  type="email"
                 placeholder="Where should I remind you?"
                 id="email"
-                value={email}
                 onChange={e => setEmail(e.target.value)}/>
 
 
@@ -38,7 +45,6 @@ const eventForm = () =>{
                 type="text"
                 placeholder="What are you up to?"
                 id="title"
-                value={title}
                 onChange={e => setTitle(e.target.value)}
               />
 

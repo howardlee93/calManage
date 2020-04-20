@@ -5,6 +5,8 @@ import {Switch, Link } from 'react-router-dom';
 
 import Calendar from './calendar/calendar';
 
+import EventForm from './event/eventform';
+
 
 
 
@@ -15,7 +17,7 @@ function App() {
     <header>
     	<h1>CalManage</h1>
     </header>
-    <Calendar/>
+    <EventForm/>
 
     <footer className="main-footer">
 
