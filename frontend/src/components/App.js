@@ -17,6 +17,9 @@ function App() {
     <header>
     	<h1>CalManage</h1>
     </header>
+
+
+   
     <EventModal/>
 
     <footer className="main-footer">

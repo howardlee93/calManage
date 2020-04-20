@@ -35,11 +35,12 @@ const eventForm = (props) =>{
 				<datepicker>
 				</datepicker>
 
-				<input  type="email"
-                placeholder="Where should I remind you?"
-                id="email"
-                onChange={e => setEmail(e.target.value)}/>
+				<input type="text"
 
+				value={props.title}
+        		size="large"
+        		autoFocus={true}
+        		onChange={props.onTitleChange}/>
 
                 <input 
                 type="text"
