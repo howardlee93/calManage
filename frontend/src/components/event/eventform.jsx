@@ -46,7 +46,14 @@ const eventForm = (props) =>{
                 type="text"
                 placeholder="What are you up to?"
                 id="title"
-                onChange={e => setTitle(e.target.value)}
+                onChange={props.timeChange}
+                showTime={{
+		          format: 'HH:mm',
+		          hourStep: 1,
+		          minuteStep: 30,
+		          defaultValue: [moment (props.start), moment (props.end)],
+		        }}
+		        format="MMM Do, YYYY hh:mm a"
               />
 
               
