@@ -3,6 +3,8 @@
 import React from 'react';
 import Modal from '@material-ui/core/Modal';
 
+import './event.css';
+
 import EventForm from './eventform';
 
 
@@ -37,7 +39,7 @@ class EventModal extends React.Component{
         		Open Modal
     		</button>
 			
-			<Modal
+			<Modal className="modal"
 				open={this.state.open}
   				onClose={()=>this.handleClose()}
   			>

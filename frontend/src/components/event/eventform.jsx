@@ -4,6 +4,8 @@
 import React from 'react';
 
 
+import './event.css';
+
 const eventForm = (props) =>{
 
 
@@ -12,7 +14,9 @@ const eventForm = (props) =>{
 
 	const createEvent =(e) =>{
 		e.preventDefault();
-		//api call to backend 
+		//api call to backend
+
+		//props.createEvent()
 
 		alert("an event was created!");
 
@@ -39,19 +43,20 @@ const eventForm = (props) =>{
 
 				value={props.title}
         		size="large"
+        		id="title"
         		autoFocus={true}
         		onChange={props.onTitleChange}/>
 
                 <input 
                 type="text"
                 placeholder="What are you up to?"
-                id="title"
+                id="time"
                 onChange={props.timeChange}
                 showTime={{
 		          format: 'HH:mm',
 		          hourStep: 1,
 		          minuteStep: 30,
-		          defaultValue: [moment (props.start), moment (props.end)],
+		          // defaultValue: [moment (props.start), moment (props.end)],
 		        }}
 		        format="MMM Do, YYYY hh:mm a"
               />
