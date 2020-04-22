@@ -16,18 +16,22 @@ const eventForm = (props) =>{
 		e.preventDefault();
 		//api call to backend
 
-		//props.createEvent()
+		//const data = 
+		//props.createEvent(data)
 
 		alert("an event was created!");
 
 
 	}
 
-	const setEmail = () => {
+	const setEmail = (field) => {
+		[field] : e.currentTarget.value
 
 	}
 
-	const setTitle = () => {
+	const setTitle = (field) => {
+		[field] : e.currentTarget.value
+
 		
 	}
 

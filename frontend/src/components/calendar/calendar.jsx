@@ -5,6 +5,7 @@ import moment from 'moment';
 import './calendar.css';
 
 
+import EventModal '../event/eventmodal';
 
 
 class Calendar extends React.Component {
@@ -198,12 +199,14 @@ class Calendar extends React.Component {
 
         		{weekdayshortname}
 
-
 		    	 <table className="calendar-day">
 		            <thead>
 		              <tr>{weekdayshortname}</tr>
 		            </thead>
-		            <tbody>{daysinmonth}</tbody>
+		            <tbody>{daysinmonth}
+		                <EventModal/>
+
+		            </tbody>
 		         </table>
       		</div>
 			)

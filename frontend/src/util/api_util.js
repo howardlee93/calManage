@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 export const createEvent = (data) =>{
-	axios.post('/api/todos', )
+	axios.post('/api/todos', data )
 };
 
 
