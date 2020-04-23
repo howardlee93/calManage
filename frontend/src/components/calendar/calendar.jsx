@@ -149,7 +149,68 @@ class Calendar extends React.Component {
 
 	onYearChange(e){
 		this.setYear(e.target.value);
-		
+
+	}
+
+	getDates(startDate, stopDate){
+		let dateArr = [];
+		let currentDate = moment(startDate);
+		let stopDate = moment(stopDate);
+		while(currentDate <= stopDate){
+			dateArr.push(moment(currentDate).format("YYYY"));
+			currentDate = moment(currentDate).add(1, "year");
+
+		}
+		return dateArr;
+
+	}
+
+	yearTable(props){
+		let months = [];
+		let nextTen = moment()
+			.set("year", props)
+			.add("year", 12)
+			.format("Y");
+
+		let tenYear = this.getDates(props, nextTen);
+
+		tenYear.map(data => {
+			months.push(
+				<td key ={data}
+				className="calendar-month"
+				onClick={e =>{this.setYear(data)
+				}}
+				>
+				<span>{data}</span>
+				</td>
+				);
+		});
+		let rows = [];
+		let cells = [];
+		months.forEach((row, i)=>{
+			if (i % 3 !== 0 || i == 0){
+				cells.push(row);
+			}else{
+				rows.push(cells);
+				cells = [];
+				cells.push(row);
+			}
+		});
+		rows.push(cells);
+		let yearList = rows.map((d, i)=>{
+			return <tr>{d}</tr>
+		});
+		return(
+			<table className="calendar-month">
+				<thead>
+					<tr>
+						<th colSpan="4"> Select a Year</th>
+					</tr>
+				</thead>
+				{yearList}
+				</table>
+			)
+			
 	}
 
 	render(){
