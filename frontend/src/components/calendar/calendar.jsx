@@ -127,6 +127,31 @@ class Calendar extends React.Component {
 		})
 	}
 
+	//years 
+	showYearTable(e){
+		this.setState({
+			showYearTable : !this.state.showYearTable,
+			showDateTable: !this.state.showDateTable
+		});
+	}
+
+
+	setYear(year){
+		let dateObject = Object.assign({}, this.state.dateObject);
+		dateObject = moment(dateObject).set("year", year);
+		this.setState({
+			dateObject: dateObject,
+			showMonthTable: !this.state.showMonthTable,
+			showYearTable: !this.state.showYearTable
+		})
+	}
+
+
+	onYearChange(e){
+		this.setYear(e.target.value);
+		
+	}
+
 	render(){
 
 		// calendar day 
