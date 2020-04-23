@@ -20,7 +20,7 @@ function App() {
 
 
    
-    <EventModal/>
+    <Calendar/>
 
     <footer className="main-footer">
 

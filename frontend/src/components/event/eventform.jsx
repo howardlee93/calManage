@@ -9,7 +9,7 @@ import './event.css';
 const eventForm = (props) =>{
 
 
-
+	
 
 
 	const createEvent =(e) =>{
@@ -20,6 +20,7 @@ const eventForm = (props) =>{
 		//props.createEvent(data)
 
 		alert("an event was created!");
+
 
 
 	}
@@ -49,12 +50,13 @@ const eventForm = (props) =>{
 
 	return (
 		<div className="event-form">
-			<form onSubmit={ e => createEvent()}>
+			<form onSubmit={ e => createEvent(e)}>
 			<fieldset>
 
 				<datepicker>
 				</datepicker>
 
+				<label>Event: </label>
 				<input type="text"
 				placeholder="What do you want to do?"
 				value={props.title}
@@ -63,20 +65,16 @@ const eventForm = (props) =>{
         		autoFocus={true}
         		onChange={onTitleChange()}/>
 
+
+        		<label> Time:</label>
                 <input type="time" 
                 id="time"
                 onChange={timeChange()}
-                showTime={{
-		          format: 'HH:mm',
-		          hourStep: 1,
-		          minuteStep: 30,
-		          // defaultValue: [moment (props.start), moment (props.end)],
-		        }}
-		        format="MMM Do, YYYY hh:mm a"
-              />
-
+                
+              	/>
               
 			</fieldset>
+			<button type="submit">Add to Calendar</button>
 			</form>
 
 		</div>

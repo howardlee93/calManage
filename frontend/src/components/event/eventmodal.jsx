@@ -36,7 +36,7 @@ class EventModal extends React.Component{
 
 			<div>
 			<button type="button" onClick={() =>this.handleOpen()}>
-        		Open Modal
+        	Create event
     		</button>
 			
 			<Modal className="modal"

@@ -17,11 +17,14 @@ class Calendar extends React.Component {
 			selectedDay: null,
 			showYearTable: false,
 			showMonthTable: false,
-			showDateTable: false
+			showDateTable: false,
+
 		}
 	}
 
 	weekdayshort = moment.weekdaysShort();
+
+
 
 
 	daysInMonth(){
@@ -69,7 +72,7 @@ class Calendar extends React.Component {
 			<table>
 				<thead>
 					<tr>
-					<th colSpan="4">Select a Yeah</th>
+					<th colSpan="4">Select a Year</th>
 					</tr>
 
 				</thead>
@@ -183,7 +186,11 @@ class Calendar extends React.Component {
 		})
 
 		let daysinmonth = rows.map((d, i) => {
-      		return <tr>{d}</tr>;
+      		return (<div>
+      			<tr>{d}</tr>
+
+      			</div>
+      			);
     	});
 
 
@@ -204,7 +211,6 @@ class Calendar extends React.Component {
 		              <tr>{weekdayshortname}</tr>
 		            </thead>
 		            <tbody>{daysinmonth}
-		                <EventModal/>
 
 		            </tbody>
 		         </table>
