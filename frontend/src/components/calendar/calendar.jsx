@@ -132,7 +132,7 @@ class Calendar extends React.Component {
 		// calendar day 
 
 		let daysInMonth =[];
-		for (let i = 0; i <this.daysInMonth(); i ++){
+		for (let i = 1; i <this.daysInMonth(); i ++){
 			let currentDay = i === this.today() ? "today" : "";
 
 			daysInMonth.push(
@@ -196,15 +196,12 @@ class Calendar extends React.Component {
 
 
 		return(
-      		<div>
 
-      		<div className="tail-datetime-calendar">
+      		<div className="calendar">
         	 <div className="calendar-navi">
-        	 {this.month()}
-      		</div>
+        	 <h1>{this.month()}</h1>
       		</div>
 
-        		{weekdayshortname}
 
 		    	 <table className="calendar-day">
 		            <thead>

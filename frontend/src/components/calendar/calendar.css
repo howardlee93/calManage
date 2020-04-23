@@ -3,5 +3,14 @@
   border-radius: 6px;
   padding: 10px;
   background-color: #ffffff;
+  width: 100%;
+
 }
 
+
+
+.calendar-day{
+	width: 90%;
+
+
+}
