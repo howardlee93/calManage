@@ -35,6 +35,18 @@ const eventForm = (props) =>{
 		
 	}
 
+	const timeChange = (field) =>{
+				// [field] : e.currentTarget.value
+
+
+	}
+
+	const onTitleChange = () =>{
+						// [field] : e.currentTarget.value
+
+
+	}
+
 	return (
 		<div className="event-form">
 			<form onSubmit={ e => createEvent()}>
@@ -44,18 +56,16 @@ const eventForm = (props) =>{
 				</datepicker>
 
 				<input type="text"
-
+				placeholder="What do you want to do?"
 				value={props.title}
         		size="large"
         		id="title"
         		autoFocus={true}
-        		onChange={props.onTitleChange}/>
+        		onChange={onTitleChange()}/>
 
-                <input 
-                type="text"
-                placeholder="What are you up to?"
+                <input type="time" 
                 id="time"
-                onChange={props.timeChange}
+                onChange={timeChange()}
                 showTime={{
 		          format: 'HH:mm',
 		          hourStep: 1,
