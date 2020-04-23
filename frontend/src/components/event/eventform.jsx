@@ -25,12 +25,12 @@ const eventForm = (props) =>{
 	}
 
 	const setEmail = (field) => {
-		[field] : e.currentTarget.value
+		// props.email : e.currentTarget.value
 
 	}
 
 	const setTitle = (field) => {
-		[field] : e.currentTarget.value
+		// [field] : e.currentTarget.value
 
 		
 	}
