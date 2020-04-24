@@ -25,7 +25,33 @@ class Calendar extends React.Component {
 	weekdayshort = moment.weekdaysShort();
 
 
+	onPrev(){
+		let current = "";
+		if (this.state.showYearTable){
+			current = "year";
+		}else{
+			current = "month";
+		};
+		this.setState({
+			dateObject: this.state.dateObject.subtract(1, current)
 
+		});
+	};
+
+
+	onNext(){
+		let current = "";
+		if (this.state.showYearTable){
+			current = "year";
+		}else{
+			current = "month";
+		};
+		this.setState({
+			dateObject: this.state.dateObject.add(1, current)
+
+		});
+
+	}
 
 	daysInMonth(){
 		return this.state.dateObject.daysInMonth();
@@ -68,6 +94,7 @@ class Calendar extends React.Component {
 		let yearlist = rows.map((date, i)=>{
 			return <tr>{date}</tr>
 		});
+
 		return (
 			<table>
 				<thead>
@@ -80,7 +107,9 @@ class Calendar extends React.Component {
 			</table>
 			)
 
-	}
+	};
+
+
 	onDayClick(e, d){
 		this.setState({
 			selectedDay: d
@@ -155,7 +184,7 @@ class Calendar extends React.Component {
 	getDates(startDate, stopDate){
 		let dateArr = [];
 		let currentDate = moment(startDate);
-		let stopDate = moment(stopDate);
+		stopDate = moment(stopDate);
 		while(currentDate <= stopDate){
 			dateArr.push(moment(currentDate).format("YYYY"));
 			currentDate = moment(currentDate).add(1, "year");
@@ -218,7 +247,7 @@ class Calendar extends React.Component {
 		// calendar day 
 
 		let daysInMonth =[];
-		for (let i = 1; i <this.daysInMonth(); i ++){
+		for (let i = 1; i <= this.daysInMonth(); i ++){
 			let currentDay = i === this.today() ? "today" : "";
 
 			daysInMonth.push(
