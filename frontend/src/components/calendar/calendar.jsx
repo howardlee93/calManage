@@ -314,7 +314,7 @@ class Calendar extends React.Component {
 
       		<div className="calendar">
         	 <div className="calendar-navi">
-        	 <h1>{this.month()}</h1>
+        	 <h1 style={{color:"#FF0000"}}>{this.month()}</h1>
       		</div>
 
 
