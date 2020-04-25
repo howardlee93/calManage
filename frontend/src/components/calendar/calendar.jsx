@@ -274,7 +274,7 @@ class Calendar extends React.Component {
 		let blankCells = [];
 		for (let i = 0; i < this.firstDayOfMonth();  i ++){
 			blankCells.push(
-				<td className="days">{" "}</td>
+				<td className="days" key={i}>{" "}</td>
 				)
 		}
 
@@ -331,7 +331,7 @@ class Calendar extends React.Component {
       		</div>
 
 
-      		<div>
+      		<div className="calendar-date">
       			{this.state.showYearTable && <this.yearTable props={this.year()}/>}
       			{this.state.showMonthTable && (
       				<this.monthList data={moment.months()}/>
@@ -339,7 +339,7 @@ class Calendar extends React.Component {
       		</div>
 
       			{this.state.showDateTable &&(
-
+      			<div className="calendar-date">
 		    	 <table className="calendar-day">
 		            <thead>
 		              <tr>{weekdayshortname}</tr>
@@ -348,6 +348,7 @@ class Calendar extends React.Component {
 
 		            </tbody>
 		         </table>
+		         </div>
 		         )}
       		</div>
 			)
