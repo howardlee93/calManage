@@ -18,6 +18,7 @@ class Calendar extends React.Component {
 			showYearTable: false,
 			showMonthTable: false,
 			showDateTable: false,
+			modalDisplay: false
 
 		}
 	}
@@ -112,8 +113,11 @@ class Calendar extends React.Component {
 
 	onDayClick(e, d){
 		this.setState({
-			selectedDay: d
-		})
+			selectedDay: d,
+			modalDisplay: !this.state.modalDisplay
+		});
+
+
 	}
 
 	today = () => (
@@ -217,7 +221,7 @@ class Calendar extends React.Component {
 		let rows = [];
 		let cells = [];
 		months.forEach((row, i)=>{
-			if (i % 3 !== 0 || i == 0){
+			if (i % 3 !== 0 || i === 0){
 				cells.push(row);
 			}else{
 				rows.push(cells);
@@ -247,16 +251,21 @@ class Calendar extends React.Component {
 		// calendar day 
 
 		let daysInMonth =[];
-		for (let i = 1; i <= this.daysInMonth(); i ++){
-			let currentDay = i === this.today() ? "today" : "";
 
-			daysInMonth.push(
-				<td key={i} className={`calendar-day ${currentDay}`}>
-          			{i}
-        		</td>
- 
-				)
-		}
+		for (let d = 1; d <= this.daysInMonth(); d++){
+    		let currentDay = d = this.today() ? "today" : "";
+    		daysInMonth.push(
+    			<td key={d} className="calendar-day">
+    			<span onClick={e =>{this.onDayClick(e,d)}}/>
+    			{this.state.modalDisplay ? EventModal : ""} 
+    			{d}
+    			</td>
+    			);
+    	};
+
+
+
+		
 
 
 		let weekdayshortname = this.weekdayshort.map(day => {
@@ -277,6 +286,8 @@ class Calendar extends React.Component {
 				<td className="days" key={i}>{" "}</td>
 				)
 		}
+
+    	
 
 		
 
@@ -307,6 +318,7 @@ class Calendar extends React.Component {
       			</div>
       			);
     	});
+
 
 
 
