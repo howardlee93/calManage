@@ -256,17 +256,13 @@ class Calendar extends React.Component {
     		let currentDay = d = this.today() ? "today" : "";
     		daysInMonth.push(
     			<td key={d} className="calendar-day">
-    			<span onClick={e =>{this.onDayClick(e,d)}}/>
-    			{this.state.modalDisplay ? EventModal : ""} 
+    			<span onClick={e =>{this.onDayClick(e,d)}}>
+    			 
     			{d}
+    			</span>
     			</td>
     			);
     	};
-
-
-
-		
-
 
 		let weekdayshortname = this.weekdayshort.map(day => {
 			return (
@@ -286,9 +282,6 @@ class Calendar extends React.Component {
 				<td className="days" key={i}>{" "}</td>
 				)
 		}
-
-    	
-
 		
 
 		let totalSlots = [...blankCells, ...daysInMonth];
@@ -313,8 +306,7 @@ class Calendar extends React.Component {
 
 		let daysinmonth = rows.map((d, i) => {
       		return (<div>
-      			<tr>{d}</tr>
-
+      			<tr>{d}</tr>    				
       			</div>
       			);
     	});
@@ -356,7 +348,9 @@ class Calendar extends React.Component {
 		            <thead>
 		              <tr>{weekdayshortname}</tr>
 		            </thead>
-		            <tbody>{daysinmonth}
+		            <tbody>
+		            {daysinmonth}
+					<EventModal/>
 
 		            </tbody>
 		         </table>
