@@ -313,10 +313,32 @@ class Calendar extends React.Component {
 		return(
 
       		<div className="calendar">
-        	 <div className="calendar-navi">
-        	 <h1 style={{color:"#FF0000"}}>{this.month()}</h1>
+        	 <div className="calendar-nav">
+        	 <span onClick={e=> {this.onPrev()}}
+        	 	className="calendar-button"
+        	 />
+
+        	 {!this.state.showMonthTable && (
+        	 	<span onClick={e=>this.showMonth()}
+        	 	>
+        	 	<h1>{this.month()}</h1>
+        	 	</span>
+        	 )}
+        	 <span onClick={e=> this.showYearTable()}>
+        	 	{this.year()}
+        	 </span>
+        	 <span onClick={e => this.onNext()}/>
       		</div>
 
+
+      		<div>
+      			{this.state.showYearTable && <this.yearTable props={this.year()}/>}
+      			{this.state.showMonthTable && (
+      				<this.monthList data={moment.months()}/>
+      				)}
+      		</div>
+
+      			{this.state.showDateTable &&(
 
 		    	 <table className="calendar-day">
 		            <thead>
@@ -326,6 +348,7 @@ class Calendar extends React.Component {
 
 		            </tbody>
 		         </table>
+		         )}
       		</div>
 			)
 		}
