@@ -21,10 +21,9 @@ class Calendar extends React.Component {
 			modalDisplay: false,
 
 		}
+
 		this.yearTable = this.yearTable.bind(this);
 		this.monthList = this.monthList.bind(this);
-
-
 	}
 
 	weekdayshort = moment.weekdaysShort();
@@ -62,7 +61,7 @@ class Calendar extends React.Component {
 
 	}
 
-	year =()=>{
+	year(){
 		return this.state.dateObject.format("Y")
 	}
 
@@ -79,10 +78,10 @@ class Calendar extends React.Component {
 
 	}
 
-	today = () => (
-		this.state.dateObject.format("D")
+	today(){
+		return this.state.dateObject.format("D")
+	}
 
-	)
 
 	firstDayOfMonth() {
 		let dateObject = this.state.dateObject;
@@ -90,13 +89,12 @@ class Calendar extends React.Component {
 						.startOf("month")
                  		.format("d"); 
         return firstDay;
-
 	}
 
 
-	month = () => (
-		this.state.dateObject.format("MMM")
-	);
+	month(){
+		return this.state.dateObject.format("MMM")
+	};
 
 	showMonth(e, month){
 		this.setState({
@@ -274,7 +272,7 @@ class Calendar extends React.Component {
 		let daysInMonth =[];
 
 		for (let d = 1; d <= this.daysInMonth(); d++){
-    		let currentDay = d = this.today() ? "today" : "";
+    		let currentDay = d == this.today() ? "today" : "";
     		daysInMonth.push(
     			<td key={d} className="calendar-day">
     			<span onClick={e =>{this.onDayClick(e,d)}}>
@@ -309,7 +307,6 @@ class Calendar extends React.Component {
 		let daysinmonth = rows.map((d, i) => {
       		return (<div>
       			<tr>{d}
-      				<EventModal/>    				
 
       			</tr>
       			</div>
