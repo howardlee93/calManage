@@ -1,10 +1,9 @@
 .calendar {
   border: 2px solid #f6f7fa;
-  border-radius: 6px;
   padding: 10px;
   background-color: #ffffff;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   display: block;
   overflow: hidden;
   position: absolute;
