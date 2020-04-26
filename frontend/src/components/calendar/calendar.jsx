@@ -13,7 +13,7 @@ class Calendar extends React.Component {
 		super(props);
 		this.state = {
 			dateObject: moment(),
-			allmonths :moment.months(),
+			allmonths: moment.months(),
 			selectedDay: null,
 			showYearTable: false,
 			showMonthTable: false,
@@ -21,6 +21,10 @@ class Calendar extends React.Component {
 			modalDisplay: false,
 
 		}
+		this.yearTable = this.yearTable.bind(this);
+		this.monthList = this.monthList.bind(this);
+
+
 	}
 
 	weekdayshort = moment.weekdaysShort();
@@ -58,7 +62,7 @@ class Calendar extends React.Component {
 
 	}
 
-	year(){
+	year =()=>{
 		return this.state.dateObject.format("Y")
 	}
 
@@ -114,9 +118,11 @@ class Calendar extends React.Component {
 			showDateTable : !this.state.showDateTable
 		})
 	}
+
+	//difference is using the arrow function (trying bind)
 	monthList(props){
 		let months = [];
-		props.data.map(data =>{
+		props.data.forEach(data =>{
 			months.push(
 				<td key={data}
           		className="calendar-month"
@@ -195,7 +201,7 @@ class Calendar extends React.Component {
 		return dateArr;
 
 	}
-
+	//using arrow function VS binding it??
 	yearTable(props){
 		let months = [];
 		let nextTen = moment()
@@ -205,7 +211,7 @@ class Calendar extends React.Component {
 
 		let tenYear = this.getDates(props, nextTen);
 
-		tenYear.map(data => {
+		tenYear.forEach(data => {
 			months.push(
 				<td key ={data}
 				className="calendar-month"
@@ -322,7 +328,9 @@ class Calendar extends React.Component {
         	 />
 
         	 {!this.state.showMonthTable && (
-        	 	<span onClick={e=>this.showMonth()}
+        	 	<span onClick={e=>{
+        	 		this.showMonth()
+        	 		}}
         	 	>
         	 	<h1>{this.month()}</h1>
         	 	</span>
@@ -330,12 +338,15 @@ class Calendar extends React.Component {
         	 <span onClick={e=> this.showYearTable()}>
         	 	{this.year()}
         	 </span>
-        	 <span onClick={e => this.onNext()}/>
+        	 <span onClick={e => {
+        	 	this.onNext()
+        	 	}}
+        	 />
       		</div>
 
 
       		<div className="calendar-date">
-      			{this.state.showYearTable && <this.yearTable props={this.year()}/>}
+      			{this.state.showYearTable && <this.yearTable props={this.year()} />}
       			{this.state.showMonthTable && (
       				<this.monthList data={moment.months()}/>
       				)}
@@ -348,14 +359,13 @@ class Calendar extends React.Component {
 		              <tr>{weekdayshortname}</tr>
 		            </thead>
 		            <tbody>
-		            {daysinmonth}
-
+		            	{daysinmonth}
 		            </tbody>
 		         </table>
 		         </div>
 		         )}
       		</div>
-			)
+			);
 		}
 };
 export default Calendar;
