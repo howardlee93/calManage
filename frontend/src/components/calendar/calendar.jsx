@@ -328,11 +328,11 @@ class Calendar extends React.Component {
         	 		this.showMonth()
         	 		}}
         	 	>
-        	 	<h1>{this.month()}</h1>
+        	 	<h3>{this.month()}</h3>
         	 	</span>
         	 )}
         	 <span onClick={e=> this.showYearTable()}>
-        	 	{this.year()}
+        	 	<h3>{this.year()}</h3>
         	 </span>
         	 <span onClick={e => {
         	 	this.onNext()
