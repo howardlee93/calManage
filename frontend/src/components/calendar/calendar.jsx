@@ -18,7 +18,7 @@ class Calendar extends React.Component {
 			showYearTable: false,
 			showMonthTable: false,
 			showDateTable: false,
-			modalDisplay: false
+			modalDisplay: false,
 
 		}
 	}
@@ -35,7 +35,6 @@ class Calendar extends React.Component {
 		};
 		this.setState({
 			dateObject: this.state.dateObject.subtract(1, current)
-
 		});
 	};
 
@@ -138,12 +137,10 @@ class Calendar extends React.Component {
 				rows.push(cells);
 				cells = [];
 				cells.push(row);
-
-
 			}
 		});
 		rows.push(cells);
-		let yearlist = rows.map((date, i)=>{
+		let monthlist = rows.map((date, i)=>{
 			return <tr>{date}</tr>
 		});
 
@@ -151,11 +148,11 @@ class Calendar extends React.Component {
 			<table>
 				<thead>
 					<tr>
-					<th colSpan="4">Select a Year</th>
+					<th colSpan="4">Select a Month</th>
 					</tr>
 
 				</thead>
-				<tbody> {yearlist}</tbody>
+				<tbody> {monthlist}</tbody>
 			</table>
 			)
 
@@ -177,7 +174,7 @@ class Calendar extends React.Component {
 			dateObject: dateObject,
 			showMonthTable: !this.state.showMonthTable,
 			showYearTable: !this.state.showYearTable
-		})
+		});
 	}
 
 
@@ -241,7 +238,7 @@ class Calendar extends React.Component {
 						<th colSpan="4"> Select a Year</th>
 					</tr>
 				</thead>
-				{yearList}
+				<tbody>{yearList}</tbody>
 				</table>
 			)
 			
@@ -305,8 +302,10 @@ class Calendar extends React.Component {
 
 		let daysinmonth = rows.map((d, i) => {
       		return (<div>
-      			<tr>{d}</tr>
-      			<EventModal/>    				
+      			<tr>{d}
+      				<EventModal/>    				
+
+      			</tr>
       			</div>
       			);
     	});
