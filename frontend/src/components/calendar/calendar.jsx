@@ -64,51 +64,7 @@ class Calendar extends React.Component {
 	}
 
 
-	monthList(props){
-		let months = [];
-		props.data.map(data =>{
-			months.push(
-				<td key={data}
-          		className="calendar-month"
-          		onClick={e => {
-            	this.setMonth(data);
-          		}}
-        		>
-          		<span>{data}</span>
-       			</td>
-				);
-			});
-		let cells = [];
-		let rows = [];
-		months.forEach((row,i)=>{
-			if ( i % 3 !== 0 || i === 0){
-				cells.push(row);
-			}else{
-				rows.push(cells);
-				cells = [];
-				cells.push(row);
-
-
-			}
-		});
-		rows.push(cells);
-		let yearlist = rows.map((date, i)=>{
-			return <tr>{date}</tr>
-		});
-
-		return (
-			<table>
-				<thead>
-					<tr>
-					<th colSpan="4">Select a Year</th>
-					</tr>
-
-				</thead>
-				<tbody> {yearlist}</tbody>
-			</table>
-			)
-
-	};
+	
 
 
 	onDayClick(e, d){
@@ -159,6 +115,51 @@ class Calendar extends React.Component {
 			showDateTable : !this.state.showDateTable
 		})
 	}
+	monthList(props){
+		let months = [];
+		props.data.map(data =>{
+			months.push(
+				<td key={data}
+          		className="calendar-month"
+          		onClick={e => {
+            	this.setMonth(data);
+          		}}
+        		>
+          		<span>{data}</span>
+       			</td>
+				);
+			});
+		let cells = [];
+		let rows = [];
+		months.forEach((row,i)=>{
+			if ( i % 3 !== 0 || i === 0){
+				cells.push(row);
+			}else{
+				rows.push(cells);
+				cells = [];
+				cells.push(row);
+
+
+			}
+		});
+		rows.push(cells);
+		let yearlist = rows.map((date, i)=>{
+			return <tr>{date}</tr>
+		});
+
+		return (
+			<table>
+				<thead>
+					<tr>
+					<th colSpan="4">Select a Year</th>
+					</tr>
+
+				</thead>
+				<tbody> {yearlist}</tbody>
+			</table>
+			)
+
+	};
 
 	//years 
 	showYearTable(e){
@@ -250,6 +251,23 @@ class Calendar extends React.Component {
 
 		// calendar day 
 
+	
+		let weekdayshortname = this.weekdayshort.map(day => {
+			return (
+				<th key={day}>
+					{day}
+				</th>
+			);
+		});
+
+		//empty calendar day cell
+		let blankCells = [];
+		for (let i = 0; i < this.firstDayOfMonth();  i ++){
+			blankCells.push(
+				<td className="days" key={i}>{" "}</td>
+				)
+		}
+
 		let daysInMonth =[];
 
 		for (let d = 1; d <= this.daysInMonth(); d++){
@@ -263,25 +281,6 @@ class Calendar extends React.Component {
     			</td>
     			);
     	};
-
-		let weekdayshortname = this.weekdayshort.map(day => {
-			return (
-				<th key={day}>
-					{day}
-				</th>
-			);
-		});
-
-		//calendar structure 
-
-
-		//empty calendar day cell
-		let blankCells = [];
-		for (let i = 0; i < this.firstDayOfMonth();  i ++){
-			blankCells.push(
-				<td className="days" key={i}>{" "}</td>
-				)
-		}
 		
 
 		let totalSlots = [...blankCells, ...daysInMonth];
@@ -306,7 +305,8 @@ class Calendar extends React.Component {
 
 		let daysinmonth = rows.map((d, i) => {
       		return (<div>
-      			<tr>{d}</tr>    				
+      			<tr>{d}</tr>
+      			<EventModal/>    				
       			</div>
       			);
     	});
@@ -350,7 +350,6 @@ class Calendar extends React.Component {
 		            </thead>
 		            <tbody>
 		            {daysinmonth}
-					<EventModal/>
 
 		            </tbody>
 		         </table>
