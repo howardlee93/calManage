@@ -272,7 +272,7 @@ class Calendar extends React.Component {
 		let daysInMonth =[];
 
 		for (let d = 1; d <= this.daysInMonth(); d++){
-    		let currentDay = d == this.today() ? "today" : "";
+    		let currentDay = (d == this.today() )? "today" : "";;
     		daysInMonth.push(
     			<td key={d} className="calendar-day">
     			<span onClick={e =>{this.onDayClick(e,d)}}>
@@ -307,7 +307,6 @@ class Calendar extends React.Component {
 		let daysinmonth = rows.map((d, i) => {
       		return (<div>
       			<tr>{d}
-
       			</tr>
       			</div>
       			);
