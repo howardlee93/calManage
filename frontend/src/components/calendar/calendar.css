@@ -53,6 +53,13 @@
   background-position: center center;
 }
 
+.calendar-nav span:first-child,
+.calendar-nav span:last-child {
+  width: 35px;
+  padding: 0 0 5px 0;
+  font-size: 22px;
+}
+
 .calendar-date{
 	margin: 0;
   	padding: 0;
@@ -69,4 +76,12 @@
 
 .calendar-day{
 
+}
+
+
+.calendar-date table tbody tr > *.today {
+  color: #3296c8;
+}
+.calendar-date table tbody tr > *.today:after {
+  border-color: #3296c8;
 }
