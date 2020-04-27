@@ -3,10 +3,9 @@
   padding: 5px;
   background-color: #ffffff;
   width: 100%;
-  height: 70%;
   display: block;
   overflow: hidden;
-  position: absolute;
+  /*position: absolute;*/
   border-collapse: separate;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
