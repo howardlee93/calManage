@@ -34,11 +34,9 @@
   	border-radius: 3px 3px 0 0;
   	-webkit-border-radius: 3px 3px 0 0;
 
-
 }
 
-
-.calendar-nav span {
+ .calendar-nav span {
 
   cursor: pointer;
   color: #fff;
@@ -53,6 +51,27 @@
   background-position: center center;
 }
 
+
+.calendar-label{
+	color: #778899;
+  margin: 5px 0 0 0;
+  padding: 0;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+
+.calendar-button {
+  color: black; 
+}
+.calendar-nav span.button-check {
+   color: black; 
+}
+
+.calendar-nav span.button-close {
+ color: black; 
+}
 .calendar-nav span:first-child,
 .calendar-nav span:last-child {
   width: 35px;
@@ -71,10 +90,6 @@
 	line-height: 35px;
 	border: 0;
 	background-color: #223344;
-}
-
-.calendar-day{
-
 }
 
 

@@ -3,7 +3,7 @@ import React from 'react';
 import moment from 'moment';
 
 import './calendar.css';
-
+// import './style.css'
 
 import EventModal from '../event/eventmodal';
 
@@ -254,11 +254,7 @@ class Calendar extends React.Component {
 
 	
 		let weekdayshortname = this.weekdayshort.map(day => {
-			return (
-				<th key={day}>
-					{day}
-				</th>
-			);
+			return  <th key={day}>{day}</th>
 		});
 
 		//empty calendar day cell
@@ -327,16 +323,18 @@ class Calendar extends React.Component {
         	 	<span onClick={e=>{
         	 		this.showMonth()
         	 		}}
+        	 		className="calendar-label"
         	 	>
         	 	<h3>{this.month()}</h3>
         	 	</span>
         	 )}
-        	 <span onClick={e=> this.showYearTable()}>
+        	 <span className="calendar-label" onClick={e=> this.showYearTable()}>
         	 	<h3>{this.year()}</h3>
         	 </span>
         	 <span onClick={e => {
         	 	this.onNext()
         	 	}}
+        	 	className="calendar-button"
         	 />
       		</div>
 
@@ -354,7 +352,7 @@ class Calendar extends React.Component {
 		            <thead>
 		              <tr>{weekdayshortname}</tr>
 		            </thead>
-		            <tbody>		            
+		            <tbody>	
 		            	{daysinmonth}
 		            </tbody>
 		         </table>
