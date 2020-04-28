@@ -354,7 +354,7 @@ class Calendar extends React.Component {
 		            <thead>
 		              <tr>{weekdayshortname}</tr>
 		            </thead>
-		            <tbody>
+		            <tbody>		            
 		            	{daysinmonth}
 		            </tbody>
 		         </table>
