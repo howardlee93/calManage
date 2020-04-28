@@ -253,9 +253,9 @@ class Calendar extends React.Component {
 		// calendar day 
 
 	
-		let weekdayshortname = this.weekdayshort.map(day => {
-			return  <th key={day}>{day}</th>
-		});
+		let weekdayshortname = this.weekdayshort.map(day => 
+			(<th key={day}>{day}</th>)
+		);
 
 		//empty calendar day cell
 		let blankCells = [];
@@ -316,7 +316,7 @@ class Calendar extends React.Component {
       		<div className="calendar">
         	 <div className="calendar-nav">
         	 <span onClick={e=> {this.onPrev()}}
-        	 	className="calendar-button"
+        	 	className="button-prev"
         	 />
 
         	 {!this.state.showMonthTable && (
@@ -334,7 +334,7 @@ class Calendar extends React.Component {
         	 <span onClick={e => {
         	 	this.onNext()
         	 	}}
-        	 	className="calendar-button"
+          className="button-next"
         	 />
       		</div>
 

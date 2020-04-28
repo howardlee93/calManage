@@ -1,17 +1,16 @@
 .calendar {
-  border: 2px solid #f6f7fa;
-  padding: 5px;
   background-color: #ffffff;
   width: 100%;
+  height: auto;
+  padding: 0;
   display: block;
   overflow: hidden;
-  /*position: absolute;*/
   border-collapse: separate;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
  border-radius: 3px;
   -webkit-border-radius: 3px;
-  margin: auto;
+  margin: 15px;
 
 }
 
@@ -23,8 +22,12 @@
   visibility: hidden;
 }
 
+.calendar.calendar-static {
+  margin-left: auto;
+  margin-right: auto;
+}
 .calendar-nav{
-	width: 50%;
+	width: 100%;
  	margin: 0;
   	padding: 0;
   	display: table;
@@ -52,6 +55,14 @@
 }
 
 
+
+.calendar .calendar-nav span:first-child,
+.calendar .calendar-nav span:last-child {
+  width: 35px;
+  padding: 0 0 5px 0;
+  font-size: 22px;
+}
+
 .calendar-label{
 	color: #778899;
   margin: 5px 0 0 0;
@@ -62,8 +73,11 @@
 }
 
 
-.calendar-button {
-  color: black; 
+.button-prev {
+  background-image: url("../../assets/images/back.svg") ; 
+}
+.button-next {
+  background-image: url("../../assets/images/next.svg") 
 }
 .calendar-nav span.button-check {
    color: black; 
@@ -80,6 +94,7 @@
 }
 
 .calendar-date{
+	width: 100%;
 	margin: 0;
   	padding: 0;
   	display: block;
@@ -126,33 +141,12 @@
   background-color: #ffffff;
 }
 
-.calendar-date table tbody tr > *::after {
-  top: 3px;
-  left: 3px;
-  width: 29px;
-  height: 29px;
-  content: "";
-  display: block;
-  position: absolute;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-}
-
 .calendar-date table tbody tr > * > span {
   color: inherit;
   z-index: 10;
   position: relative;
 }
 
-.calendar-date table tbody tr > *.today {
-  color: #3296c8;
-}
-.calendar-date table tbody tr > *.today:after {
-  border-color: #3296c8;
-}
 
 .calendar-date table tbody tr > * > span {
   color: inherit;
