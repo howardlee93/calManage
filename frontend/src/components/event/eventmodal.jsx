@@ -44,9 +44,7 @@ class EventModal extends React.Component{
   				onClose={()=>this.handleClose()}
   			>
 
-
   			<EventForm/>
-
 
   			</Modal>
   			</div>

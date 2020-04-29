@@ -23,16 +23,10 @@ const eventForm = (props) =>{
 
 
 
-	}
-
-	const setEmail = (field) => {
-		// props.email : e.currentTarget.value
 
 	}
 
-	const setTitle = (field) => {
-		// [field] : e.currentTarget.value
-
+	const detailsAdd =() =>{
 		
 	}
 
@@ -51,10 +45,7 @@ const eventForm = (props) =>{
 	return (
 		<div className="event-form">
 			<form onSubmit={ e => createEvent(e)}>
-			<fieldset>
-
-				<datepicker>
-				</datepicker>
+			<fieldset style={{border:'0 none'}}>
 
 				<label>Event: </label>
 				<input type="text"
@@ -72,9 +63,14 @@ const eventForm = (props) =>{
                 onChange={timeChange()}
                 
               	/>
+
+              	<label> Details</label>
+              	<textarea id ="details"
+              	onChange={detailsAdd()}
+              	/>
               
 			</fieldset>
-			<button type="submit">Add to Calendar</button>
+			<button  className="button" type="submit">Add to Calendar</button>
 			</form>
 
 		</div>
