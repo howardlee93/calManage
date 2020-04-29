@@ -291,13 +291,10 @@ class Calendar extends React.Component {
 			}
 		})
 
-		let daysinmonth = rows.map((d, i) => {
-      		return (<div>
-      			<tr>{d}
-      			</tr>
-      			</div>
-      			);
-    	});
+		let daysinmonth = rows.map((d, i) => (
+      			<tr key={i}>{d}</tr>
+      		)
+    	);
 
 
 
