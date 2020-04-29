@@ -12,25 +12,22 @@ label {
   margin-bottom: 0 !important;
 }
 
-.button-primary {
+.button {
   background-color: #004fd4 !important;
   border: 1px solid #004fd4 !important;
 }
 
-.button-danger {
-  background-color: #E53C51 !important;
-  border: 1px solid #E53C51 !important;
-}
+.event-form{
+  font-family: sans-serif;
+  width: 100%;
+  text-align: center;
 
-.close {
-  cursor: pointer;
-  font-weight: bold;
-  text-align: right;
 }
-
 
 .modal{
- width: 500px;
+  width: 100%;
+  height: 20%;
+
   background: white;
   border: 1px solid #ccc;
   transition: 1.1s ease-out;
