@@ -79,13 +79,8 @@
 .button-next {
   background-image: url("../../assets/images/next.svg") 
 }
-.calendar-nav span.button-check {
-   color: black; 
-}
 
-.calendar-nav span.button-close {
- color: black; 
-}
+
 .calendar-nav span:first-child,
 .calendar-nav span:last-child {
   width: 35px;
@@ -93,7 +88,7 @@
   font-size: 22px;
 }
 
-.calendar-date{
+.calendar .calendar-date{
 	width: 100%;
 	margin: 0;
   	padding: 0;
@@ -109,7 +104,7 @@
 
 
 
-.calendar-date table {
+.calendar .calendar-date table {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -119,8 +114,8 @@
 
 
 
-.calendar-date table thead tr > *,
-.calendar-date table tbody tr > * {
+.calendar .calendar-date table thead tr > *,
+.calendar .calendar-date table tbody tr > * {
   color: #ffffff;
   width: 35px;
   height: 35px;
@@ -152,4 +147,31 @@
   color: inherit;
   z-index: 10;
   position: relative;
+}
+
+
+
+.calendar .calendar-date table.calendar-month tbody tr > * {
+  width: 81.66666666666667px;
+  padding: 5px;
+  line-height: 25px;
+}
+.calendar .calendar-date table.calendar-month tbody tr > * span {
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.calendar
+  .calendar-date
+  table.calendar-month
+  tbody
+  tr
+  > *:hover
+  span {
+  border-color: #d0d0d0;
+  box-shadow: 0 1px 0 0 #efefef;
+  -webkit-box-shadow: 0 1px 0 0 #efefef;
 }
