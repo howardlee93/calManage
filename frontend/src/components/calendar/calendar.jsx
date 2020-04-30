@@ -309,6 +309,8 @@ class Calendar extends React.Component {
 			if (this.state.modalDisplay){
       			return <EventModal open={this.state.modalDisplay}
       				selectedDay={this.state.selectedDay}
+      				year={this.year()}
+      				month={this.month()}
       			/>
       		}}
 

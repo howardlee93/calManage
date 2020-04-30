@@ -9,6 +9,9 @@ import './event.css';
 const eventForm = (props) =>{
 
 
+
+	const title = props.title;
+	
 	
 
 
@@ -20,6 +23,8 @@ const eventForm = (props) =>{
 		//props.createEvent(data)
 
 		alert("an event was created!");
+
+		// console.log(`event: ${title} on ${props.date} at ${time}`)
 
 
 
@@ -50,7 +55,7 @@ const eventForm = (props) =>{
 				<label>Event: </label>
 				<input type="text"
 				placeholder="What do you want to do?"
-				value={props.title}
+				value={title}
         		size="large"
         		id="title"
         		autoFocus={true}
