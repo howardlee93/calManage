@@ -13,17 +13,20 @@ class EventModal extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			open: false
+			open: props.open
 		}
 	}
 	
 
-	// componentDidMount(){
-	// 	this.setState({
-	// 		open: this.props.modalDisplay
-	// 	});
+	componentDidMount(){
+		// this.setState({
+		// 	open: this.props.modalDisplay
+		// });
+		console.log(this.props.open);
+		console.log(this.props.selectedDay);
+		
 
-	// }
+	}
 
 	handleOpen(){
 		this.setState({
@@ -43,7 +46,9 @@ class EventModal extends React.Component{
 		return(
 
 			<div>
-			<button onClick={()=> this.handleOpen()}>Create event </button>
+				
+			<h6>Add an event on {this.props.selectedDay}</h6>
+			
 			<Modal className="modal"
 				open={this.state.open}
   				onClose={()=>this.handleClose()}
