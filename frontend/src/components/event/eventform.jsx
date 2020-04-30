@@ -1,7 +1,7 @@
 // eventForm.jsx
 
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 import './event.css';
@@ -10,9 +10,16 @@ const eventForm = (props) =>{
 
 
 
-	const title = props.title;
+	const [title, setTitle] = useState("");
+	const [time, setTime] =  useState("");
+
 	
-	
+
+
+	useEffect(()=>{
+		let date = props.date;
+		console.log(date);
+	}, [])
 
 
 	const createEvent =(e) =>{
@@ -36,15 +43,15 @@ const eventForm = (props) =>{
 	}
 
 	const timeChange = (field) =>{
-				// [field] : e.currentTarget.value
+		let time = e.currentTarget.value
 
 
 	}
 
 	const onTitleChange = () =>{
-						// [field] : e.currentTarget.value
-
-
+		let title = e.currentTarget.value;
+		setTitle(title);
+		console.log(title);
 	}
 
 	return (
