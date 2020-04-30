@@ -5,10 +5,6 @@ import {Switch, Link } from 'react-router-dom';
 
 import Calendar from './calendar/calendar';
 
-import EventModal from './event/eventmodal';
-
-
-
 
 function App() {
 

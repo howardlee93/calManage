@@ -10,12 +10,20 @@ import EventForm from './eventform';
 
 class EventModal extends React.Component{
 	
-	state = {
-		title: "",
-		open: false
+	constructor(props){
+		super(props)
+		this.state = {
+			open: false
+		}
 	}
-
 	
+
+	// componentDidMount(){
+	// 	this.setState({
+	// 		open: this.props.modalDisplay
+	// 	});
+
+	// }
 
 	handleOpen(){
 		this.setState({
@@ -35,16 +43,15 @@ class EventModal extends React.Component{
 		return(
 
 			<div>
-			<button type="button" onClick={() =>this.handleOpen()}>
-        	Create event
-    		</button>
-			
+			<button onClick={()=> this.handleOpen()}>Create event </button>
 			<Modal className="modal"
 				open={this.state.open}
   				onClose={()=>this.handleClose()}
   			>
 
-  			<EventForm/>
+  			<EventForm
+  				date={this.props.selectedDay}
+  			/>
 
   			</Modal>
   			</div>
