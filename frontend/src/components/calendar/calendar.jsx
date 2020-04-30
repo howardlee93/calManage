@@ -66,10 +66,13 @@ class Calendar extends React.Component {
 	}
 
 	onDayClick(e, d){
+
 		this.setState({
 			selectedDay: d,
 			modalDisplay: !this.state.modalDisplay
 		});
+		console.log("clicked!");
+
 	}
 
 	today(){
@@ -263,7 +266,9 @@ class Calendar extends React.Component {
     		let currentDay = (d === this.today() )? "today" : "";
     		daysInMonth.push(
     			<td key={d} className={`calendar-day ${currentDay}`}>
-    			<span onClick={e =>{this.onDayClick(e,d)}}>
+    			<span onClick={e =>{
+    				this.onDayClick(e,d);
+    			}}>
     			 
     			{d}
     			</span>
@@ -293,9 +298,8 @@ class Calendar extends React.Component {
 		})
 
 		let daysinmonth = rows.map((d, i) => (
-      			<tr key={i}>
+      			<tr key={d}>
       				{d}
-      				{EventModal}
       			</tr>
 
       		)
@@ -310,8 +314,7 @@ class Calendar extends React.Component {
 
       		<div className="calendar">
 				
-				{displayModal}
-				
+				{displayModal()}
         	 <div className="calendar-nav">
         	 <span onClick={e=> {this.onPrev()}}
         	 	className="button-prev"
