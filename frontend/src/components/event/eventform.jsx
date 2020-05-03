@@ -11,15 +11,15 @@ const eventForm = (props) =>{
 
 
 	const [title, setTitle] = useState("");
-	const [time, setTime] =  useState("");
+	// const [time, setTime] =  useState("");
 
 	
 
 
-	useEffect(()=>{
-		let date = props.date;
-		console.log(date);
-	}, [])
+	// useEffect(()=>{
+	// 	let date = props.date;
+	// 	console.log(date);
+	// }, [])
 
 
 	const createEvent =(e) =>{
@@ -38,17 +38,17 @@ const eventForm = (props) =>{
 
 	}
 
-	const detailsAdd =() =>{
+	const detailsAdd =(e) =>{
 		
 	}
 
-	const timeChange = (field) =>{
-		let time = e.currentTarget.value
+	const timeChange = (e) =>{
+		// let time = e.currentTarget.value
 
 
 	}
 
-	const onTitleChange = () =>{
+	const onTitleChange = (e) =>{
 		let title = e.currentTarget.value;
 		setTitle(title);
 		console.log(title);
@@ -62,11 +62,11 @@ const eventForm = (props) =>{
 				<label>Event: </label>
 				<input type="text"
 				placeholder="What do you want to do?"
-				value={title}
+				value={props.title}
         		size="large"
         		id="title"
         		autoFocus={true}
-        		onChange={onTitleChange()}/>
+        		onChange={e => onTitleChange(e)}/>
 
 
         		<label> Time:</label>
