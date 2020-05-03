@@ -6,20 +6,20 @@ import React, {useState, useEffect} from 'react';
 
 import './event.css';
 
-const eventForm = (props) =>{
+const EventForm = (props) =>{
 
 
 
 	const [title, setTitle] = useState("");
-	// const [time, setTime] =  useState("");
+	const [time, setTime] =  useState("");
 
 	
 
 
-	// useEffect(()=>{
-	// 	let date = props.date;
-	// 	console.log(date);
-	// }, [])
+	useEffect(()=>{
+		let date = props.date;
+		console.log(date);
+	}, [])
 
 
 	const createEvent =(e) =>{
