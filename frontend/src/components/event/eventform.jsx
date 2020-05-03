@@ -12,6 +12,7 @@ const EventForm = (props) =>{
 
 	const [title, setTitle] = useState("");
 	const [time, setTime] =  useState("");
+	const [details, setDetails] =  useState("");
 
 	
 
@@ -19,6 +20,12 @@ const EventForm = (props) =>{
 	useEffect(()=>{
 		let date = props.date;
 		console.log(date);
+
+		setTitle(props.title);
+		setTime(props.times);
+
+	
+		setDetails(props.details)
 	}, [])
 
 
@@ -31,7 +38,15 @@ const EventForm = (props) =>{
 
 		alert("an event was created!");
 
-		// console.log(`event: ${title} on ${props.date} at ${time}`)
+		console.log(`event: ${title} on ${props.date} at ${time}`)
+		let data = {
+			tite: title,
+			date: props.date,
+			time: time,
+			details: details
+		}
+
+		console.log(data);
 
 
 
@@ -39,11 +54,16 @@ const EventForm = (props) =>{
 	}
 
 	const detailsAdd =(e) =>{
+		let details = e.currentTarget.value;
+		setDetails(details);
 		
 	}
 
 	const timeChange = (e) =>{
-		// let time = e.currentTarget.value
+		let time = e.currentTarget.value;
+
+		setTime(new Date(time));
+
 
 
 	}
@@ -51,7 +71,6 @@ const EventForm = (props) =>{
 	const onTitleChange = (e) =>{
 		let title = e.currentTarget.value;
 		setTitle(title);
-		console.log(title);
 	}
 
 	return (
@@ -72,13 +91,13 @@ const EventForm = (props) =>{
         		<label> Time:</label>
                 <input type="time" 
                 id="time"
-                onChange={timeChange()}
+                onChange={ e=> timeChange(e)}
                 
               	/>
 
               	<label> Details</label>
               	<textarea id ="details"
-              	onChange={detailsAdd()}
+              	onChange={e => detailsAdd(e)}
               	/>
               
 			</fieldset>
@@ -95,5 +114,5 @@ const EventForm = (props) =>{
 
 
 
-export default eventForm;
+export default EventForm;
 
