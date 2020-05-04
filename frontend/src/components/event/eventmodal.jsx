@@ -5,7 +5,7 @@ import Modal from '@material-ui/core/Modal';
 
 import './event.css';
 
-import EventForm from './eventform';
+import EventFormContainer from './eventcontainer';
 
 
 class EventModal extends React.Component{
@@ -52,7 +52,7 @@ class EventModal extends React.Component{
   				onClose={()=>this.handleClose()}
   			>
 
-  			<EventForm
+  			<EventFormContainer
   				date={this.state.date}
   			/>
 

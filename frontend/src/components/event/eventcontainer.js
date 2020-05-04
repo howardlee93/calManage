@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 
 import {createEvent} from '../../util/api_util';
 
-import EventModal from './eventmodal';
+import EventForm from './eventform';
 
 
 
@@ -18,10 +18,10 @@ const mapStateToProps = (state) => ({
 });
 
 
-const mapDispatchToProps = dispatch => {
-	createEvent: dispatch(createEvent(data))
-};
+const mapDispatchToProps = dispatch => ({
+	createEvent: (data) => dispatch(createEvent(data))
+});
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(EventModal);
+export default connect(mapStateToProps, mapDispatchToProps)(EventForm);
 
