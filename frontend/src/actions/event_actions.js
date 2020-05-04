@@ -26,7 +26,9 @@ export const receiveSingleEvent =() =>{
 
 }
 
-export const fetchEvents = () => {
+export const fetchEvents = (dispatch) => {
+	APIUtil.fetchEvents()
+	.then(dispatch(receiveEvents()))
 
 
 }
