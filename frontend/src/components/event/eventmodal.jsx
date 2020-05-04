@@ -14,23 +14,15 @@ class EventModal extends React.Component{
 		super(props)
 		this.state = {
 			open: props.open,
-			date: ''
+			date: `${this.props.month} ${this.props.selectedDay}, ${this.props.year}`
 		}
 	}
 	
 
 	componentDidMount(){
-		// this.setState({
-		// 	open: this.props.modalDisplay
-		// });
-		console.log(this.props.open);
-		console.log(this.props.selectedDay);
-		let date = `${this.props.month} ${this.props.selectedDay}, ${this.props.year}`;
-
-
-		this.setState({
-			date: date
-		}, () => console.log(this.state.date))
+		//this.setState({
+		//	data: this.props.data
+		//})
 
 	}
 

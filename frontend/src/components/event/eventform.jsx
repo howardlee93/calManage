@@ -48,6 +48,9 @@ const EventForm = (props) =>{
 
 		console.log(data);
 
+		props.createEvent(data);
+		
+
 		
 
 
