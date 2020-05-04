@@ -3,10 +3,11 @@ import '../assets/style/App.css';
 import {Switch, Link } from 'react-router-dom';
 
 
+
 import Calendar from './calendar/calendar';
 
 
-function App() {
+function App({store}) {
 
   return (
     <div className="App">

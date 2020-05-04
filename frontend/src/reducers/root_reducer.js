@@ -6,6 +6,6 @@ import calReducer from './cal_reducer';
 
 export default combineReducers({
 	event: eventReducer,
-	calendar: calReducer
+	// calendar: calReducer
 
 })

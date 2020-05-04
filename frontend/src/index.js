@@ -11,10 +11,10 @@ import * as serviceWorker from './serviceWorker';
 document.addEventListener('DOMContentLoaded', () => {
 	let store;
 
-	// store = configureStore({});
+	store = configureStore({});
  	const root = document.getElementById('root');
 
-  ReactDOM.render(<Root  />, root);//store={store}
+  ReactDOM.render(<Root store={store} />, root);//store={store}
 });
 
 // If you want your app to work offline and load faster, you can change

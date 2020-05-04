@@ -2,7 +2,7 @@
 
 import {RECEIVE_EVENTS, RECEIVE_SINGLE_EVENT} from "../actions/event_actions";
 
-const eventReducer = (state, action) =>{
+const eventReducer = (state = {}, action) =>{
 	Object.freeze(state);
 	let newState; 
 	switch(action.type){
