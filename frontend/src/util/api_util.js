@@ -9,11 +9,9 @@ export const createEvent = (data) =>{
 
 
 
-export const fetchEvents = (searchTerm) =>{
+export const fetchEvents = () =>{
 
-	axios.get('api/todos')
-	.then(()=>(
-		data)
-		)
+	return axios.get('api/todos')
+	
 }
 
