@@ -48,6 +48,8 @@ const EventForm = (props) =>{
 
 		console.log(data);
 
+		
+
 
 
 
@@ -60,8 +62,9 @@ const EventForm = (props) =>{
 	}
 
 	const timeChange = (e) =>{
-		let time = new Date(e.currentTarget.value);
-		
+		let time = e.currentTarget.value;
+
+
 		console.log(time);
 
 		setTime(time);
