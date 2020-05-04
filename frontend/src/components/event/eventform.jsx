@@ -26,7 +26,7 @@ const EventForm = (props) =>{
 
 	
 		setDetails(props.details)
-	}, [])
+	}, [props])
 
 
 	const createEvent =(e) =>{
@@ -60,9 +60,11 @@ const EventForm = (props) =>{
 	}
 
 	const timeChange = (e) =>{
-		let time = e.currentTarget.value;
+		let time = new Date(e.currentTarget.value);
+		
+		console.log(time);
 
-		setTime(new Date(time));
+		setTime(time);
 
 
 
