@@ -33,7 +33,11 @@ router.post("/create", (req, res) => {
 	const newEvent = new Event({
 	  	Event: req.body.Event,
 	    user: req.user.id,
-	  	category: req.body.category
+	  	category: req.body.category,
+	  	title: req.body.title,
+	  	time: req.body.time,
+	  	date: req.body.date
+	  	details: req.body.details
   });
 	newEvent.save().then(Event => res.json(Event));
 
