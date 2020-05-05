@@ -1,27 +1,27 @@
-// todos_route.js
+// Events_route.js
 
 
-const Todo = require('../models/user_model');
+const Event = require('../models/event_model');
 const express = require("express");
 const router = express.Router();
 
 
-router.get("/test", (req, res) => res.json({ msg: "This is the todos route" }));
+router.get("/test", (req, res) => res.json({ msg: "This is the Events route" }));
 
 
 
 
 router.get('/', (req, res) => {
-    Todo.find()
+    Event.find()
         .sort({ date: -1 })
-        .then(todos => res.json(todos))
+        .then(Events => res.json(Events))
         .catch(err => res.status(404).json({ notweetsfound: 'Nothing to do!' }));
 });
 
 router.get('/user/:user_id', (req, res) => {
-    Todo.find({user: req.params.user_id})
+    Event.find({user: req.params.user_id})
         .sort({ date: -1 })
-        .then(todos => res.json(todos))
+        .then(Events => res.json(Events))
         .catch(err =>
             res.status(404).json({ notweetsfound: 'nothing for this user to do' }
         )
@@ -30,12 +30,12 @@ router.get('/user/:user_id', (req, res) => {
 
 router.post("/create", (req, res) => {
 
-	const newTodo = new Todo({
-	  	todo: req.body.todo,
+	const newEvent = new Event({
+	  	Event: req.body.Event,
 	    user: req.user.id,
 	  	category: req.body.category
   });
-	newTodo.save().then(todo => res.json(todo));
+	newEvent.save().then(Event => res.json(Event));
 
 
 });
@@ -43,15 +43,15 @@ router.post("/create", (req, res) => {
 
 
 router.post("/user/edit/:id", (req, res) =>{
-    Todo.findById(req.params.id, function(err, todo) {
-        if (!todo)
+    Event.findById(req.params.id, function(err, Event) {
+        if (!Event)
             res.status(404).send("data is not found");
         else
-            todo.todo_description = req.body.todo_description;
-            todo.category = req.body.category;
+            Event.Event_description = req.body.Event_description;
+            Event.category = req.body.category;
 
-            todo.save().then(todo => {
-                res.json('Todo updated!');
+            Event.save().then(Event => {
+                res.json('Event updated!');
             })
             .catch(err => {
                 res.status(400).send("Update not possible");

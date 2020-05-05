@@ -5,14 +5,10 @@ import {connect } from 'react-redux';
 import Calendar from './calendar';
 
 
-mapStateToProps = (state) =>({
-
+const mapStateToProps = (state) =>({
+	date: state.date
 });
 
 
-mapDispatchToProps = (dispatch) => ({
 
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Calendar);
-/
+export default connect(mapStateToProps, null)(Calendar);

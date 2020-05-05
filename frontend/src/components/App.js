@@ -4,7 +4,7 @@ import {Switch, Link } from 'react-router-dom';
 
 
 
-import Calendar from './calendar/calendar';
+import CalendarContainer from './calendar/calendar_container';
 
 
 function App({store}) {
@@ -17,7 +17,7 @@ function App({store}) {
 
 
    
-    <Calendar/>
+    <CalendarContainer/>
 
     <footer className="main-footer">
 

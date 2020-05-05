@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const TodoSchema = new Schema({
+const EventSchema = new Schema({
 	user: {
     	type: Schema.Types.ObjectId,
     	ref: 'users'
@@ -17,14 +17,22 @@ const TodoSchema = new Schema({
   	date: {
     	type: Date,
     	default: Date.now
-  	}
-  	category:{
+  	},
+  	title:{
   		type: string,
-      required: true
+      	required: true
 
+  	},
+  	time:{
+  		type: string,
+  		required: true
+  	},
+  	details:{
+  		type:string,
+  		required: true 
   	}
 
 });
 
 
-module.exports = Todo = mongoose.model('todos', TodoSchema);
+module.exports = Todo = mongoose.model('events', EventSchema);

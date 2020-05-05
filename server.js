@@ -66,6 +66,6 @@ app.get("/", (req, res) => res.send("Hello World!!"));
 
 app.use("/api/users", users);
 
-app.use('/api/todos', todos);
+app.use('/api/events', events);
 
 
