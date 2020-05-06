@@ -36,7 +36,7 @@ router.post("/create", (req, res) => {
 	  	category: req.body.category,
 	  	title: req.body.title,
 	  	time: req.body.time,
-	  	date: req.body.date
+	  	date: req.body.date,
 	  	details: req.body.details
   });
 	newEvent.save().then(Event => res.json(Event));

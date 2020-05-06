@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 
 const users = require( "./routes/users_route");
-const todos = require('./routes/todos_route');
+const events = require('./routes/events_route');
 
 
 

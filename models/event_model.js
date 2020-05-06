@@ -19,20 +19,20 @@ const EventSchema = new Schema({
     	default: Date.now
   	},
   	title:{
-  		type: string,
+  		type: String,
       	required: true
 
   	},
   	time:{
-  		type: string,
+  		type: String,
   		required: true
   	},
   	details:{
-  		type:string,
+  		type: String,
   		required: true 
   	}
 
 });
 
 
-module.exports = Todo = mongoose.model('events', EventSchema);
+module.exports = Event = mongoose.model('events', EventSchema);
