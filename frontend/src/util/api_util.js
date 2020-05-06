@@ -4,14 +4,14 @@ import axios from 'axios';
 
 
 export const createEvent = (data) =>{
-	axios.post('/api/todos', data )
+	axios.post('/api/events', data )
 };
 
 
 
 export const fetchEvents = () =>{
 
-	return axios.get('api/todos')
+	return axios.get('api/events')
 	
 }
 
