@@ -17,5 +17,7 @@ export const fetchEvents = () =>{
 
 
 export const updateEvent = (id, data) => {
-	axios.put()
+	axios.put(`api/events/${id}`, data)
+    .then((res) => res.data)
+    .catch(err => console.log(err))
 }
