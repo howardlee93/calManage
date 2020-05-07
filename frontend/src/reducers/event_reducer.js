@@ -1,11 +1,12 @@
 // event_reducer.js
 
-import {RECEIVE_EVENTS, RECEIVE_SINGLE_EVENT} from "../actions/event_actions";
+import {RECEIVE_EVENTS, RECEIVE_SINGLE_EVENT, DELETE_EVENT} from "../actions/event_actions";
 
 const eventReducer = (state = {}, action) =>{
 	Object.freeze(state);
 	let newState; 
 	switch(action.type){
+
 		case RECEIVE_EVENTS:
 			newState = Object.assign({}, state, action.data);
 			return newState;
@@ -15,6 +16,14 @@ const eventReducer = (state = {}, action) =>{
 			newState = Object.assign({}, state, action.data);
 
 			return newState;
+
+		case DELETE_EVENT:
+			let filtered =state.filter(event => event.id != action.payload)
+
+			newState = Object.assign({}, state, filtered);
+			return newState;
+
+
 		default:
 			return state
 	}
