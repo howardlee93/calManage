@@ -41,3 +41,7 @@ export const addEvent = data => dispatch =>(
 
 export const updateEvent = (id) => dispatch => (
 	) 
+
+
+export const deleteEvent = id => dispatch => (
+	)
