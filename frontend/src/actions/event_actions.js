@@ -27,7 +27,7 @@ export const receiveSingleEvent = (event) =>({
 })
 
 
-export const deleteEvent = (event) =>({
+export const deleteSingleEvent = (event) =>({
 	type: DELETE_EVENT,
 	event 
 })
@@ -56,7 +56,7 @@ export const updateEvent = (id, data) => dispatch => (
 
 export const deleteEvent = id => dispatch => (
 	APIUtil.deleteEvent(id)
-	.then(event => deleteEvent(event))
+	.then(event => deleteSingleEvent(event))
 	.catch(err => console.log(err))
 
 	)
