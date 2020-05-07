@@ -28,4 +28,6 @@ export const updateEvent = (id, data) => {
 
 export const fetchSingleEvent = (id) =>{
 	return axios.get(`api/events/${id}`)
+	 .then((res) => res.data)
+    .catch(err => console.log(err))
 }
