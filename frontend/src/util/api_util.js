@@ -5,6 +5,8 @@ import axios from 'axios';
 
 export const createEvent = (data) =>{
 	axios.post('/api/events', data )
+	.then(res => res.data)
+	.catch(err => console.log(err))
 };
 
 
