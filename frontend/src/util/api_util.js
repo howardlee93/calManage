@@ -15,3 +15,7 @@ export const fetchEvents = () =>{
 	
 }
 
+
+export const updateEvent = (id, data) => {
+	axios.put()
+}

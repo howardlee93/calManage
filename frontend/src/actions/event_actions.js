@@ -24,9 +24,20 @@ export const receiveSingleEvent = (event) =>({
 	event
 })
 
-export const fetchEvents = (dispatch) => {
+export const fetchEvents = () => dispatch => {
 	APIUtil.fetchEvents()
 	.then((events) =>dispatch(receiveEvents(events)))
-
+	.catch(err=> console.log(err))
 
 }
+
+
+export const addEvent = data => dispatch =>(
+	APIUtil.createEvent(data)
+	.then(event => dispatch(receiveSingleEvent(event)))
+	.catch(err => console.log(err))
+	)
+
+
+export const updateEvent = (id) => dispatch => (
+	) 
