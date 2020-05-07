@@ -9,6 +9,8 @@ export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
 export const RECEIVE_SINGLE_EVENT = 'RECEIVE_SINGLE_EVENT';
 
 
+export const DELETE_EVENT = 'DELETE_EVENT';
+
 
 
 export const receiveEvents = (events) => {
@@ -22,6 +24,12 @@ export const receiveEvents = (events) => {
 export const receiveSingleEvent = (event) =>({
 	type: RECEIVE_SINGLE_EVENT,
 	event
+})
+
+
+export const deleteEvent = (event) =>({
+	type: DELETE_EVENT,
+	event 
 })
 
 export const fetchEvents = () => dispatch => {
@@ -48,7 +56,7 @@ export const updateEvent = (id, data) => dispatch => (
 
 export const deleteEvent = id => dispatch => (
 	APIUtil.deleteEvent(id)
-	.then(event => dispatch(receiveSingleEvent(event)))
+	.then(event => deleteEvent(event))
 	.catch(err => console.log(err))
 
 	)
