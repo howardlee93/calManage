@@ -39,9 +39,16 @@ export const addEvent = data => dispatch =>(
 	)
 
 
-export const updateEvent = (id) => dispatch => (
+export const updateEvent = (id, data) => dispatch => (
+	APIUtil.updateEvent(id, data)
+	.then(event => dispatch(receiveSingleEvent(event)))
+	.catch(err => console.log(err))
 	) 
 
 
 export const deleteEvent = id => dispatch => (
+	APIUtil.deleteEvent(id)
+	.then(event => dispatch(receiveSingleEvent(event)))
+	.catch(err => console.log(err))
+
 	)
