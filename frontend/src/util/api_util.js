@@ -14,6 +14,8 @@ export const createEvent = (data) =>{
 export const fetchEvents = () =>{
 
 	return axios.get('api/events')
+	.then(res => res.data)
+	.catch(err => console.log(err))
 	
 }
 
