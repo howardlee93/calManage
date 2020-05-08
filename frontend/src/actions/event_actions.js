@@ -40,7 +40,7 @@ export const fetchEvents = () => dispatch => {
 }
 
 
-export const addEvent = data => dispatch =>(
+export const createEvent = data => dispatch =>(
 	APIUtil.createEvent(data)
 	.then(event => dispatch(receiveSingleEvent(event)))
 	.catch(err => console.log(err))

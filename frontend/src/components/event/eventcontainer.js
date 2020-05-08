@@ -3,7 +3,7 @@
 
 import {connect} from "react-redux";
 
-import {createEvent} from '../../util/api_util';
+import {createEvent} from '../../actions/event_actions';
 
 import EventForm from './eventform';
 

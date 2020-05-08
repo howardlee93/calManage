@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 export const createEvent = (data) =>{
-	axios.post('/api/events', data )
+	return axios.post('/api/events', data )
 	.then(res => res.data)
 	.catch(err => console.log(err))
 };
@@ -21,7 +21,7 @@ export const fetchEvents = () =>{
 
 
 export const updateEvent = (id, data) => {
-	axios.put(`api/events/${id}`, data)
+	return axios.put(`api/events/${id}`, data)
     .then((res) => res.data)
     .catch(err => console.log(err))
 }
