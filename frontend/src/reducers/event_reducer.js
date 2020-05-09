@@ -8,17 +8,17 @@ const eventReducer = (state = {}, action) =>{
 	switch(action.type){
 
 		case RECEIVE_EVENTS:
-			newState = Object.assign({}, state, action.data);
+			newState = Object.assign({}, state, action.payload.data);
 			return newState;
 
 
 		case RECEIVE_SINGLE_EVENT:
-			newState = Object.assign({}, state, action.data);
+			newState = Object.assign({}, state, action.payload.data);
 
 			return newState;
 
 		case DELETE_EVENT:
-			let filtered =state.filter(event => event.id != action.payload)
+			let filtered =state.filter(event => event.id !== action.payload)
 
 			newState = Object.assign({}, state, filtered);
 			return newState;
