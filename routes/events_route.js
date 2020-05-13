@@ -28,7 +28,7 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
-router.post("/create", (req, res) => {
+router.post("/", (req, res) => {
 
 	const newEvent = new Event({
 	  	Event: req.body.Event,
