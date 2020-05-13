@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/style/App.css';
-import {Switch, Link } from 'react-router-dom';
+import {Switch, Link, Route } from 'react-router-dom';
 
 
 
@@ -16,8 +16,8 @@ function App({store}) {
     </header>
 
 
-   
-    <CalendarContainer/>
+    <Route exact path="/" component={CalendarContainer} />
+
 
     <footer className="main-footer">
 
