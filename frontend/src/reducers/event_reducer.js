@@ -8,12 +8,12 @@ const eventReducer = (state = {}, action) =>{
 	switch(action.type){
 
 		case RECEIVE_EVENTS:
-			newState = Object.assign({}, state, action.payload.data);
+			newState = Object.assign({}, state, action.data);
 			return newState;
 
 
 		case RECEIVE_SINGLE_EVENT:
-			newState = Object.assign({}, state, action.payload.data);
+			newState = Object.assign({}, state, action.data);
 
 			return newState;
 
