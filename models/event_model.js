@@ -6,14 +6,7 @@ const Schema = mongoose.Schema;
 
 
 const EventSchema = new Schema({
-	user: {
-    	type: Schema.Types.ObjectId,
-    	ref: 'users'
-  	},
-  	todo: {
-    	type: String,
-    	required: true
-  	},
+
   	date: {
     	type: Date,
     	// default: Date.now
@@ -24,7 +17,7 @@ const EventSchema = new Schema({
 
   	},
   	time:{
-  		type: String,
+  		type: Date,
   		required: true
   	},
   	details:{
