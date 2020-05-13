@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ notweetsfound: 'Nothing to do!' }));
 });
 
-router.get('/user/:user_id', (req, res) => {
+router.get('/:id', (req, res) => {
     Event.find({user: req.params.user_id})
         .sort({ date: -1 })
         .then(Events => res.json(Events))
@@ -46,7 +46,7 @@ router.post("/", (req, res) => {
 
 
 
-router.post("/user/edit/:id", (req, res) =>{
+router.post("/:id", (req, res) =>{
     Event.findById(req.params.id, function(err, Event) {
         if (!Event)
             res.status(404).send("data is not found");
