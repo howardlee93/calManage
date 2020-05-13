@@ -3,9 +3,12 @@
 import axios from 'axios';
 
 
+const test = 'http://localhost:5000/api/events'
+
+
 export const createEvent = (data) =>{
-	return axios.post('/api/events', data )
-	.then(res => res.data)
+	return axios.post('http://localhost:5000/api/events/', data )
+	.then( res => res.data)
 	.catch(err => console.log(err))
 };
 
@@ -13,7 +16,7 @@ export const createEvent = (data) =>{
 
 export const fetchEvents = () =>{
 
-	return axios.get('/api/events')
+	return axios.get('/api/events/')
 	.then(res => res.data)
 	.catch(err => console.log(err))
 	
