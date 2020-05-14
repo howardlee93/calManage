@@ -9,15 +9,16 @@ const EventSchema = new Schema({
 
   	date: {
     	type: Date,
-    	// default: Date.now
+    	default: Date.now
   	},
+    
   	title:{
   		type: String,
       	required: true
 
   	},
   	time:{
-  		type: Date,
+  		type: String,
   		required: true
   	},
   	details:{
