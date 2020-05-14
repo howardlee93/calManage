@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 router.post("/", (req, res) => {
 
 	const newEvent = new Event({
-	  	// Event: req.body.Event,
+	  	Event: req.body.Event,
 	  	title: req.body.title,
 	  	time: req.body.time,
 	  	date: req.body.date,
