@@ -40,7 +40,7 @@ const EventForm = (props) =>{
 
 		console.log(`event: ${title} on ${props.date} at ${time}`)
 		let data = {
-			tite: title,
+			title: title,
 			date: props.date,
 			time: time,
 			details: details
