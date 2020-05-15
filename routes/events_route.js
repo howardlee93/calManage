@@ -24,11 +24,11 @@ router.get('/', (req, res) => {
 //want to populate calendAR by date 
 
 
-router.get('/:date'(req, res)) =>{
+router.get('/:date', (req, res) => {
      Event.find({
-        created_at: {
-        $gte: ISODate(`${date}`)// get 
-
+            created_at: {
+            $gte: ISODate(`${date}`)// get 
+        }
     })
      .then(Events => res.json(Events))
 
