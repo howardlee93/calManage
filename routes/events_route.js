@@ -16,7 +16,28 @@ router.get('/', (req, res) => {
         .sort({ date: -1 })
         .then(Events => res.json(Events))
         .catch(err => res.status(404).json({ notweetsfound: 'Nothing to do!' }));
+
+   
 });
+
+
+//want to populate calendAR by date 
+
+
+router.get('/:date'(req, res)) =>{
+     Event.find({
+        created_at: {
+        $gte: ISODate(`${date}`)// get 
+
+    })
+     .then(Events => res.json(Events))
+
+
+
+});
+
+
+
 
 router.get('/:id', (req, res) => {
     Event.find({user: req.params.user_id})
