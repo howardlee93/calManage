@@ -3,11 +3,8 @@
 import axios from 'axios';
 
 
-const test = 'http://localhost:5000/api/events'
-
-
 export const createEvent = (data) =>{
-	return axios.post('http://localhost:5000/api/events/', data )
+	return axios.post('/api/events/', data )
 	.then( res => res.data)
 	.catch(err => console.log(err))
 };
