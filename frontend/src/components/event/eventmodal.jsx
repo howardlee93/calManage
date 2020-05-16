@@ -5,6 +5,9 @@ import Modal from '@material-ui/core/Modal';
 
 import './event.css';
 
+import {Route} from 'react-router-dom';
+
+
 import EventFormContainer from './eventcontainer';
 
 
@@ -41,6 +44,7 @@ class EventModal extends React.Component{
 	
 
 	render(){
+
 		return(
 
 			<div>
@@ -52,7 +56,7 @@ class EventModal extends React.Component{
   				onClose={()=>this.handleClose()}
   			>
 
-  			<EventFormContainer
+  			<Route path='/:date' component={EventFormContainer}
   				date={this.state.date}
   			/>
 
