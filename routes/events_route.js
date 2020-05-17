@@ -10,7 +10,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the Events route" }))
 
 
 
-
+//read
 router.get('/', (req, res) => {
     Event.find()
         .sort({ date: -1 })
@@ -49,6 +49,8 @@ router.get('/:id', (req, res) => {
     );
 });
 
+
+//create
 router.post("/", (req, res) => {
 
 	const newEvent = new Event({
@@ -64,7 +66,7 @@ router.post("/", (req, res) => {
 });
 
 
-
+//update
 router.post("/:id", (req, res) =>{
     Event.findById(req.params.id, function(err, Event) {
         if (!Event)
@@ -83,6 +85,20 @@ router.post("/:id", (req, res) =>{
 });
 
 
+//delete
+router.delete(":/id", (req, res)=> {
+	Event.findById(req.params,id, (err,Event) =>{
+		if (!Event){
+			res.status(404).send("event not found")
+		}else{
+			Event.findOneAndRemove({ _id: req.params.id });
+
+		}
+		.catch(err => {
+                res.status(400).send("Update not possible");
+            });
+	});
+})
 
 
 module.exports = router;
