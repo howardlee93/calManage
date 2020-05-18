@@ -81,6 +81,19 @@ const EventForm = (props) =>{
 		setTitle(title);
 	}
 
+
+	const deleteAndUpdate = () =>{
+
+
+		// //load the state
+		return(
+			<div>
+				<button  className="button"  onclick={props.updateEvent}>Update Calendar</button>
+				<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
+			</div>
+			)
+	}
+
 	return (
 		<div className="event-form">
 			<form onSubmit={ e => createEvent(e)}>
@@ -109,6 +122,8 @@ const EventForm = (props) =>{
               	/>
               
 			</fieldset>
+
+
 			<button  className="button" type="submit">Add to Calendar</button>
 			</form>
 
