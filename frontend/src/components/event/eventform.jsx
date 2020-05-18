@@ -82,17 +82,22 @@ const EventForm = (props) =>{
 	}
 
 
-	const deleteAndUpdate = () =>{
+	const deleteAndUpdate = () => (
 
 
 		// //load the state
-		return(
-			<div>
-				<button  className="button"  onclick={props.updateEvent}>Update Calendar</button>
-				<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
-			</div>
-			)
-	}
+		<div>
+		<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
+		<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
+		</div>
+	)
+
+
+
+	const createButton = () => (
+		<button  className="button" type="submit">Add to Calendar</button>
+
+	)
 
 	return (
 		<div className="event-form">
@@ -123,13 +128,11 @@ const EventForm = (props) =>{
               
 			</fieldset>
 
-
-			<button  className="button" type="submit">Add to Calendar</button>
+			{(props.title) ? {deleteAndUpdate} : {createButton}}
 			</form>
 
 		</div>
 		)
-
 
 
 };
