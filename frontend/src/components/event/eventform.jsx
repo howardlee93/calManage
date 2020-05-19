@@ -8,13 +8,9 @@ import './event.css';
 
 const EventForm = (props) =>{
 
-
-
 	const [title, setTitle] = useState("");
 	const [time, setTime] =  useState("");
 	const [details, setDetails] =  useState("");
-
-	
 
 
 	useEffect(()=>{
@@ -33,8 +29,6 @@ const EventForm = (props) =>{
 		e.preventDefault();
 		//api call to backend
 
-		//const data = 
-		//props.createEvent(data)
 
 		alert("an event was created!");
 
@@ -49,13 +43,7 @@ const EventForm = (props) =>{
 		console.log(data);
 
 		props.createEvent(data);
-		
-
-		
-
-
-
-
+	
 	}
 
 	const detailsAdd =(e) =>{
@@ -127,8 +115,7 @@ const EventForm = (props) =>{
               	/>
               
 			</fieldset>
-
-			{(props.title) ? {deleteAndUpdate} : {createButton}}
+				<button  className="button" type="submit">Add to Calendar</button>
 			</form>
 
 		</div>
