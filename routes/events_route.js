@@ -69,9 +69,9 @@ router.post("/", (req, res) => {
 //update
 router.post("/:id", (req, res) =>{
     Event.findById(req.params.id, function(err, Event) {
-        if (!Event)
+        if (!Event){
             res.status(404).send("data is not found");
-        else
+        }else{
             Event.Event_description = req.body.Event_description;
             Event.category = req.body.category;
 
@@ -81,6 +81,7 @@ router.post("/:id", (req, res) =>{
             .catch(err => {
                 res.status(400).send("Update not possible");
             });
+        }
     });
 });
 
@@ -91,12 +92,12 @@ router.delete(":/id", (req, res)=> {
 		if (!Event){
 			res.status(404).send("event not found")
 		}else{
-			Event.findOneAndRemove({ _id: req.params.id });
-
-		}
-		.catch(err => {
+			Event.findOneAndRemove({ _id: req.params.id })
+			.catch(err => {
                 res.status(400).send("Update not possible");
             });
+		}
+		
 	});
 })
 
