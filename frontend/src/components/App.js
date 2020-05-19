@@ -6,7 +6,6 @@ import {Switch, Link, Route } from 'react-router-dom';
 
 import CalendarContainer from './calendar/calendar_container';
 
-
 function App({store}) {
 
   return (
@@ -16,8 +15,7 @@ function App({store}) {
     </header>
 
 
-    <Route exact path="/" component={CalendarContainer} />
-
+    <CalendarContainer />
 
     <footer className="main-footer">
 
