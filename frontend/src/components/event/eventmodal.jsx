@@ -56,7 +56,7 @@ class EventModal extends React.Component{
   				onClose={()=>this.handleClose()}
   			>
 
-  			<EventFormContainer
+  			<Route path="/" component={EventFormContainer}
   				date={this.state.date}
   			/>
 
