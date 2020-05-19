@@ -22,7 +22,7 @@ const EventForm = (props) =>{
 
 	
 		setDetails(props.details)
-	}, [])
+	}, [props])
 
 
 	const createEvent =(e) =>{
@@ -70,23 +70,6 @@ const EventForm = (props) =>{
 	}
 
 
-	const deleteAndUpdate = () => (
-
-
-		// //load the state
-		<div>
-		<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
-		<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
-		</div>
-	)
-
-
-
-	const createButton = () => (
-		<button  className="button" type="submit">Add to Calendar</button>
-
-	)
-
 	return (
 		<div className="event-form">
 			<form onSubmit={ e => createEvent(e)}>
@@ -115,14 +98,14 @@ const EventForm = (props) =>{
               	/>
               
 			</fieldset>
-				{props.title ? 
+ 				{props.title ? 
 					<div>
 						<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
 						<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
 					</div> 
 					: 		
-					<button  className="button" type="submit">Add to Calendar</button>
-				}
+						<button  className="button" type="submit">Add to Calendar</button>
+					}
 			</form>
 
 		</div>
