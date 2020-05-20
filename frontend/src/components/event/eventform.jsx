@@ -18,19 +18,16 @@ const EventForm = (props) =>{
 
 		let date = props.date;
 
-		const match = { match: { params } } = props;
-
-
 		
 		console.log(date);
 		props.fetchEvents();
 		
-		setTitle(props.title);
-		setTime(props.times);
+		setTitle(props.events.title);
+		setTime(props.events.times);
 
 	
-		setDetails(props.details)
-	}, [props])
+		setDetails(props.events.details)
+	}, [])
 
 
 	const createEvent =(e) =>{
@@ -106,7 +103,7 @@ const EventForm = (props) =>{
               	/>
               
 			</fieldset>
- 				{props.title ? 
+ 				{props.events.title ? 
 					<div>
 						<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
 						<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>

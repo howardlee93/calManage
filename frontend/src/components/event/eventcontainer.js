@@ -10,11 +10,8 @@ import EventForm from './eventform';
 
 
 const mapStateToProps = (state) => ({
-	// title: state.title,
-	// time: state.time,
-	// date: state.date,
-	// open: state.open,
-	event : state.event
+
+	events: state.events
 
 });
 
