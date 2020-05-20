@@ -15,7 +15,7 @@ function App({store}) {
     </header>
 
 
-    <CalendarContainer />
+    <Route path='/' component={CalendarContainer} />
 
     <footer className="main-footer">
 
