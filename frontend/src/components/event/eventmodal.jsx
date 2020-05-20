@@ -6,6 +6,7 @@ import Modal from '@material-ui/core/Modal';
 import './event.css';
 
 import {Route} from 'react-router-dom';
+import {fetchEvents} from '../../actions/event_actions';
 
 
 import EventFormContainer from './eventcontainer';
@@ -23,6 +24,7 @@ class EventModal extends React.Component{
 	
 
 	componentDidMount(){
+		fetchEvents();		
 		//this.setState({
 		//	data: this.props.data
 		//})
@@ -56,7 +58,7 @@ class EventModal extends React.Component{
   				onClose={()=>this.handleClose()}
   			>
 
-  			<Route path="/" component={EventFormContainer}
+  			<EventFormContainer
   				date={this.state.date}
   			/>
 
