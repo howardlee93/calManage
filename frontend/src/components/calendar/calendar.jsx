@@ -7,6 +7,7 @@ import './calendar.css';
 
 import EventModal from '../event/eventmodal';
 
+ 
 
 class Calendar extends React.Component {
 	constructor(props){
