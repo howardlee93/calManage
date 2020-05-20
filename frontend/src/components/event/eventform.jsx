@@ -14,9 +14,17 @@ const EventForm = (props) =>{
 
 
 	useEffect(()=>{
-		let date = props.date;
-		console.log(date);
 
+
+		let date = props.date;
+
+		const match = { match: { params } } = props;
+
+
+		
+		console.log(date);
+		props.fetchEvents();
+		
 		setTitle(props.title);
 		setTime(props.times);
 
