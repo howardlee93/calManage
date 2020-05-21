@@ -20,13 +20,13 @@ const EventForm = (props) =>{
 
 		
 		console.log(date);
-		props.fetchEvents();
+		// props.fetchEvents();
 		
-		setTitle(props.events.title);
-		setTime(props.events.times);
+		setTitle(props.event.title);
+		setTime(props.event.times);
 
 	
-		setDetails(props.events.details)
+		setDetails(props.event.details)
 	}, [])
 
 
@@ -83,7 +83,6 @@ const EventForm = (props) =>{
 				<label>Event: </label>
 				<input type="text"
 				placeholder="What do you want to do?"
-				value={props.title}
         		size="large"
         		id="title"
         		autoFocus={true}
@@ -102,8 +101,7 @@ const EventForm = (props) =>{
               	onChange={e => detailsAdd(e)}
               	/>
               
-			</fieldset>
- 				{props.events.title ? 
+              {props.event.title ? 
 					<div>
 						<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
 						<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
@@ -111,6 +109,9 @@ const EventForm = (props) =>{
 					: 		
 						<button  className="button" type="submit">Add to Calendar</button>
 					}
+
+			</fieldset>
+ 				
 			</form>
 
 		</div>
@@ -118,6 +119,7 @@ const EventForm = (props) =>{
 
 
 };
+
 
 
 

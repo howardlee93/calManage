@@ -9,8 +9,8 @@ export default function EventList({props}){
 
 
 
-	let title = Object.values(events);
-	
+	// let title = Object.values(events.title);
+
 	return(
 		<div>
 		<h1> This will display the events you have going on</h1>
