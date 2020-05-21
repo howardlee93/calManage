@@ -5,7 +5,7 @@ import moment from 'moment';
 import './calendar.css';
 // import './style.css'
 
-import EventModal from '../event/eventmodal';
+import EventModalContainer from '../event/eventcontainer';
 
  
 
@@ -308,7 +308,7 @@ class Calendar extends React.Component {
 
 		const displayModal = () =>{
 			if (this.state.modalDisplay){
-      			return <EventModal open={this.state.modalDisplay}
+      			return <EventModalContainer open={this.state.modalDisplay}
       				selectedDay={this.state.selectedDay}
       				year={this.year()}
       				month={this.month()}
