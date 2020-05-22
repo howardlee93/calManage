@@ -3,12 +3,10 @@ import React from 'react';
 import moment from 'moment';
 
 import './calendar.css';
-// import './style.css'
 
 import EventModalContainer from '../event/eventcontainer';
 
  
-
 class Calendar extends React.Component {
 	constructor(props){
 		super(props);
