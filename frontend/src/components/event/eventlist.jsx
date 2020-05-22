@@ -3,9 +3,8 @@
 import React from 'react';
 
 
-export default function EventList(props){
+export default function EventList({events}){
 	
-	let events = props.events;
 
 	const eventDisplay = events.map((event, i) => (
 		<event key={i}>
