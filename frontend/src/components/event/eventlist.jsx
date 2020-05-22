@@ -3,10 +3,20 @@
 import React from 'react';
 
 
-export default function EventList({props}){
+export default function EventList(props){
 	
-	let events = {props};
+	let events = props.events;
 
+	const eventDisplay = events.map((event, i) => (
+		<event key={i}>
+			<h1>{event.title}</h1>
+			<h1>{event.time}</h1>
+			<h1>{event.date}</h1>
+			<p>{event.details}</p>
+		</event>
+
+		))
+	
 
 
 	// let title = Object.values(events.title);
@@ -14,14 +24,7 @@ export default function EventList({props}){
 	return(
 		<div>
 		<h1> This will display the events you have going on</h1>
-
-		<h1>{events.title}</h1>
-		<h3>{events.time}</h3>
-		<h3>{events.date}</h3>
-		<p>{events.details}</p>
-		
-
-
+		{eventDisplay}
 
 		</div>
 		)
