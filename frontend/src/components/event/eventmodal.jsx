@@ -29,7 +29,7 @@ class EventModal extends React.Component{
 
 	componentDidUpdate(prevProps, prevState){
 		console.log(this.props.events);
-		if(prevState.events !== this.props.events ){
+		if(this.props.events !== prevProps.events ){
 
 
 			// this part isnt correct, need to check 
