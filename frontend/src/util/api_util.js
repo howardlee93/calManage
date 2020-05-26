@@ -32,6 +32,12 @@ export const fetchSingleEvent = (id) =>{
     .catch(err => console.log(err))
 }
 
+export const fetchEventByDate = date => {
+	return axios.get(`api/events/${date}`)
+	.then((res) => res.data)
+    .catch(err => console.log(err))
+}
+
 export const deleteEvent = (id) => dispatch =>{
 	return axios.delete(`/api/events/${id}`)
 	.then((res) => res.data)
