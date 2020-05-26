@@ -31,8 +31,6 @@ class EventModal extends React.Component{
 		console.log(this.props.events);
 		if(this.props.events !== prevProps.events ){
 
-
-			// this part isnt correct, need to check 
 			this.setState(Object.assign(this.state.events, {}, this.props.events)
 
 			, ()=>	console.log(this.state.events))
