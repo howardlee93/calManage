@@ -6,6 +6,11 @@ import React from 'react';
 export default function EventList({events}){
 	
 
+
+	const listStyle = {};
+
+
+
 	const eventDisplay = events.map((event, i) => (
 		<event key={i}>
 			<p>{event.title}</p>
@@ -14,8 +19,7 @@ export default function EventList({events}){
 			<p>{event.details}</p>
 		</event>
 
-		))
-	
+		));
 
 
 	return(
