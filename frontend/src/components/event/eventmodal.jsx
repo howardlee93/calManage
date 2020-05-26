@@ -17,7 +17,7 @@ class EventModal extends React.Component{
 		this.state = {
 			open: props.open,
 			date: `${this.props.month} ${this.props.selectedDay}, ${this.props.year}`,
-			events:{}
+			events:[]
 
 		}
 	}
@@ -30,7 +30,11 @@ class EventModal extends React.Component{
 	componentDidUpdate(prevProps, prevState){
 		console.log(this.props.events);
 		if(prevState.events !== this.props.events ){
+
+
+			// this part isnt correct, need to check 
 			this.setState(Object.assign(this.state.events, {}, this.props.events)
+
 			, ()=>	console.log(this.state.events))
 		}
 
@@ -52,6 +56,17 @@ class EventModal extends React.Component{
 			<h6>Added an event on the {this.props.selectedDay}</h6>
 			<h1>{this.state.events.title}</h1>
 
+			<Modal className="modal"
+				open={this.state.open}
+  				onClose={()=>this.handleClose()}
+  			>
+
+  			<EventList events={this.state.events}/>
+  				
+  		
+
+  			</Modal>
+
   			</div>
 
 			)
@@ -61,15 +76,6 @@ class EventModal extends React.Component{
 };
 
 
-			// <Modal className="modal"
-			// 	open={this.state.open}
-  	// 			onClose={()=>this.handleClose()}
-  	// 		>
-  	// 		<EventList events={this.state.events}/>
-  				
-  		
-
-  	// 		</Modal>
 
 
 
