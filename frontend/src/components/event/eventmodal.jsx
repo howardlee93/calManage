@@ -5,7 +5,7 @@ import Modal from '@material-ui/core/Modal';
 
 import './event.css';
 
-// import EventForm from './eventform';
+import EventForm from './eventform';
 
 import EventList from './eventlist';
 
@@ -24,19 +24,19 @@ class EventModal extends React.Component{
 	
 
 	componentDidMount(){
-		this.props.fetchEvents()// should change this to fetchEventByDate
+		// this.props.fetchEvents()// should change this to fetchEventByDate
 
-		//this.props.fetchEventByDate(this.state.date);
+		this.props.fetchEventsByDate(this.state.date);
 
 	}
 
 	componentDidUpdate(prevProps, prevState){
 		console.log(this.props.events);
-		if(this.props.events !== prevProps.events ){
+		// if(this.props.events !== prevProps.events ){
 
-			this.setState({events: this.props.events}), 
-			()=> console.log(this.state.events)
-		}
+		// 	this.setState({events: this.props.events}), 
+		// 	()=> console.log(this.state.events)
+		// }
 
 	}
 
@@ -60,8 +60,10 @@ class EventModal extends React.Component{
 				open={this.state.open}
   				onClose={()=>this.handleClose()}
   			>
+  			{(this.state.events) ? <EventList events={this.state.events}/>
+  			: <EventForm date={this.state.date}/>
+			}
 
-  			<EventList events={this.state.events}/>
   				
   		
 
