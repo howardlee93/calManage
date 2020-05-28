@@ -60,3 +60,10 @@ export const deleteEvent = id => dispatch => (
 	.catch(err => console.log(err))
 
 	)
+
+export const fetchEventsByDate = date => dispatch =>(
+	APIUtil.fetchEventsByDate(date)
+	.then(events => receiveEvents(events))
+	.catch(err =>console.log(err))
+
+	)
