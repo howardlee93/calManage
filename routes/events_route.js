@@ -27,11 +27,11 @@ router.get('/', (req, res) => {
 
 
 router.get('/:date', (req, res) => {
+    let date = new Date(req.params.date);
+
 
      Event.find({
-            created_at: {
-            $gte: ISODate(`${date}`)// get 
-        }
+            date: date.toISOString()// get å
     })
      .then(Events => res.json(Events))
 
