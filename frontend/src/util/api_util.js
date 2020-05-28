@@ -32,7 +32,7 @@ export const fetchSingleEvent = (id) =>{
     .catch(err => console.log(err))
 }
 
-export const fetchEventByDate = date => {
+export const fetchEventsByDate = date => {
 	return axios.get(`api/events/${date}`)
 	.then((res) => res.data)
     .catch(err => console.log(err))
