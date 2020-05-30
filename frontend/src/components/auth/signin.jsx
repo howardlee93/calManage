@@ -12,10 +12,17 @@ class SignIn extends React.component{
 		
 	}
 
+	componentDidMount(){
+		
+	}
+
 	handleSubmit(){
 
 
 		
+	}
+	handleChane(){
+
 	}
 
 	render(){
