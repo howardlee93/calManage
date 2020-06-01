@@ -22,11 +22,11 @@ const EventForm = (props) =>{
 		console.log(date);
 		// props.fetchEvents();
 		
-		setTitle(props.event.title);
-		setTime(props.event.times);
+		// setTitle(props.event.title);
+		// setTime(props.event.times);
 
 	
-		setDetails(props.event.details)
+		// setDetails(props.event.details)
 	}, [])
 
 
@@ -85,6 +85,7 @@ const EventForm = (props) =>{
 				placeholder="What do you want to do?"
         		size="large"
         		id="title"
+        		value={title}
         		autoFocus={true}
         		onChange={e => onTitleChange(e)}/>
 
@@ -92,26 +93,20 @@ const EventForm = (props) =>{
         		<label> Time:</label>
                 <input type="time" 
                 id="time"
+                value={time}
                 onChange={ e=> timeChange(e)}
-                
               	/>
 
               	<label> Details</label>
               	<textarea id ="details"
+              	value={details}
               	onChange={e => detailsAdd(e)}
               	/>
               
-              {props.event.title ? 
-					<div>
-						<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
-						<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
-					</div> 
-					: 		
-						<button  className="button" type="submit">Add to Calendar</button>
-					}
-
+             
 			</fieldset>
- 				
+ 			<button  className="button" type="submit">Add to Calendar</button>
+
 			</form>
 
 		</div>
@@ -121,6 +116,14 @@ const EventForm = (props) =>{
 };
 
 
+ // {props.event.title ? 
+	// 				<div>
+	// 					<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
+	// 					<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
+	// 				</div> 
+	// 				: 		
+	// 					<button  className="button" type="submit">Add to Calendar</button>
+	// 				}
 
 
 

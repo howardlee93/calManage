@@ -27,6 +27,7 @@ class EventModal extends React.Component{
 		// this.props.fetchEvents()// should change this to fetchEventByDate
 
 		this.props.fetchEventsByDate(this.state.date);
+		
 
 	}
 
@@ -60,7 +61,7 @@ class EventModal extends React.Component{
 				open={this.state.open}
   				onClose={()=>this.handleClose()}
   			>
-  			{(this.state.events) ? <EventList events={this.state.events}/>
+  			{(this.state.events.length) ? <EventList events={this.state.events}/>
   			: <EventForm date={this.state.date}/>
 			}
 
