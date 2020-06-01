@@ -33,11 +33,11 @@ class EventModal extends React.Component{
 
 	componentDidUpdate(prevProps, prevState){
 		console.log(this.props.events);
-		// if(this.props.events !== prevProps.events ){
+		if(this.props.events !== prevProps.events ){
 
-		// 	this.setState({events: this.props.events}), 
-		// 	()=> console.log(this.state.events)
-		// }
+			this.setState({events: this.props.events}), 
+			()=> console.log(this.state.events)
+		}
 
 	}
 
