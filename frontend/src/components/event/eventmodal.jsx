@@ -24,23 +24,26 @@ class EventModal extends React.Component{
 	
 
 	componentDidMount(){
-		// this.props.fetchEvents()// should change this to fetchEventByDate
 
-		this.props.fetchEventsByDate(this.state.date)
-		.then(data => console.log(data));
+		let dateObj = new Date(this.state.date);
+		console.log(dateObj.toISOString());
+
+
+		this.props.fetchEventsByDate(dateObj.toISOString())
+		.then( events => this.setState({events: this.props.events}))
 		
 
 	}
 
-	componentDidUpdate(prevProps, prevState){
-		console.log(this.props.events);
-		// if(this.props.events !== prevProps.events ){
+	// componentDidUpdate(prevProps, prevState){
+	// 	console.log(this.state.events);
+	// 	// if(this.props.events !== prevState.events ){
 
-		// 	this.setState({events: this.props.events}), 
-		// 	()=> console.log(this.state.events)
-		// }
+	// 	// 	this.setState({events: this.props.events}), 
+	// 	// 	()=> console.log(this.state.events)
+	// 	// }
 
-	}
+	// }
 
 	handleClose(){
 		this.setState({
