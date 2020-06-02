@@ -12,10 +12,9 @@ class SignUp extends React.component{
       		email: '',
       		password: '',
       		password2: '',
-      		errors: {}
     	};
     	this.handleSubmit = this.handleSubmit.bind(this);
-    	
+
 	}
 
 	update(field){
@@ -30,7 +29,6 @@ class SignUp extends React.component{
 	    e.preventDefault();
 	    let user = {
 	      email: this.state.email,
-	      handle: this.state.handle,
 	      password: this.state.password,
 	      password2: this.state.password2
 	    };
@@ -43,9 +41,46 @@ class SignUp extends React.component{
 
 	render(){
 		return(
-			<div>
-				<form>
-				</form>
+			 <div className="login-form-container">
+        		<form onSubmit={this.handleSubmit}>
+          		<div className="login-form">
+            	<br/>
+              	
+              	<input type="text"
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
+              	/>
+            	
+            	<br/>
+              	
+              	<input type="text"
+                value={this.state.handle}
+                onChange={this.update('handle')}
+                placeholder="Handle"
+              	/>
+            	
+            	<br/>
+              	
+              	<input type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder="Password"
+              	/>
+            	
+            	<br/>
+              
+              	<input type="password"
+                value={this.state.password2}
+                onChange={this.update('password2')}
+                placeholder="Confirm Password"
+              	/>
+            	
+            	<br/>
+            	
+            	<input type="submit" value="Submit" />
+          		</div>
+        		</form>
 			</div>
 			)
 	}
