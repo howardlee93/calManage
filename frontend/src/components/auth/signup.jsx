@@ -9,9 +9,36 @@ class SignUp extends React.component{
 		super(props);
 
 		this.state={
-
-		}
+      		email: '',
+      		password: '',
+      		password2: '',
+      		errors: {}
+    	};
+    	this.handleSubmit = this.handleSubmit.bind(this);
+    	
 	}
+
+	update(field){
+		return e => this.setState({
+      		[field]: e.currentTarget.value
+    	});
+
+	}
+
+
+  	handleSubmit(e) {
+	    e.preventDefault();
+	    let user = {
+	      email: this.state.email,
+	      handle: this.state.handle,
+	      password: this.state.password,
+	      password2: this.state.password2
+	    };
+    	this.props.signup(user, this.props.history); 
+  	}
+
+
+
 
 
 	render(){
