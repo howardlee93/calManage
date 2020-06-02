@@ -16,12 +16,25 @@ class SignIn extends React.component{
 		
 	}
 
-	handleSubmit(){
 
+	update(field){
+		return e => this.setState({
+      		[field]: e.currentTarget.value
+    	});
 
-		
 	}
-	handleChane(){
+
+
+  	handleSubmit(e) {
+	    e.preventDefault();
+	    let user = {
+	      email: this.state.email,
+	      password: this.state.password,
+	    };
+    	this.props.login(user); 
+  	}
+
+	handleChange(){
 
 	}
 
