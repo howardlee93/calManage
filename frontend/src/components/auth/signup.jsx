@@ -12,7 +12,7 @@ class SignUp extends React.component{
       		email: '',
       		password: '',
       		password2: '',
-    	};
+     	};
     	this.handleSubmit = this.handleSubmit.bind(this);
 
 	}
