@@ -51,6 +51,20 @@ const EventForm = (props) =>{
 	
 	}
 
+	const updateEvent = e =>{
+
+		e.preventDefault();
+		let data = {
+			title: title,
+			date: props.date,
+			time: time,
+			details: details
+		}
+		props.updateEvent(data);
+		
+
+	}
+
 	const detailsAdd =(e) =>{
 		let details = e.currentTarget.value;
 		setDetails(details);
@@ -105,7 +119,15 @@ const EventForm = (props) =>{
               
              
 			</fieldset>
- 			<button  className="button" type="submit">Add to Calendar</button>
+
+
+ 			{props.event.title ? 
+					<div>
+						<button  className="button" onclick={updateEvent}>Update Calendar</button>
+					</div> 
+					: 		
+						<button  className="button" type="submit">Add to Calendar</button>
+					}
 
 			</form>
 
@@ -116,14 +138,6 @@ const EventForm = (props) =>{
 };
 
 
- // {props.event.title ? 
-	// 				<div>
-	// 					<button  className="button" onclick={props.updateEvent}>Update Calendar</button>
-	// 					<button  className="button"  onclick={props.deleteEvent}>Delete Calendar</button>
-	// 				</div> 
-	// 				: 		
-	// 					<button  className="button" type="submit">Add to Calendar</button>
-	// 				}
 
 
 
