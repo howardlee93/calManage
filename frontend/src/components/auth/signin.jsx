@@ -42,7 +42,30 @@ class SignIn extends React.component{
 		return(
 				<div>
 					<form onSubmit={this.handleSubmit}>
-					</form>
+         			 <div>
+            		
+            		<br/>
+
+              		<input type="text"
+                		value={this.state.email}
+                		onChange={this.update('email')}
+                		placeholder="Email"
+              		/>
+            		
+            		<br/>
+              		
+              		<input type="password"
+                		value={this.state.password}
+                		onChange={this.update('password')}
+                		placeholder="Password"
+              		/>
+            		
+            		<br/>
+
+            		<input type="submit" value="Submit" />
+          			
+          			</div>
+        			</form>
 				</div>
 
 			)
