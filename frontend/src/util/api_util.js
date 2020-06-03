@@ -10,7 +10,6 @@ export const createEvent = (data) =>{
 };
 
 
-
 export const fetchEvents = () =>{
 
 	return axios.get('/api/events/')
