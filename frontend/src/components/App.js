@@ -15,9 +15,9 @@ function App({store}) {
     </header>
 
     <Switch>
-    <Route path='/' component={CalendarContainer} />
-    <AuthRoute exact path="/login" component={SignInFormContainer} />
-    <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <Route path='/' component={CalendarContainer} />
+        <AuthRoute exact path="/login" component={SignInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
 
 
 
