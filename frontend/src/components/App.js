@@ -2,7 +2,11 @@ import React from 'react';
 import '../assets/style/App.css';
 import {Switch, Link, Route } from 'react-router-dom';
 
+import { AuthRoute } from '../util/route_util';
 
+
+import SignInFormContainer from './auth/signin_container';
+import SignUpFormContainer from './auth/signup_container';
 
 import CalendarContainer from './calendar/calendar_container';
 
