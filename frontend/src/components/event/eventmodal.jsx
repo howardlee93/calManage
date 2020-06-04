@@ -66,7 +66,7 @@ class EventModal extends React.Component{
   				onClose={()=>this.handleClose()}
   			>
   			{(this.state.events.length) ? <EventList events={this.state.events}/>
-  			: <EventForm date={this.state.date}/>
+  			: <EventForm events={this.state.events}/>
 			}
 
   			</Modal>

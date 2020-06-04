@@ -4,6 +4,7 @@
 import React, {useState, useEffect} from 'react';
 
 
+
 import './event.css';
 
 const EventForm = (props) =>{
@@ -27,7 +28,7 @@ const EventForm = (props) =>{
 
 	
 		// setDetails(props.event.details)
-	}, [])
+	}, [props.date])
 
 
 	const createEvent =(e) =>{
@@ -121,7 +122,7 @@ const EventForm = (props) =>{
 			</fieldset>
 
 
- 			{props.event.title ? 
+ 			{props.event ? 
 					<div>
 						<button  className="button" onclick={updateEvent}>Update Calendar</button>
 					</div> 
