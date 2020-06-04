@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import './calendar.css';
 
-import EventModalContainer from '../event/eventcontainer';
+import {EventModalContainer} from '../event/eventcontainer';
 
  
 class Calendar extends React.Component {

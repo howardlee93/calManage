@@ -6,6 +6,9 @@ import {connect} from "react-redux";
 import {createEvent, updateEvent, deleteEvent, fetchEvents, fetchEventsByDate} from '../../actions/event_actions';
 
 import EventModal from './eventmodal';
+import EventForm from './eventform';
+import EventList from './eventlist';
+
 
 
 
@@ -26,5 +29,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(EventModal);
-
+export const EventModalContainer = connect(mapStateToProps, mapDispatchToProps)(EventModal);
+export const EventFormContainer = connect(mapStateToProps, mapDispatchToProps)(EventForm);
+export const EventListContainer = connect(mapStateToProps, mapDispatchToProps)(EventList);

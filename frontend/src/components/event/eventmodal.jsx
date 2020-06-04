@@ -5,9 +5,8 @@ import Modal from '@material-ui/core/Modal';
 
 import './event.css';
 
-import EventForm from './eventform';
+import {EventFormContainer, EventListContainer} from './eventcontainer';
 
-import EventList from './eventlist';
 
 
 class EventModal extends React.Component{
@@ -65,8 +64,8 @@ class EventModal extends React.Component{
 				open={this.state.open}
   				onClose={()=>this.handleClose()}
   			>
-  			{(this.state.events.length) ? <EventList events={this.state.events}/>
-  			: <EventForm events={this.state.events}/>
+  			{(this.state.events.length) ? <EventListContainer events={this.state.events}/>
+  			: <EventFormContainer events={this.state.events}/>
 			}
 
   			</Modal>
