@@ -1,12 +1,8 @@
-// root_reducer.js
-
-import { combineReducers } from 'redux';
-import eventReducer from './event_reducer';
-import sessionReducer from './session_reducer';
+import {combineReducers} from 'redux';
 
 
-export default combineReducers({
-	events: eventReducer,
-	session: sessionReducer
+const rootReducer = combineReducers({
 
-})
+});
+
+export default rootReducer;

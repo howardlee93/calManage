@@ -1,0 +1,14 @@
+import Chart from './chart';
+import {connect} from 'react-redux';
+
+const mapStateToProps = state =>({
+
+});
+
+
+const mapDispatchToProps = dispatch =>({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chart);
+

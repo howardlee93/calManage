@@ -30,7 +30,7 @@ router.get('/:date', (req, res) => {
     // let dateObj = new Date(date);
     
      Event.find({
-            date: date// get å
+            date: new Date(date)// get å
     })
      .then(Events => res.json(Events))
 

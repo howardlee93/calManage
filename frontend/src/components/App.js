@@ -1,47 +1,36 @@
 import React from 'react';
-import '../assets/style/App.css';
-import {Switch, Link, Route } from 'react-router-dom';
+import '../assets/styles/App.css';
+import Landing from './landing';
+import ModalContainer from './modal/modal_container';
 
-import { AuthRoute } from '../util/route_util';
+
+import {BrowserRouter, Link } from 'react-router-dom';
 
 
-import SignInFormContainer from './auth/signin_container';
-import SignUpFormContainer from './auth/signup_container';
-
-import CalendarContainer from './calendar/calendar_container';
-
-function App({store}) {
-
+function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-    <header>
-    	<h1>CalManage</h1>
-    </header>
+      <header className="App-header">
 
-    <Switch>
-        <Route path='/' component={CalendarContainer} />
-        <AuthRoute exact path="/login" component={SignInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <h1><Link to='/'>Personalized fitness tracker</Link></h1>
+        <h3> Jumpstart your fitness journey</h3>
+        <aside className='session-section'>      
+          <button className="session-links">Sign In</button>
+          <button className="session-links">Sign Up</button>
+        </aside>
+   
 
+        <menu>
+          <Link to='/' className="nav-links">Fitness!</Link>
+          <Link to="resources" className="nav-links">Resources</Link>
+          <Link to="dash" className="nav-links">Dashboard</Link>
+        </menu>
+      </header>
 
-
-    </Switch>
-    <footer className="main-footer">
-
-                <p>Hi! This web application was built with the MERN stack as a todo list practice project.</p>
-
-                <p> Copyright Howard Lee {new Date().getFullYear()}</p>
-
-                <div className="footer-links">
-                <a href="https://github.com/howardlee93" target="_blank">Github</a>
-                <a href="https://www.linkedin.com/in/leehoward93/" target="_blank" >LinkedIn</a>
-                <a href="https://howardlee93.github.io/" target="_blank">Portfolio</a>
-                </div>
-
-            </footer>
-
+      <Landing/>
     </div>
-
+    </BrowserRouter>
   );
 }
 
