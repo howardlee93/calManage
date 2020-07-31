@@ -1,14 +1,13 @@
 {
-  "name": "calTime",
+  "name": "calManage",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js", 
-    "frontend": "npm start --prefix frontend",   
+    "server": "nodemon server.js",
+    "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\""
-
   },
   "repository": {
     "type": "git",
@@ -35,6 +34,6 @@
     "validator": "^12.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.4"
   }
 }
