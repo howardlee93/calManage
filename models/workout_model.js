@@ -17,7 +17,7 @@ const WorkoutSchema = new Schema({
 
   	},
   	time:{
-  		type: String,
+  		type: Number,
   		required: true
   	},
   	details:{
@@ -25,7 +25,7 @@ const WorkoutSchema = new Schema({
   		required: true 
 	},
 	calories:{
-		type: Integer,
+		type: Number,
 		required: true
 	}
 	  

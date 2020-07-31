@@ -1,6 +1,5 @@
 // Workouts_route.js
 
-
 const Workout = require('../models/Workout_model');
 const express = require("express");
 const router = express.Router();
@@ -24,19 +23,19 @@ router.get('/', (req, res) => {
 //want to populate calendAR by date 
 
 
-router.get('/:date', (req, res) => {
-    let date = new Date(req.params.date);
+// router.get('/:date', (req, res) => {
+//     let date = new Date(req.params.date);
 
-    // let dateObj = new Date(date);
+//     // let dateObj = new Date(date);
     
-     Workout.find({
-            date: new Date(date)// get å
-    })
-     .then(Workouts => res.json(Workouts))
+//      Workout.find({
+//             date: new Date(date)// get å
+//     })
+//      .then(Workouts => res.json(Workouts))
 
 
 
-});
+// });
 
 
 
