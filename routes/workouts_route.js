@@ -1,20 +1,20 @@
-// Events_route.js
+// Workouts_route.js
 
 
-const Event = require('../models/event_model');
+const Workout = require('../models/Workout_model');
 const express = require("express");
 const router = express.Router();
 
 
-router.get("/test", (req, res) => res.json({ msg: "This is the Events route" }));
+router.get("/test", (req, res) => res.json({ msg: "This is the workout route" }));
 
 
 
 //read
 router.get('/', (req, res) => {
-    Event.find()
+    Workout.find()
         .sort({ date: -1 })
-        .then(Events => res.json(Events))
+        .then(Workouts => res.json(Workouts))
         .catch(err => res.status(404).json({ notweetsfound: 'Nothing to do!' }));
 
    
@@ -29,10 +29,10 @@ router.get('/:date', (req, res) => {
 
     // let dateObj = new Date(date);
     
-     Event.find({
+     Workout.find({
             date: new Date(date)// get å
     })
-     .then(Events => res.json(Events))
+     .then(Workouts => res.json(Workouts))
 
 
 
@@ -42,9 +42,9 @@ router.get('/:date', (req, res) => {
 
 
 router.get('/:id', (req, res) => {
-    Event.find({user: req.params.user_id})
+    Workout.find({user: req.params.user_id})
         .sort({ date: -1 })
-        .then(Events => res.json(Events))
+        .then(Workouts => res.json(Workouts))
         .catch(err =>
             res.status(404).json({ notweetsfound: 'nothing for this user to do' }
         )
@@ -55,14 +55,14 @@ router.get('/:id', (req, res) => {
 //create
 router.post("/", (req, res) => {
 
-	const newEvent = new Event({
-	  	Event: req.body.Event,
+	const newWorkout = new Workout({
+	  	Workout: req.body.Workout,
 	  	title: req.body.title,
 	  	time: req.body.time,
 	  	date: req.body.date,
 	  	details: req.body.details
   });
-	newEvent.save().then(Event => res.json(Event));
+	newWorkout.save().then(Workout => res.json(Workout));
 
 
 });
@@ -70,15 +70,15 @@ router.post("/", (req, res) => {
 
 //update
 router.post("/:id", (req, res) =>{
-    Event.findById(req.params.id, function(err, Event) {
-        if (!Event){
+    Workout.findById(req.params.id, function(err, Workout) {
+        if (!Workout){
             res.status(404).send("data is not found");
         }else{
-            Event.Event_description = req.body.Event_description;
-            Event.category = req.body.category;
+            Workout.Workout_description = req.body.Workout_description;
+            Workout.category = req.body.category;
 
-            Event.save().then(Event => {
-                res.json('Event updated!');
+            Workout.save().then(Workout => {
+                res.json('Workout updated!');
             })
             .catch(err => {
                 res.status(400).send("Update not possible");
@@ -90,11 +90,11 @@ router.post("/:id", (req, res) =>{
 
 //delete
 router.delete(":/id", (req, res)=> {
-	Event.findById(req.params,id, (err,Event) =>{
-		if (!Event){
-			res.status(404).send("event not found")
+	Workout.findById(req.params,id, (err,Workout) =>{
+		if (!Workout){
+			res.status(404).send("Workout not found")
 		}else{
-			Event.findOneAndRemove({ _id: req.params.id })
+			Workout.findOneAndRemove({ _id: req.params.id })
 			.catch(err => {
                 res.status(400).send("Update not possible");
             });

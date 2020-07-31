@@ -1,15 +1,14 @@
 // todo_model.js
 
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const EventSchema = new Schema({
+const WorkoutSchema = new Schema({
 
   	date: {
     	type: Date,
-      required: true 
+      	required: true 
   	},
     
   	title:{
@@ -24,9 +23,14 @@ const EventSchema = new Schema({
   	details:{
   		type: String,
   		required: true 
-  	}
+	},
+	calories:{
+		type: Integer,
+		required: true
+	}
+	  
 
 });
 
 
-module.exports = Event = mongoose.model('events', EventSchema);
+module.exports = Workout = mongoose.model('workout', WorkoutSchema);

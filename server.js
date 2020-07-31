@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 
 const users = require( "./routes/users_route");
-const events = require('./routes/events_route');
+const workouts = require('./routes/workouts_route');
 
 
 
@@ -66,6 +66,6 @@ app.get("/", (req, res) => res.send("Hello World!!"));
 
 app.use("/api/users", users);
 
-app.use('/api/events', events);
+app.use('/api/workouts', workouts);
 
 
