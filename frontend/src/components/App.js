@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-        <h1><Link to='/'>CalManage</Link></h1>
+        <h1><Link to='/' id="header-link">CalManage</Link></h1>
         <h3> Jumpstart your fitness journey with your personalized fitness tracker</h3>
         <aside className='session-section'>      
           <button className="session-links">Sign In</button>

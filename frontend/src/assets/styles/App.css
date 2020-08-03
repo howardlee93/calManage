@@ -19,6 +19,11 @@
 
 }
 
+#header-link{
+  text-decoration: none;
+  color: inherit;
+}
+
  .App-header, h1{
   grid-column-start: 3;
   grid-column-end: 3;
@@ -37,7 +42,6 @@
   margin: 3px;
   background-color: aliceblue;
   border: none;
-
 
 }
 
@@ -61,4 +65,5 @@
 .nav-links{
   padding: 3px;
   margin: 3px;
+  color: inherit;
 }
