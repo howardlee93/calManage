@@ -59,7 +59,8 @@ router.post("/", (req, res) => {
 	  	title: req.body.title,
 	  	time: req.body.time,
 	  	date: req.body.date,
-	  	details: req.body.details
+        details: req.body.details,
+        calories: req.body.calories
   });
 	newWorkout.save().then(Workout => res.json(Workout));
 

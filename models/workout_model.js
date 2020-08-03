@@ -17,12 +17,12 @@ const WorkoutSchema = new Schema({
 
   	},
   	time:{
-  		type: Number,
+  		type: String,
   		required: true
-  	},
+	  },
+	  
   	details:{
   		type: String,
-  		required: true 
 	},
 	calories:{
 		type: Number,
