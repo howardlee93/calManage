@@ -5,6 +5,7 @@ import { Route, Switch} from 'react-router-dom';
 import Resources from './resources';
 import Dash from './dash/dash';
 import NotLoggedIn from './notloggedin';
+import {ProtectedRoute} from '../util/route_util';
 
 
 
@@ -18,7 +19,7 @@ function Landing(){
                 <Route exact path='/' component={NotLoggedIn} />
                 
                 <Route path='/resources' component={Resources} />
-                <Route path='/dash' component={Dash} />
+                <ProtectedRoute path='/dash' component={Dash} />
 
             </Switch>
                
