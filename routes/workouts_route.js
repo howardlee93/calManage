@@ -55,14 +55,15 @@ router.get('/:id', (req, res) => {
 router.post("/", (req, res) => {
 
 	const newWorkout = new Workout({
-	  	Workout: req.body.Workout,
+        Workout= req.body.Workout
 	  	title: req.body.title,
 	  	time: req.body.time,
 	  	date: req.body.date,
         details: req.body.details,
         calories: req.body.calories
   });
-	newWorkout.save().then(Workout => res.json(Workout));
+    newWorkout.save().then(Workout => res.json(Workout))
+    .catch(err => res.status(404).json({message:"error bish"}));
 
 
 });
