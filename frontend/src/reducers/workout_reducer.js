@@ -1,8 +1,14 @@
 // workout_reducer.js
+//import actions
+
+const initialState = [];
 
 
-const workoutReducer = (state, action) => {
+
+
+const workoutReducer = (state = initialState, action) => {
     Object.freeze(state);
+    let newState;
     
     switch(action.type){
         

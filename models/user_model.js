@@ -11,6 +11,10 @@ const userSchema = new Schema({
       	type: String,
       	required: true
     },
+    handle:{
+        type: String,
+        required: true
+    }
 
 });
 

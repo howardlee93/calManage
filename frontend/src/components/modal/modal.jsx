@@ -28,6 +28,7 @@ const Modal = (props) =>{
     return(
         <div className="modal">
             <h1> this is a modal for the forms</h1>
+            {component}
         </div>
     )
 
