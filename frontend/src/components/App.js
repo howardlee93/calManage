@@ -5,19 +5,23 @@ import ModalContainer from './modal/modal_container';
 
 
 import {BrowserRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { openModal } from '../actions/modal_actions';
 
 
-function App() {
+function App(props) {
+
   return (
     <BrowserRouter>
     <div className="App">
+    <ModalContainer/>
       <header className="App-header">
 
         <h1><Link to='/' id="header-link">CalManage</Link></h1>
         <h3> Jumpstart your fitness journey with your personalized fitness tracker</h3>
         <aside className='session-section'>      
-          <button className="session-links">Sign In</button>
-          <button className="session-links">Sign Up</button>
+          <button className="session-links" onClick={()=>props.openModal("signin")}>Sign In</button>
+          <button className="session-links" onClick={()=>props.openModal('signup')}>Sign Up</button>
         </aside>
    
 
@@ -34,4 +38,15 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state =>{
+  return{
+    modal: state.modal
+  }
+};
+
+const mapDispatchToProps = dispatch=>({
+  openModal: modal => dispatch(openModal(modal)),
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);

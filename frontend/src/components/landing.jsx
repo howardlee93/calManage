@@ -1,5 +1,4 @@
 import React from 'react';
-import workout from '../assets/images/workout.jpg';
 import { Route, Switch} from 'react-router-dom';
 
 import Resources from './resources';

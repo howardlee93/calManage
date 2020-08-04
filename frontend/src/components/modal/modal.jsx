@@ -29,6 +29,7 @@ const Modal = (props) =>{
         <div className="modal">
             <h1> this is a modal for the forms</h1>
             {component}
+            <button onClick={props.closeModal}> Finished submitting info!</button>
         </div>
     )
 
