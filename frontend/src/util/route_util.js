@@ -2,33 +2,41 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
+import { openModal } from '../actions/modal_actions';
+import ModalContainer from '../components/modal/modal_container';
+
+
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-      <Redirect to="/tweets" />
+      <Redirect to="/workouts" />
     )
   )} />
 );
 
-const Protected = ({ component: Component, loggedIn, ...rest }) => (
+const Protected = ({component: Component, loggedIn, ...rest }) => (
   <Route
     {...rest}
     render={props =>
       loggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/login" />
+        <Redirect to="/users/login"  {...()=>props.openModal('login')}/>
       )
     }
   />
 );
 
-const mapStateToProps = state => (
-  {loggedIn: state.session.isAuthenticated}
-);
+const mapStateToProps = state => ({
+  loggedIn: state.session.isAuthenticated,
+  modal: state.modal
+});
 
+const mapDispatchToProps = dispatch =>({
+  openModal: (modal) => dispatch(openModal(modal))
+})
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
-export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const ProtectedRoute = withRouter(connect(mapStateToProps, mapDispatchToProps)(Protected));
