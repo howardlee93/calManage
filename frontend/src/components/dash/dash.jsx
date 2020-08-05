@@ -8,13 +8,14 @@ class Dash extends React.Component{
     constructor(props){
         super(props);
         this.state={
-
+            data: {}
         };
 
     };
 
     componentDidMount(){
-        
+        this.props.fetchWorkouts()
+        .then(res => this.setState( {data: res}))
     }
 
 
