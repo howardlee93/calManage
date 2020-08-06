@@ -15,7 +15,7 @@ class Dash extends React.Component{
 
     componentDidMount(){
         this.props.fetchWorkouts()
-        .then(res => console.log(res))
+        .then(res => this.setState({workouts:res.workouts.data}))
 
         
     }
@@ -27,6 +27,10 @@ class Dash extends React.Component{
                 <div key={i} className="workouts-display">
                 
                     <h1 >{workout.title}</h1>
+                    <p>{workout.time}</p>
+                    <p>{workout.calories}</p>
+                    <p>{workout.details}</p>
+
 
                 </div>
             ));
