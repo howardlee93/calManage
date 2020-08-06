@@ -1,39 +1,33 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
+
+
+
+
+
+const data = [
+  {_id: "5f284ccca2b86b67bac78a45", title: "run", time: "5:00", details: "testing", calories: 1200, },
+  {_id: "5f284d26a2b86b67bac78a46", title: "run", time: "6:00", details: "testing", calories: 1200, }, 
+  {_id: "5f284d76a2b86b67bac78a47", title: "jog", time: "7:00", details: "testing", calories: 1200}
+  ];
 
 const Chart = (props) =>{
 
-    const [cal, setCal] = useState(0);
-    
-    useEffect(()=>{
-
-    });
+    const [workouts, setWorkouts] = useState(props.workouts);
     
 
-
-
-
-
-    const data = [
-        {x: 0, y: 8},
-        {x: 1, y: 5},
-        {x: 2, y: 4},
-        {x: 3, y: 9},
-        {x: 4, y: 1},
-        {x: 5, y: 7},
-        {x: 6, y: 6},
-        {x: 7, y: 3},
-        {x: 8, y: 2},
-        {x: 9, y: 0}
-      ];
     return(
        
-          <XYPlot height={300} width= {300}>
+          <XYPlot 
+            height={300} width= {300} 
+            getX={(d) =>d.time}
+            getY={ d=> d.calories}
+          >
             <VerticalGridLines />
             <HorizontalGridLines />
             <XAxis />
-            <YAxis />
-            <LineSeries data={data} />
+            <YAxis/>
+            <LineSeries data={data}  />
           </XYPlot>    )
 };
 
