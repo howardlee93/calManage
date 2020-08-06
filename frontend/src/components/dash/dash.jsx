@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ChartContainer from '../chart/chart';
+import Chart from '../chart/chart';
 
 
 class Dash extends React.Component{
@@ -8,22 +8,45 @@ class Dash extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            data: {}
+            workouts: []
         };
 
     };
 
     componentDidMount(){
         this.props.fetchWorkouts()
-        .then(res => this.setState( {data: res}))
+        .then( workouts => this.setState({workouts: workouts}));
+
+        
+    }
+
+    componentDidUpdate(newState){
+        // this.setState({workouts: newState.workouts})
+        console.log(this.state.workouts)
     }
 
 
+
     render(){
+
+        // const workouts = this.state.workouts.map((workout, i) =>(
+        //         <div key={i} className="workouts-display">
+                
+        //             <h1 >{workout.title}</h1>
+
+
+
+        //         </div>
+        //     ));
+
+
         return(
             <div>
                 <h1> This is the dashboard for your fitness needs</h1>
-                <ChartContainer/>
+                <Chart workouts={this.state.workouts}/>
+                <article>
+                    <button> add a workout</button>
+                </article>
 
             </div>
 

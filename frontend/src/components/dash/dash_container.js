@@ -1,13 +1,15 @@
 import {connect} from 'react-redux';
 import Dash from './dash';
+import {fetchWorkouts} from '../../actions/workout_actions';
 
 
 
 const mapStateToProps = state => ({
-    workout: state.workout
+    workouts: state.workouts
 })
 
 const mapDispatchToProps = dispatch =>({
+    fetchWorkouts: ()=> dispatch(fetchWorkouts()),
 
 
 });

@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
 
 const Chart = (props) =>{
+
+    const [cal, setCal] = useState(0);
+    
     useEffect(()=>{
 
     });

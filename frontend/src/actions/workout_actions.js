@@ -15,7 +15,6 @@ const receiveWorkouts = workouts =>{
     }
 };
 
-
 const receiveUserWorkouts = workouts => ({
     type: RECEIVE_USER_WORKOUTS,
     workouts
