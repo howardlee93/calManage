@@ -8,7 +8,7 @@ export const RECEIVE_WORKOUTS = 'RECEIVE_WORKOUTS';
 export const RECEIVE_USER_WORKOUTS = 'RECEIVE_USER_WORKOUTS';
 export const RECEIVE_NEW_WORKOUT = 'RECEIVE_NEW_WORKOUT';
 
-const receiveWorkouts = workouts =>{
+const receiveWorkouts = workouts => {
     return{
         type: RECEIVE_WORKOUTS,
         workouts

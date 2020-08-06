@@ -23,7 +23,7 @@ const Protected = ({component: Component, loggedIn, ...rest }) => (
       loggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/users/login"  {...()=>props.openModal('login')}/>
+        <Redirect to="/"/>
       )
     }
   />

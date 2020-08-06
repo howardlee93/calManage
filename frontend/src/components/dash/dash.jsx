@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Chart from '../chart/chart';
-
+import './dash.css'
 
 class Dash extends React.Component{
 
@@ -15,29 +15,21 @@ class Dash extends React.Component{
 
     componentDidMount(){
         this.props.fetchWorkouts()
-        .then( workouts => this.setState({workouts: workouts}));
+        .then(res => console.log(res))
 
         
     }
 
-    componentDidUpdate(newState){
-        // this.setState({workouts: newState.workouts})
-        console.log(this.state.workouts)
-    }
-
-
 
     render(){
 
-        // const workouts = this.state.workouts.map((workout, i) =>(
-        //         <div key={i} className="workouts-display">
+        const workoutsDisplay = this.state.workouts.map((workout, i) =>(
+                <div key={i} className="workouts-display">
                 
-        //             <h1 >{workout.title}</h1>
+                    <h1 >{workout.title}</h1>
 
-
-
-        //         </div>
-        //     ));
+                </div>
+            ));
 
 
         return(
@@ -45,6 +37,7 @@ class Dash extends React.Component{
                 <h1> This is the dashboard for your fitness needs</h1>
                 <Chart workouts={this.state.workouts}/>
                 <article>
+                    {workoutsDisplay}
                     <button> add a workout</button>
                 </article>
 
