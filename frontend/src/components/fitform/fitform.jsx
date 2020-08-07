@@ -2,9 +2,6 @@ import React from 'react';
 
 import './fitform.css';
 
-
-
-
 class FitForm extends React.Component{
     constructor(props){
         super(props);
@@ -21,17 +18,23 @@ class FitForm extends React.Component{
         e.preventDefault();
         //api post to backend 
         let workout = this.state;
-        
+        this.props.createNewWorkout(workout);
+
+    }
+
+
+    update(field){
 
     }
 
 
 
 
-
     render(){
         return(
+    
             <form onSubmit={this.handleSubmit}>
+                        <h4> Record your new workout </h4>
                     <input type="text" placeholder="Workout title" />
                     <input type="date" placeholder="workout date" />
                     <input type="number" placeholder="workout length"/>

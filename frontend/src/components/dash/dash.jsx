@@ -19,10 +19,6 @@ class Dash extends React.Component{
         
     }
 
-    componentDidUpdate(prevState){
-        // if(prevState.workout !=)
-    }
-
 
     render(){
 
@@ -44,7 +40,7 @@ class Dash extends React.Component{
                 <article>
                     <h1>Past workouts</h1>
                     {workoutsDisplay}
-                    <button> add a workout</button>
+                    <button onClick={()=>this.props.openModal('fitform')}> add a workout</button>
                 </article>
 
             </div>

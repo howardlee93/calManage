@@ -63,6 +63,7 @@ class SignIn extends React.Component{
       render() {
         return (
           <div>
+            <h3 style={{color:'white'}}>Sign in</h3>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <br/>
