@@ -34,7 +34,7 @@ class FitForm extends React.Component{
         return(
     
             <form onSubmit={this.handleSubmit}>
-                        <h4> Record your new workout </h4>
+                    <h4> Record your new workout </h4>
                     <input type="text" placeholder="Workout title" />
                     <input type="date" placeholder="workout date" />
                     <input type="number" placeholder="workout length"/>

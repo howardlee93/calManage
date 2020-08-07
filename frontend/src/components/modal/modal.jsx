@@ -2,7 +2,7 @@ import React from 'react';
 import '../../assets/styles/modal.css';
 import SignIn from '../session_forms/signin';
 import SignUp from '../session_forms/signup';
-import FitForm from '../fitform/fitform';
+import FitFormContainer from '../fitform/fitform';
 
 
 //this is where all the forms will go 
@@ -19,7 +19,7 @@ const Modal = (props) =>{
 	}else if (props.modal === 'signup'){
         component= <SignUp/>
 	}else if (props.modal === 'fitform'){
-        component =<FitForm/>
+        component =<FitFormContainer/>
     }else{
         return null;
     }
