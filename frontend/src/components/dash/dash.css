@@ -1,8 +1,25 @@
 
 
 
-body{
+.dash-main{
     margin-left: 5%;
     margin-right: 5%;
-    
+    display: grid;  
+    grid-template-columns: 1fr 1fr;
+
+}
+
+/* article{ 
+    grid-column-start: 1;
+    grid-column-end: 1;
+
+}
+
+.workout-chart{
+ grid-column-start: 0;
+ grid-column-end: 1;
+} */
+
+workouts-display{
+   
 }
