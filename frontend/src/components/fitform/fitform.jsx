@@ -14,20 +14,22 @@ class FitForm extends React.Component{
         }
 
     }
+
+    
     handleSubmit(e){
         e.preventDefault();
         //api post to backend 
-        let workout = this.state;
-        this.props.createNewWorkout(workout);
+
+        console.log(this.state);
+        // this.props.createWorkout(this.state);
 
     }
-
 
     update(field){
-
-    }
-
-
+		return e => this.setState({
+			[field] : e.currentTarget.value
+		});
+	}
 
 
     render(){
@@ -35,19 +37,30 @@ class FitForm extends React.Component{
     
             <form onSubmit={this.handleSubmit}>
                     <h4> Record your new workout </h4>
-                    <input type="text" placeholder="Workout title" value={this.state.title} />
-                    <input type="date" placeholder="workout date" value={this.state.title} />
-                    <input type="number" placeholder="workout length" value={this.state.title}/>
-                    <input type="number"  placeholder="calories burned" value={this.state.title}/>
-                    <input type="textarea"
-                       
-                        placeholder="workout details"
-                        value={this.state.title}
+
+                    <input type="text" placeholder="Workout title" 
+                    value={this.state.title} onChange={this.update("title")}
                     />
+
+                    <input type="date" placeholder="workout date" 
+                    value={this.state.date} onChange={this.update("date")}/>
+
+                    <input type="number" placeholder="workout length" 
+                    value={this.state.length} onChange={this.update('length')}
+                    />
+
+                    <input type="number"  placeholder="calories burned" 
+                    value={this.state.calories} onChange={this.update('calories')}/>
+
+                    <input type="textarea"
+                        placeholder="workout details"
+                        value={this.state.details}
+                        onChange={this.update('details')}
+                    />
+
+
                     <input type="submit" value="Submit" />
             </form>
-
-
             
         )
     }

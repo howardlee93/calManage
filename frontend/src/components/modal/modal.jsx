@@ -2,7 +2,7 @@ import React from 'react';
 import '../../assets/styles/modal.css';
 import SignIn from '../session_forms/signin';
 import SignUp from '../session_forms/signup';
-import FitFormContainer from '../fitform/fitform';
+import FitFormContainer from '../fitform/fitform_container';
 
 
 //this is where all the forms will go 
