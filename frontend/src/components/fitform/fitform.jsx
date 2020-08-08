@@ -35,13 +35,14 @@ class FitForm extends React.Component{
     
             <form onSubmit={this.handleSubmit}>
                     <h4> Record your new workout </h4>
-                    <input type="text" placeholder="Workout title" />
-                    <input type="date" placeholder="workout date" />
-                    <input type="number" placeholder="workout length"/>
-                    <input type="number"  placeholder="calories burned"/>
+                    <input type="text" placeholder="Workout title" value={this.state.title} />
+                    <input type="date" placeholder="workout date" value={this.state.title} />
+                    <input type="number" placeholder="workout length" value={this.state.title}/>
+                    <input type="number"  placeholder="calories burned" value={this.state.title}/>
                     <input type="textarea"
                        
                         placeholder="workout details"
+                        value={this.state.title}
                     />
                     <input type="submit" value="Submit" />
             </form>
