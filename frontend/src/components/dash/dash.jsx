@@ -10,13 +10,24 @@ class Dash extends React.Component{
         this.state={
             workouts: []
         };
-
     };
 
     componentDidMount(){
         this.props.fetchWorkouts()
         .then(res  => this.setState({workouts: res.workouts.data}))
-        
+    
+    };
+
+
+    componentDidUpdate(prevProps){
+        if(prevProps.workout !== this.props.workouts){
+            this.props.fetchWorkouts()
+            .then(res  => this.setState({workouts: res.workouts.data}))
+            
+        }else{
+            return;
+
+        }
     }
 
 

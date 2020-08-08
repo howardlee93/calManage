@@ -26,11 +26,13 @@ const Chart = (props) =>{
             height={500} width= {500} 
             getY={ d=> d.calories}
             getX={ d =>d.time.split(":")[0]}
+            xType="time"
+            yType="linear"
           >
             <VerticalGridLines />
             <HorizontalGridLines />
-            <XAxis title='time' type="time" tickPadding='1%'/>
-            <YAxis title='calories' type="linear"/>
+            <XAxis title='time'/>
+            <YAxis title='calories' />
             <LineSeries data={workouts}  />
           </XYPlot>   
           </div> 
