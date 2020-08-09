@@ -15,12 +15,19 @@ class Dash extends React.Component{
     componentDidMount(){
         this.props.fetchWorkouts()
         .then(res  => this.setState({workouts: res.workouts.data}))
-    
+        // this.interval = setInterval(() => this.props.fetchWorkouts()
+        //         .then(res  => this.setState({workouts: res.workouts.data})), 
+        //         60000
+        //     );
+
     };
 
+    // componentWillUnmount() {
+    //     clearInterval(this.interval);
+    // }
 
     componentDidUpdate(prevProps){
-        if(prevProps.workout !== this.props.workouts){
+        if(this.props.workouts !== prevProps.workouts){
             this.props.fetchWorkouts()
             .then(res  => this.setState({workouts: res.workouts.data}))
             

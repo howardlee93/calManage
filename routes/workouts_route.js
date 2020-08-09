@@ -55,7 +55,6 @@ router.get('/:id', (req, res) => {
 router.post("/", (req, res) => {
 
 	const newWorkout = new Workout({
-        Workout: req.body.Workout,
 	  	title: req.body.title,
 	  	time: req.body.time,
 	  	date: req.body.date,

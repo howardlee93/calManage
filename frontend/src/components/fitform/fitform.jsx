@@ -12,6 +12,7 @@ class FitForm extends React.Component{
             calories: 0,
             details:""
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
