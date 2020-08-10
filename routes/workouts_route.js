@@ -20,25 +20,6 @@ router.get('/', (req, res) => {
 });
 
 
-//want to populate calendAR by date 
-
-
-// router.get('/:date', (req, res) => {
-//     let date = new Date(req.params.date);
-
-//     // let dateObj = new Date(date);
-    
-//      Workout.find({
-//             date: new Date(date)// get å
-//     })
-//      .then(Workouts => res.json(Workouts))
-
-
-
-// });
-
-
-
 
 router.get('/:id', (req, res) => {
     Workout.find({user: req.params.user_id})
@@ -56,7 +37,7 @@ router.post("/", (req, res) => {
 
 	const newWorkout = new Workout({
 	  	title: req.body.title,
-	  	time: req.body.time,
+	  	length: req.body.length,
 	  	date: req.body.date,
         details: req.body.details,
         calories: req.body.calories

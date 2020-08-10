@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export const getWorkouts =() =>{
+export const getWorkouts = () =>{
     return axios.get('/api/workouts/');
 };
 
@@ -10,6 +10,6 @@ export const getUserWorkouts = id =>{
 };
 
 export const createUserWorkout = data =>{
-    return axios.post(`/api/workouts/`, data);
+    return axios.post('/api/workouts/', data);
     
 }
