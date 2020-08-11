@@ -21,7 +21,9 @@ class FitForm extends React.Component{
         //api post to backend 
 
         console.log(this.state);
-        this.props.createWorkout(this.state);
+        this.props.createWorkout(this.state)
+        .then(()=>alert('workout added!'));
+        
     }
 
     update(field){

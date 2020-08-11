@@ -30,7 +30,10 @@ const Chart = (props) =>{
           >
            
             <XAxis on0={xAxisOn0} />
-            <YAxis />
+            <YAxis
+             style={{
+              textAnchor: 'start',
+            }}/>
             <ChartLabel 
             text="Length of workout"
             className="alt-x-label"
@@ -50,7 +53,7 @@ const Chart = (props) =>{
             xPercent={0.06}
             yPercent={0.06}
             style={{
-              transform: 'rotate(-90)',
+              transform: ' translate(50) rotate(-90)',
               textAnchor: 'end'
             }}
             />

@@ -17,12 +17,6 @@ class Dash extends React.Component{
         .then(res  => this.setState({workouts: res.workouts.data}))
        
     };
-    // shouldComponentUpdate( prevPprops ){
-    //     if(this.props.workouts !== nextProps.workouts){
-    //         return true;
-    //     }
-    //     return false;
-    // }
 
     componentDidUpdate(prevProps){
         if(prevProps.workouts.length !== this.props.workouts.length){
@@ -31,12 +25,6 @@ class Dash extends React.Component{
             
         }
     }
-
-
-    // static getDerivedStateFromProps(props, state){
-
-    // }
-
 
     render(){
 
