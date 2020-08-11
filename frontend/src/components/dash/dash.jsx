@@ -17,7 +17,7 @@ class Dash extends React.Component{
         .then(res  => this.setState({workouts: res.workouts.data}))
        
     };
-    // shouldComponentUpdate( nextProps ){
+    // shouldComponentUpdate( prevPprops ){
     //     if(this.props.workouts !== nextProps.workouts){
     //         return true;
     //     }
@@ -25,11 +25,11 @@ class Dash extends React.Component{
     // }
 
     componentDidUpdate(prevProps){
-        // if(this.props.workouts !== prevProps.workouts){
-        //     this.props.fetchWorkouts()
-        //     .then(res  => this.setState({workouts: res.workouts.data}))
+        if(prevProps.workouts.length !== this.props.workouts.length){
+            this.props.fetchWorkouts()
+            .then(res  => this.setState({workouts: res.workouts.data}))
             
-        // }
+        }
     }
 
 
@@ -55,8 +55,10 @@ class Dash extends React.Component{
             <div className="dash-main">
                 <Chart workouts={this.state.workouts} className="workout-chart"/>
                 <article>
-                    <h1 style={{textAlign:'center'}}>Past workouts</h1>
+                <h1 style={{textAlign:'center !important'}}>Past workouts</h1>
+                    <div className="display">
                     {workoutsDisplay}
+                    </div>
                     <button onClick={()=>this.props.openModal('fitform')}> add a workout</button>
                 </article>
 

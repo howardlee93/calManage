@@ -15,17 +15,13 @@ class FitForm extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
-
     
     handleSubmit(e){
         e.preventDefault();
         //api post to backend 
 
         console.log(this.state);
-
-
         this.props.createWorkout(this.state);
-
     }
 
     update(field){

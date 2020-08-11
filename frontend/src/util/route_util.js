@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import { openModal } from '../actions/modal_actions';
-import ModalContainer from '../components/modal/modal_container';
 
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
@@ -16,16 +15,18 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
-const Protected = ({component: Component, loggedIn, ...rest }) => (
+const Protected = ({component: Component, loggedIn, openModal, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      loggedIn ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/"/>
-      )
+    render={props =>{
+      if(loggedIn){
+       return (<Component {...props} />);
+      }else{
+        openModal('signup');
+        return null;
+      }
     }
+  }
   />
 );
 
