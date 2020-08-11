@@ -7,7 +7,7 @@ import workouts from './workout_reducer';
 const rootReducer = combineReducers({
     session: session,
     workouts: workouts,
-    modal:modal
+    modal: modal
 });
 
 export default rootReducer;
