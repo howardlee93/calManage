@@ -21,7 +21,7 @@ const Chart = (props) =>{
 
         <h1>Progress</h1>
           <XYPlot
-            height={500} width= {500} 
+            height={400} width= {500} 
             getY={ d=> d.calories}
             getX={ d =>d.length}
             xType="linear"
