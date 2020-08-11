@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
+import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, ChartLabel} from 'react-vis';
 
 // const data = [
 //   {_id: "5f284ccca2b86b67bac78a45", title: "run", time: "5:00", details: "testing", calories: 200},
@@ -15,6 +15,7 @@ const Chart = (props) =>{
       setWorkouts(props.workouts)
     },[props.workouts])
     
+    let xAxisOn0 = true;
  
     return(
       <div>
@@ -27,11 +28,35 @@ const Chart = (props) =>{
             xType="linear"
             yType="linear"
           >
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis title='time'/>
-            <YAxis title='calories' />
-            <LineSeries data={workouts}  />
+           
+            <XAxis on0={xAxisOn0} />
+            <YAxis />
+            <ChartLabel 
+            text="Length of workout"
+            className="alt-x-label"
+            includeMargin={false}
+            xPercent={0.025}
+            yPercent={1.01}
+            style={{
+              textAnchor: 'start',
+              transform: 'translate(300)'
+            }}
+            />
+
+          <ChartLabel 
+            text="Calories burned"
+            className="alt-y-label"
+            includeMargin={false}
+            xPercent={0.06}
+            yPercent={0.06}
+            style={{
+              transform: 'rotate(-90)',
+              textAnchor: 'end'
+            }}
+            />
+
+            <LineSeries data={workouts} />
+
           </XYPlot>   
           </div> 
         )
