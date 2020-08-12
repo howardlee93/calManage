@@ -18,7 +18,7 @@ function Landing(){
                 <Route exact path='/' component={NotLoggedIn} />
                 
                 <Route path='/resources' component={Resources} />
-                <Route path='/dash' component={DashContainer} />
+                <ProtectedRoute path='/dash' component={DashContainer} />
 
             </Switch>
                

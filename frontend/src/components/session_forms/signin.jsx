@@ -16,7 +16,7 @@ class SignIn extends React.Component{
         };
     
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this);
+        // this.renderErrors = this.renderErrors.bind(this);
       }
     
 
@@ -26,7 +26,7 @@ class SignIn extends React.Component{
               this.props.history.push('/activity');
             }
         
-            this.setState({errors: nextProps.errors})
+            // this.setState({errors: nextProps.errors})
 
       }
    
@@ -48,17 +48,17 @@ class SignIn extends React.Component{
         this.props.login(user); 
       }
     
-      renderErrors() {
-        return(
-          <ul>
-            {Object.keys(this.state.errors).map((error, i) => (
-              <li key={`error-${i}`}>
-                {this.state.errors[error]}
-              </li>
-            ))}
-          </ul>
-        );
-      }
+      // renderErrors() {
+      //   return(
+      //     <ul>
+      //       {Object.keys(this.state.errors).map((error, i) => (
+      //         <li key={`error-${i}`}>
+      //           {this.state.errors[error]}
+      //         </li>
+      //       ))}
+      //     </ul>
+      //   );
+      // }
     
       render() {
         return (
@@ -80,7 +80,6 @@ class SignIn extends React.Component{
                   />
                 <br/>
                 <input type="submit" value="Submit" />
-                {this.renderErrors()}
               </div>
             </form>
           </div>

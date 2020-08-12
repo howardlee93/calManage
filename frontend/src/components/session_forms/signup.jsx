@@ -13,7 +13,6 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
   }
 
   componentDidUpdate(nextProps) {
@@ -40,19 +39,20 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history); 
+    
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return(
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
@@ -86,7 +86,6 @@ class SignupForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Submit" />
-            {this.renderErrors()}
           </div>
         </form>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/styles/modal.css';
-import SignIn from '../session_forms/signin';
-import SignUp from '../session_forms/signup';
+import {SignInContainer} from '../session_forms/session_container';
+import {SignUpContainer} from '../session_forms/session_container';
 import FitFormContainer from '../fitform/fitform_container';
 
 
@@ -15,9 +15,9 @@ const Modal = (props) =>{
 	}
 
 	if(props.modal === "signin"){
-        component= <SignIn/>
+        component= <SignInContainer/>
 	}else if (props.modal === 'signup'){
-        component= <SignUp/>
+        component= <SignUpContainer/>
 	}else if (props.modal === 'fitform'){
         component =<FitFormContainer/>
     }else{

@@ -22,7 +22,7 @@ const Protected = ({component: Component, loggedIn, openModal, ...rest }) => (
       if(loggedIn){
        return (<Component {...props} />);
       }else{
-        openModal('signup');
+        openModal('signin');
         return null;
       }
     }
@@ -31,7 +31,7 @@ const Protected = ({component: Component, loggedIn, openModal, ...rest }) => (
 );
 
 const mapStateToProps = state => ({
-  loggedIn: state.session.isAuthenticated,
+  loggedIn: state.session.loggedIn,
   modal: state.modal
 });
 
