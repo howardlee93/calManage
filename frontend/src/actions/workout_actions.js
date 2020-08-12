@@ -20,10 +20,10 @@ const receiveUserWorkouts = workouts => ({
     workouts
 });
 
-const receiveNewWorkout = workout =>({
-    type: RECEIVE_NEW_WORKOUT,
-    workout 
-});
+// const receiveNewWorkout = workout =>({
+//     type: RECEIVE_NEW_WORKOUT,
+//     workout 
+// });
 
 
 export const fetchWorkouts = () => dispatch =>(
