@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Dash from './dash';
-import {fetchWorkouts, deleteWorkout, updateWorkout} from '../../actions/workout_actions';
+import {fetchWorkouts, deleteUserWorkout, updateUserWorkout} from '../../actions/workout_actions';
 import{openModal} from '../../actions/modal_actions';
 
 
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>({
     fetchWorkouts: ()=> dispatch(fetchWorkouts()),
     openModal: (modal) => dispatch(openModal(modal)),
-    deleteWorkout: id => dispatch(deleteWorkout(id)),
+    deleteUserWorkout: id => dispatch(deleteUserWorkout(id)),
 
 });
 

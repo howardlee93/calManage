@@ -50,39 +50,40 @@ router.post("/", (req, res) => {
 
 
 //update
-router.post("/:id", (req, res) =>{
-    Workout.findById(req.params.id, function(err, Workout) {
-        if (!Workout){
-            res.status(404).send("data is not found");
-        }else{
-            Workout.Workout_description = req.body.Workout_description;
-            Workout.category = req.body.category;
+router.post("/id", (req, res) =>{
+    // Workout.findById(req.params.id, function(err, Workout) {
+    //     if (!Workout){
+    //         res.status(404).send("data is not found");
+    //     }else{
+    //         Workout.Workout_description = req.body.Workout_description;
 
-            Workout.save().then(Workout => {
-                res.json('Workout updated!');
-            })
-            .catch(err => {
-                res.status(400).send("Update not possible");
-            });
-        }
-    });
+    //         Workout.save().then(Workout => {
+    //             res.json('Workout updated!');
+    //         })
+    //         .catch(err => {
+    //             res.status(400).send("Update not possible");
+    //         });
+    //     }
+    // });
 });
 
 
 //delete
 router.delete(":/id", (req, res)=> {
-	Workout.findById(req.params,id, (err,Workout) =>{
-		if (!Workout){
-			res.status(404).send("Workout not found")
-		}else{
-			Workout.findOneAndRemove({ _id: req.params.id })
+	// Workout.findById(req.params.id, (err, Workout) =>{
+	// 	if (!Workout){
+	// 		res.status(404).send("Workout not found")
+	// 	}else{
+            const workouts =  Workout.findOneAndRemove( req.params.id)
+            .then(res => {res.json("deleted!")})
 			.catch(err => {
                 res.status(400).send("Update not possible");
             });
-		}
-		
+            res.send(workouts);
+            
+		// }
 	});
-})
+// })
 
 
 module.exports = router;
