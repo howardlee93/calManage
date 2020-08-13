@@ -5,9 +5,9 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 import { openModal } from '../actions/modal_actions';
 
 
-const Auth = ({ component: Component, path, loggedIn, exact }) => (
+const Auth = ({ component: Component, path, isAuthenticated, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
-    !loggedIn ? (
+    !isAuthenticated ? (
       <Component {...props} />
     ) : (
       <Redirect to="/workouts" />
@@ -15,11 +15,11 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
-const Protected = ({component: Component, loggedIn, openModal, ...rest }) => (
+const Protected = ({component: Component, isAuthenticated, openModal, ...rest }) => (
   <Route
     {...rest}
     render={props =>{
-      if(loggedIn){
+      if(isAuthenticated){
        return (<Component {...props} />);
       }else{
         openModal('signin');
@@ -31,8 +31,8 @@ const Protected = ({component: Component, loggedIn, openModal, ...rest }) => (
 );
 
 const mapStateToProps = state => ({
-  loggedIn: state.session.loggedIn,
-  modal: state.modal
+  isAuthenticated: state.isAuthenticated
+  // modal: state.modal
 });
 
 const mapDispatchToProps = dispatch =>({

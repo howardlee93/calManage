@@ -22,6 +22,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   })
 
 
+//for testing - delete before deployment 
+  router.get('/', (req, res) => {
+	User.find()
+	.then(users=> res.json(users))
+  });
+
+
+
+
 router.post('/register', (req, res)=>{
 	const { errors, isValid} = validateRegisterInput(req.body);
 

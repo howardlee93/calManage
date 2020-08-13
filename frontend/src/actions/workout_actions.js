@@ -45,16 +45,16 @@ export const createWorkout = data => dispatch => (
     .catch(err => console.log(err))
 )
 
-// export const deleteWorkout = id => dispatch =>{
-//     deleteWorkout(id)
-//     .then(workouts => dispatch(receiveWorkouts(workouts)))
-//     .catch(err => console.log(err))
+export const deleteWorkout = id => dispatch =>{
+    deleteWorkout(id)
+    .then(workouts => dispatch(receiveWorkouts(workouts)))
+    .catch(err => console.log(err))
 
-// };
+};
 
 
-// export const updateWorkout = id => dispatch => {
-//     updateWorkout(id)
-//     .then(workout => dispatch(receiveWorkouts(workout)))
-//     .catch(err => console.log(err))
-// }
+export const updateWorkout = id => dispatch => {
+    updateWorkout(id)
+    .then(workout => dispatch(receiveWorkouts(workout)))
+    .catch(err => console.log(err))
+}

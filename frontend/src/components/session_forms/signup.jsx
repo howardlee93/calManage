@@ -15,13 +15,13 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
+  // componentDidUpdate(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push('/login');
+  //   }
 
-    this.setState({errors: nextProps.errors})
-  }
+  //   this.setState({errors: nextProps.errors})
+  // }
 
   update(field) {
     return e => this.setState({

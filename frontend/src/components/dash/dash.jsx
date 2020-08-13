@@ -34,8 +34,9 @@ class Dash extends React.Component{
                     <p>{workout.length}</p>
                     <p>{workout.calories}</p>
                     <p>{workout.details}</p>
-                    <button id="delete-button" onClick={this.props.deleteWorkout()}>Delete workout</button>
-                    <button id="delete-button" onClick={this.props.updateWorkout()}>Update workout details</button>
+
+                    <button id="delete-button" >Delete </button>
+                    <button id="update-button" >Update</button>
 
                 </div>
             ));
@@ -49,7 +50,7 @@ class Dash extends React.Component{
                     <div className="display">
                     {workoutsDisplay}
                     </div>
-                    <button onClick={()=>this.props.openModal('fitform')}> add a workout</button>
+                    <button id="submit-button" onClick={()=>this.props.openModal('fitform')}> add a workout</button>
                 </article>
 
             </div>
