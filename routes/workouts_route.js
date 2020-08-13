@@ -69,21 +69,23 @@ router.post("/id", (req, res) =>{
 
 
 //delete
-router.delete(":/id", (req, res)=> {
-	// Workout.findById(req.params.id, (err, Workout) =>{
-	// 	if (!Workout){
-	// 		res.status(404).send("Workout not found")
-	// 	}else{
-            const workouts =  Workout.findOneAndRemove( req.params.id)
+router.delete("/:id", (req, res)=> {
+    
+	Workout.findById( req.params.id, (err, Workout) =>{
+		if (!Workout){
+			res.status(404).send("Workout not found")
+		}else{
+            const workouts = Workout.findOneAndRemove( {"_id":req.params.id})
             .then(res => {res.json("deleted!")})
 			.catch(err => {
                 res.status(400).send("Update not possible");
             });
             res.send(workouts);
-            
-		// }
+
+		}
 	});
-// })
+});
+
 
 
 module.exports = router;
