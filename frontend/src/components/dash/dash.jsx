@@ -34,6 +34,8 @@ class Dash extends React.Component{
                     <p>{workout.length}</p>
                     <p>{workout.calories}</p>
                     <p>{workout.details}</p>
+                    <button id="delete-button" onClick={this.props.deleteWorkout()}>Delete workout</button>
+                    <button id="delete-button" onClick={this.props.updateWorkout()}>Update workout details</button>
 
                 </div>
             ));
