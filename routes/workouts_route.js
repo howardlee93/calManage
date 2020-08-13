@@ -72,15 +72,15 @@ router.post("/id", (req, res) =>{
 router.delete("/:id", (req, res)=> {
 
 
-        const workouts = Workout.findByIdAndRemove( req.params.id, (err,workout) => {
+         Workout.findByIdAndRemove( req.params.id, (err,workout) => {
             if(err){
                 return res.json({'success':false,'message':'Some Error'});
             }
     
-            return res.json({'success':true,'message':workout.title+' deleted successfully'});
+            return res.json(Workout);
           });
         
-          res.send(workouts);
+        //   res.send(workouts);
 
     });
     
