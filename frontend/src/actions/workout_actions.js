@@ -20,11 +20,6 @@ const receiveUserWorkouts = workouts => ({
     workouts
 });
 
-// const receiveNewWorkout = workout =>({
-//     type: RECEIVE_NEW_WORKOUT,
-//     workout 
-// });
-
 
 export const fetchWorkouts = () => dispatch =>(
     getWorkouts()
@@ -45,12 +40,12 @@ export const createWorkout = data => dispatch => (
     .catch(err => console.log(err))
 )
 
-export const deleteUserWorkout = id => dispatch =>{
+export const deleteUserWorkout = id => dispatch =>(
     deleteWorkout(id)
     .then(workouts => dispatch(receiveWorkouts(workouts)))
     .catch(err => console.log(err))
-
-};
+    
+);
 
 
 export const updateUserWorkout = id => dispatch => {

@@ -9,7 +9,7 @@ class FitForm extends React.Component{
             title:'',
             date:'',
             length:0,
-            calories: 0,
+            calories:0,
             details:""
         }
         this.handleSubmit = this.handleSubmit.bind(this);

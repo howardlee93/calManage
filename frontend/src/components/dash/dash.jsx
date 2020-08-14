@@ -31,8 +31,8 @@ class Dash extends React.Component{
         const workoutsDisplay = this.state.workouts.map((workout, i) =>(
                 <div key={i} className="workouts-display">
                     <h3 >{workout.title}</h3>
-                    <p>{workout.length}</p>
-                    <p>{workout.calories}</p>
+                    <p>{workout.length} hours </p>
+                    <p>{workout.calories} calories</p>
                     <p>{workout.details}</p>
 
                     <button id="delete-button" onClick={()=> this.props.deleteUserWorkout(workout._id)} >Delete </button>

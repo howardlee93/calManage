@@ -29,7 +29,7 @@ const Chart = (props) =>{
             yType="linear"
           >
            
-            <XAxis on0={xAxisOn0} />
+            <XAxis  />
             <YAxis
              style={{
               textAnchor: 'start',
