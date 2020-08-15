@@ -10,20 +10,34 @@ class Dash extends React.Component{
         this.state={
             workouts: []
         };
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+
     };
 
     componentDidMount(){
         this.props.fetchWorkouts()
-        .then(res  => this.setState({workouts: res.workouts.data}))
+        .then(res => this.setState({workouts: res.workouts.data}))
        
     };
 
-    componentDidUpdate(prevProps){
-        if(prevProps.workouts.length !== this.props.workouts.length){
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.workouts.length !== this.props.workouts.length && prevState.workouts.length !== this.state.workouts){
             this.props.fetchWorkouts()
             .then(res  => this.setState({workouts: res.workouts.data}))
             
         }
+    }
+
+    handleDeleteClick(id){
+
+        const currentWorkouts = this.state.workouts;
+
+        this.setState({
+            workouts: currentWorkouts.filter(workout => workout.id !== id),
+        });
+
+        this.props.deleteUserWorkout(id);
+        
     }
 
     render(){
@@ -35,7 +49,7 @@ class Dash extends React.Component{
                     <p>{workout.calories} calories</p>
                     <p>{workout.details}</p>
 
-                    <button id="delete-button" onClick={()=> this.props.deleteUserWorkout(workout._id)} >Delete </button>
+                    <button id="delete-button" onClick={()=> this.handleDeleteClick(workout._id)} >Delete </button>
                     <button id="update-button" >Update</button>
 
                 </div>

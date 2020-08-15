@@ -7,6 +7,8 @@ import {getWorkouts, getUserWorkouts, createUserWorkout, deleteWorkout, updateWo
 export const RECEIVE_WORKOUTS = 'RECEIVE_WORKOUTS';
 export const RECEIVE_USER_WORKOUTS = 'RECEIVE_USER_WORKOUTS';
 export const RECEIVE_NEW_WORKOUT = 'RECEIVE_NEW_WORKOUT';
+export const DELETE_WORKOUT = 'DELETE_WORKOUT';
+
 
 const receiveWorkouts = workouts => {
     return{
@@ -20,6 +22,11 @@ const receiveUserWorkouts = workouts => ({
     workouts
 });
 
+const removeWorkout = id =>({
+    type: DELETE_WORKOUT,
+    id
+     
+});
 
 export const fetchWorkouts = () => dispatch =>(
     getWorkouts()
@@ -36,13 +43,13 @@ export const fetchUserWorkouts = id => dispatch => (
 
 export const createWorkout = data => dispatch => (
     createUserWorkout(data)
-    .then(workout => dispatch(receiveWorkouts(workout)))
+    .then(workouts => dispatch(receiveWorkouts(workouts)))
     .catch(err => console.log(err))
 )
 
 export const deleteUserWorkout = id => dispatch =>(
     deleteWorkout(id)
-    .then(workouts => dispatch(receiveWorkouts(workouts)))
+    .then(() => dispatch(removeWorkout(id)))
     .catch(err => console.log(err))
     
 );

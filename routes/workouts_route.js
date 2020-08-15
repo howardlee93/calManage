@@ -41,7 +41,7 @@ router.post("/", (req, res) => {
 	  	date: req.body.date,
         details: req.body.details,
         calories: req.body.calories
-  });
+    });
     newWorkout.save().then(Workout => res.json(Workout))
     .catch(err => res.status(404).json({message:"error bish"}));
 
@@ -72,15 +72,15 @@ router.post("/id", (req, res) =>{
 router.delete("/:id", (req, res)=> {
 
 
-         Workout.findByIdAndRemove( req.params.id, (err,workout) => {
+         Workout.findByIdAndRemove( req.params.id, (err) => {
             if(err){
                 return res.json({'success':false,'message':'Some Error'});
             }
     
-            return res.json(Workout);
+            // return res.json(Workout);
           });
         
-        //   res.send(workouts);
+        return res.json(Workout);
 
     });
     
