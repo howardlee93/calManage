@@ -3,9 +3,6 @@
 
 import { RECEIVE_WORKOUTS, RECEIVE_USER_WORKOUTS, RECEIVE_NEW_WORKOUT, DELETE_WORKOUT} from '../actions/workout_actions';
 
-
-
-
 const initialState = [];
 
 const workoutReducer = (state = initialState, action) => {
@@ -17,7 +14,9 @@ const workoutReducer = (state = initialState, action) => {
         
         case RECEIVE_WORKOUTS:
             newState = action.workouts.data;
-            // return Object.assign({}, state, newState);
+            // newState = Object.assign({}, state, action.workouts.data);
+
+            // newState = {...state, workouts: action.workouts.data }
             return newState;
 
         case RECEIVE_USER_WORKOUTS:
@@ -28,7 +27,7 @@ const workoutReducer = (state = initialState, action) => {
 
         case DELETE_WORKOUT:
 
-            newState = state.filter(workout => workout._id != action.id);
+            newState = state.filter(workout => workout._id !== action.id);
             return Object.assign({},state, newState);
 
         default:
