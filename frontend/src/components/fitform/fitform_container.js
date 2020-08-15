@@ -1,8 +1,7 @@
 // fitform_container
 import Fitform from './fitform';
 import {connect} from 'react-redux';
-import {createWorkout} from '../../actions/workout_actions';
-
+import {createWorkout } from '../../actions/workout_actions';
 
 
 const mapDispatchToProps = dispatch =>({

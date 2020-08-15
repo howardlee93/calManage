@@ -2,7 +2,7 @@ import React from 'react';
 
 import './fitform.css';
 
-class FitForm extends React.Component{
+class EditForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -16,13 +16,18 @@ class FitForm extends React.Component{
 
     }
 
+    componentDidMount(){
+        // this.props.fetchUserWorkouts(id);
+
+    }
+
     handleSubmit(e){
         e.preventDefault();
         //api post to backend 
 
         console.log(this.state);
-        this.props.createWorkout(this.state)
-        .then(()=>alert('workout added!'));
+        this.props.updateUserWorkout(this.state)
+        .then(()=>alert('workout updated!'));
         
     }
 
@@ -37,7 +42,7 @@ class FitForm extends React.Component{
         return(
     
             <form onSubmit={this.handleSubmit}>
-                    <h4> Record your new workout </h4>
+                    <h4> Edit your workout </h4>
 
                     <input type="text" placeholder="Workout title" 
                     value={this.state.title} onChange={this.update("title")}
@@ -69,4 +74,4 @@ class FitForm extends React.Component{
 };
 
 
-export default FitForm;
+export default EditForm;

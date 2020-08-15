@@ -3,6 +3,7 @@ import '../../assets/styles/modal.css';
 import {SignInContainer} from '../session_forms/session_container';
 import {SignUpContainer} from '../session_forms/session_container';
 import FitFormContainer from '../fitform/fitform_container';
+import EditFormContainer from '../fitform/editform_container';
 
 
 //this is where all the forms will go 
@@ -20,6 +21,8 @@ const Modal = (props) =>{
         component= <SignUpContainer/>
 	}else if (props.modal === 'fitform'){
         component =<FitFormContainer/>
+    }else if(props.modal === "editform"){
+        component = <EditFormContainer/>
     }else{
         return null;
     }

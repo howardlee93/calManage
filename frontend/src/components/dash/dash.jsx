@@ -50,7 +50,7 @@ class Dash extends React.Component{
                     <p>{workout.details}</p>
 
                     <button id="delete-button" onClick={()=> this.handleDeleteClick(workout._id)} >Delete </button>
-                    <button id="update-button" >Update</button>
+                    <button id="update-button" onClick={()=>this.props.openModal('editform')} >Update</button>
 
                 </div>
             ));

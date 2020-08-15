@@ -1,7 +1,7 @@
 // workout_reducer.js
 //import actions
 
-import { RECEIVE_WORKOUTS, RECEIVE_USER_WORKOUTS, RECEIVE_NEW_WORKOUT, DELETE_WORKOUT} from '../actions/workout_actions';
+import { RECEIVE_WORKOUTS, RECEIVE_USER_WORKOUTS, DELETE_WORKOUT} from '../actions/workout_actions';
 
 const initialState = [];
 
@@ -14,7 +14,7 @@ const workoutReducer = (state = initialState, action) => {
         
         case RECEIVE_WORKOUTS:
             newState = action.workouts.data;
-            // newState = Object.assign({}, state, action.workouts.data);
+            // newState = [...state, action.workouts.data);
 
             // newState = {...state, workouts: action.workouts.data }
             return newState;

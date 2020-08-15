@@ -15,7 +15,6 @@ const Chart = (props) =>{
       setWorkouts(props.workouts)
     },[props.workouts])
     
-    let xAxisOn0 = true;
  
     return(
       <div>
@@ -29,7 +28,7 @@ const Chart = (props) =>{
             yType="linear"
           >
            
-            <XAxis  />
+            <XAxis />
             <YAxis
              style={{
               textAnchor: 'start',
