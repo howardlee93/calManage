@@ -4,7 +4,11 @@
 import { RECEIVE_WORKOUTS, RECEIVE_USER_WORKOUTS, RECEIVE_NEW_WORKOUT, DELETE_WORKOUT} from '../actions/workout_actions';
 
 
-const workoutReducer = (state = [], action) => {
+
+
+const initialState = [];
+
+const workoutReducer = (state = initialState, action) => {
     Object.freeze(state);
     
     let newState;
@@ -13,8 +17,8 @@ const workoutReducer = (state = [], action) => {
         
         case RECEIVE_WORKOUTS:
             newState = action.workouts.data;
-            return Object.assign({},state, newState);
-            // return newState;
+            // return Object.assign({}, state, newState);
+            return newState;
 
         case RECEIVE_USER_WORKOUTS:
             newState = action.workouts.data;
@@ -23,12 +27,9 @@ const workoutReducer = (state = [], action) => {
 
 
         case DELETE_WORKOUT:
-            // return state.filter(workout => workout._id !== action._id);
 
-            newState = state.workouts.slice();
-            delete newState[action.id];
-
-            return newState;
+            newState = state.filter(workout => workout._id != action.id);
+            return Object.assign({},state, newState);
 
         default:
             return state;
