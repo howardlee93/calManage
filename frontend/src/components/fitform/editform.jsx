@@ -17,7 +17,9 @@ class EditForm extends React.Component{
     }
 
     componentDidMount(){
-        // this.props.fetchUserWorkouts(id);
+        console.log(this.props.history.location);
+
+        // this.props.fetchUserWorkouts(this.props.match.params.id);
 
     }
 

@@ -1,4 +1,4 @@
 # calTime
-MERN APP 
+MERN APP for workouts 
 
 

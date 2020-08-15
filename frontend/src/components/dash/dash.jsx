@@ -10,7 +10,7 @@ class Dash extends React.Component{
         this.state={
             workouts: []
         };
-        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+        this.handleUpdateClick = this.handleUpdateClick.bind(this);
 
     };
 
@@ -28,15 +28,15 @@ class Dash extends React.Component{
         }
     }
 
-    handleDeleteClick(id){
+    async handleUpdateClick(id){
 
-        const currentWorkouts = this.state.workouts;
+        
+        this.props.openModal('editform');
 
-        this.setState({
-            workouts: currentWorkouts.filter(workout => workout.id !== id),
-        });
+        this.props.history.push(`/${id}`);
+    
 
-        this.props.deleteUserWorkout(id);
+
         
     }
 
@@ -49,8 +49,8 @@ class Dash extends React.Component{
                     <p>{workout.calories} calories</p>
                     <p>{workout.details}</p>
 
-                    <button id="delete-button" onClick={()=> this.handleDeleteClick(workout._id)} >Delete </button>
-                    <button id="update-button" onClick={()=>this.props.openModal('editform')} >Update</button>
+                    <button id="delete-button" onClick={()=> this.props.deleteUserWorkout(workout._id)} >Delete </button>
+                    <button id="update-button" onClick={()=>this.handleUpdateClick(workout._id)} >Update</button>
 
                 </div>
             ));
