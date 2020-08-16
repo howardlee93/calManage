@@ -17,9 +17,15 @@ class EditForm extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.history.location);
+        let urlElements = window.location.href.split('/');
+        let id = urlElements[urlElements.length-1];
 
-        // this.props.fetchUserWorkouts(this.props.match.params.id);
+        console.log(id);
+
+        this.props.fetchUserWorkouts(this.props.match.params.id)
+        .then((res)=>this.setState({
+
+        }));
 
     }
 
