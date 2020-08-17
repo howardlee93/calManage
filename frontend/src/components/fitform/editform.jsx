@@ -22,11 +22,27 @@ class EditForm extends React.Component{
 
         console.log(id);
 
-        this.props.fetchUserWorkouts(this.props.match.params.id)
-        .then((res)=>this.setState({
+        
+        // this.props.fetchUserWorkouts(id)
+        // .then(res => this.setState({
+        //     title:res.title,
+        //     date: res.date,
+        //     length: res.length,
+        //     calories: res.calories,
+        //     details: res.details
 
-        }));
+        // }));
 
+    }
+
+    componentWillUnmount(){
+        this.setState({
+            title:'',
+            date:'',
+            length:0,
+            calories:0,
+            details:""
+        })
     }
 
     handleSubmit(e){
@@ -34,7 +50,12 @@ class EditForm extends React.Component{
         //api post to backend 
 
         console.log(this.state);
-        this.props.updateUserWorkout(this.state)
+
+
+        let urlElements = window.location.href.split('/');
+        let id = urlElements[urlElements.length-1];
+
+        this.props.updateUserWorkout(id, this.state)
         .then(()=>alert('workout updated!'));
         
     }

@@ -37,7 +37,7 @@ export const fetchWorkouts = () => dispatch =>(
 
 export const fetchUserWorkouts = id => dispatch => (
     getUserWorkouts(id)
-    .then(workouts=> dispatch(receiveUserWorkouts(workouts)))
+    .then(workouts=> dispatch(receiveWorkouts(workouts)))
     .catch(err => console.log(err))
 );
 

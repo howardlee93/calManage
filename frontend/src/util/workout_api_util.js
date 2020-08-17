@@ -6,7 +6,7 @@ export const getWorkouts = () =>{
 };
 
 export const getUserWorkouts = id =>{
-    return axios.get(`/api/workouts/user/${id}`)
+    return axios.get(`/api/workouts/${id}`)
 };
 
 export const createUserWorkout = data =>{
