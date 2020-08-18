@@ -1,6 +1,7 @@
 import EditForm from './editform';
 import {connect} from 'react-redux';
 import{ updateUserWorkout } from '../../actions/workout_actions';
+import {withRouter} from 'react-router-dom';
 
 
 const mapStateToProps = state => ({
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
     updateUserWorkout: (id, data )=> dispatch(updateUserWorkout(id, data))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditForm));

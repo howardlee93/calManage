@@ -25,14 +25,14 @@ class EditForm extends React.Component{
     // }
 
     
-    handleSubmit(e){
+    async handleSubmit(e){
         e.preventDefault();
         //api post to backend 
 
-        console.log(this.state);
+        // console.log(this.state);
 
-        let urlElements = window.location.href.split('/');
-        let id = urlElements[urlElements.length-1];
+        // let urlElements = window.location.href.split('/');
+        // let id = urlElements[urlElements.length-1];
 
         const data = {
             title: this.state.title,
@@ -42,8 +42,8 @@ class EditForm extends React.Component{
             details: this.state.details,
         }
 
-        this.props.updateUserWorkout(this.state.id, data);
-        // this.props.history.push('/dash');
+        await this.props.updateUserWorkout(this.state.id, data)
+        this.props.history.push('/dash');
         
     }
 
