@@ -31,6 +31,8 @@ class Dash extends React.Component{
     async handleUpdateClick(id){
 
         
+       await this.props.fetchUserWorkouts(id);
+
         this.props.openModal('editform');
 
         this.props.history.push(`/${id}`);

@@ -23,15 +23,17 @@ class EditForm extends React.Component{
         console.log(id);
 
         
-        // this.props.fetchUserWorkouts(id)
-        // .then(res => this.setState({
-        //     title:res.title,
-        //     date: res.date,
-        //     length: res.length,
-        //     calories: res.calories,
-        //     details: res.details
+        let {workout} = this.props;
+        
 
-        // }));
+        // this.setState({
+        //     title:workout.title,
+        //     date: workout.date,
+        //     length: workout.length,
+        //     calories: workout.calories,
+        //     details: workout.details
+
+        // });
 
     }
 
@@ -56,7 +58,7 @@ class EditForm extends React.Component{
         let id = urlElements[urlElements.length-1];
 
         this.props.updateUserWorkout(id, this.state)
-        .then(()=>alert('workout updated!'));
+        .then(() => this.props.history.push('/dash'));
         
     }
 
