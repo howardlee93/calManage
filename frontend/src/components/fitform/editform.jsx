@@ -6,11 +6,14 @@ class EditForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            title:'',
-            date:'',
-            length:0,
-            calories:0,
-            details:""
+
+            
+            title: this.props.workouts[0].title,
+            date: this.props.workouts[0].date,
+            length: this.props.workouts[0].length,
+            calories: this.props.workouts[0].calories,
+            details: this.props.workouts[0].details,
+            id: this.props.workouts[0].id
         }
         this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -20,33 +23,13 @@ class EditForm extends React.Component{
         let urlElements = window.location.href.split('/');
         let id = urlElements[urlElements.length-1];
 
-        console.log(id);
+        console.log(this.props);
 
-        
-        let {workout} = this.props;
-        
-
-        // this.setState({
-        //     title:workout.title,
-        //     date: workout.date,
-        //     length: workout.length,
-        //     calories: workout.calories,
-        //     details: workout.details
-
-        // });
+     
 
     }
 
-    componentWillUnmount(){
-        this.setState({
-            title:'',
-            date:'',
-            length:0,
-            calories:0,
-            details:""
-        })
-    }
-
+    
     handleSubmit(e){
         e.preventDefault();
         //api post to backend 
@@ -57,8 +40,8 @@ class EditForm extends React.Component{
         let urlElements = window.location.href.split('/');
         let id = urlElements[urlElements.length-1];
 
-        this.props.updateUserWorkout(id, this.state)
-        .then(() => this.props.history.push('/dash'));
+        // this.props.updateUserWorkout(id, this.state)
+        // .then(() => this.props.history.push('/dash'));
         
     }
 

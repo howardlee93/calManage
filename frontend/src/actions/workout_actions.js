@@ -5,7 +5,7 @@
 import {getWorkouts, getUserWorkouts, createUserWorkout, deleteWorkout, updateWorkout} from '../util/workout_api_util';
 
 export const RECEIVE_WORKOUTS = 'RECEIVE_WORKOUTS';
-export const RECEIVE_USER_WORKOUTS = 'RECEIVE_USER_WORKOUTS';
+export const RECEIVE_USER_WORKOUT = 'RECEIVE_USER_WORKOUT';
 export const RECEIVE_NEW_WORKOUT = 'RECEIVE_NEW_WORKOUT';
 export const DELETE_WORKOUT = 'DELETE_WORKOUT';
 
@@ -17,9 +17,9 @@ const receiveWorkouts = workouts => {
     }
 };
 
-const receiveUserWorkouts = workouts => ({
-    type: RECEIVE_USER_WORKOUTS,
-    workouts
+const receiveUserWorkout = workout => ({
+    type: RECEIVE_USER_WORKOUT,
+    workout
 });
 
 const removeWorkout = id =>({
@@ -37,7 +37,7 @@ export const fetchWorkouts = () => dispatch =>(
 
 export const fetchUserWorkouts = id => dispatch => (
     getUserWorkouts(id)
-    .then(workouts=> dispatch(receiveWorkouts(workouts)))
+    .then(workout=> dispatch(receiveUserWorkout(workout)))
     .catch(err => console.log(err))
 );
 
@@ -55,8 +55,8 @@ export const deleteUserWorkout = id => dispatch =>(
 );
 
 
-export const updateUserWorkout = id => dispatch => {
-    updateWorkout(id)
-    .then(workout => dispatch(receiveWorkouts(workout)))
-    .catch(err => console.log(err))
-}
+// export const updateUserWorkout = id => dispatch => {
+//     updateWorkout(id)
+//     .then(workout => dispatch(receiveUserWorkout(workout)))
+//     .catch(err => console.log(err))
+// }
