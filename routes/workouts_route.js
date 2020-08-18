@@ -50,7 +50,14 @@ router.post("/:id", (req, res) =>{
         if (!Workout){
             res.status(404).send("data is not found");
         }else{
-            Workout.Workout_description = req.body.Workout_description;
+
+
+
+            Workout.title = req.body.title,
+            Workout.length = req.body.length,
+            Workout.date = req.body.date,
+            Workout.details = req.body.details,
+            Workout.calories = req.body.calories
 
             Workout.save().then(Workout => {
                 res.json(Workout);

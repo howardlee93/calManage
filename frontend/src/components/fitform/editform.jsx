@@ -34,7 +34,7 @@ class EditForm extends React.Component{
         let urlElements = window.location.href.split('/');
         let id = urlElements[urlElements.length-1];
 
-        const {data} = {
+        const data = {
             title: this.state.title,
             date: this.state.date,
             length: this.state.length,
