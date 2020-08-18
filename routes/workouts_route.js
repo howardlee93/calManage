@@ -50,21 +50,21 @@ router.post("/", (req, res) => {
 
 
 //update
-router.post("/id", (req, res) =>{
-    // Workout.findById(req.params.id, function(err, Workout) {
-    //     if (!Workout){
-    //         res.status(404).send("data is not found");
-    //     }else{
-    //         Workout.Workout_description = req.body.Workout_description;
+router.post("/:id", (req, res) =>{
+    Workout.findById(req.params.id, function(err, Workout) {
+        if (!Workout){
+            res.status(404).send("data is not found");
+        }else{
+            Workout.Workout_description = req.body.Workout_description;
 
-    //         Workout.save().then(Workout => {
-    //             res.json('Workout updated!');
-    //         })
-    //         .catch(err => {
-    //             res.status(400).send("Update not possible");
-    //         });
-    //     }
-    // });
+            Workout.save().then(Workout => {
+                res.json(Workout);
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+        }
+    });
 });
 
 

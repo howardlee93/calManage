@@ -22,7 +22,6 @@ class EditForm extends React.Component{
     //     // let urlElements = window.location.href.split('/');
     //     // let id = urlElements[urlElements.length-1];
     //     console.log(this.props);
-
     // }
 
     
