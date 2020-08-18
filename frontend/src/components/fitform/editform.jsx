@@ -6,7 +6,7 @@ class EditForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            
+
             title: this.props.workouts[0].title,
             date: this.props.workouts[0].date,
             length: this.props.workouts[0].length,
@@ -34,7 +34,15 @@ class EditForm extends React.Component{
         let urlElements = window.location.href.split('/');
         let id = urlElements[urlElements.length-1];
 
-        this.props.updateUserWorkout(id, this.state);
+        const {data} = {
+            title: this.state.title,
+            date: this.state.date,
+            length: this.state.length,
+            calories: this.state.calories,
+            details: this.state.details,
+        }
+
+        this.props.updateUserWorkout(this.state.id, data);
         // this.props.history.push('/dash');
         
     }

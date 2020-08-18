@@ -4,9 +4,7 @@ const Workout = require('../models/Workout_model');
 const express = require("express");
 const router = express.Router();
 
-
 router.get("/test", (req, res) => res.json({ msg: "This is the workout route" }));
-
 
 
 //read
@@ -15,10 +13,7 @@ router.get('/', (req, res) => {
         .sort({ date: -1 })
         .then(Workouts => res.json(Workouts))
         .catch(err => res.status(404).json({ notweetsfound: 'Nothing to do!' }));
-
-   
 });
-
 
 
 router.get('/:id', (req, res) => {
@@ -71,18 +66,14 @@ router.post("/:id", (req, res) =>{
 //delete
 router.delete("/:id", (req, res)=> {
 
-
-         Workout.findByIdAndRemove( req.params.id, (err) => {
-            if(err){
-                return res.json({'success':false,'message':'Some Error'});
-            }
-    
+    Workout.findByIdAndRemove( req.params.id, (err) => {
+        if(err){
+            return res.json({'success':false,'message':'Some Error'});
+        }
             // return res.json(Workout);
-          });
-        
-        return res.json(Workout);
-
-    });
+    });    
+    return res.json(Workout);
+});
     
 
 	// Workout.findById( req.params.id, (err, Workout) =>{
