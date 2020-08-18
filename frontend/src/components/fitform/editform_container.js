@@ -1,6 +1,6 @@
 import EditForm from './editform';
 import {connect} from 'react-redux';
-// import{fetchUserWorkouts, updateUserWorkout } from '../../actions/workout_actions';
+import{ updateUserWorkout } from '../../actions/workout_actions';
 
 
 const mapStateToProps = state => ({
@@ -9,10 +9,8 @@ const mapStateToProps = state => ({
 })
 
 
-
 const mapDispatchToProps = dispatch => ({
-    // fetchUserWorkouts: id => dispatch(fetchUserWorkouts(id)),
-    // updateUserWorkout: data => dispatch(updateUserWorkout(data))
+    updateUserWorkout: (id, data )=> dispatch(updateUserWorkout(id, data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditForm)

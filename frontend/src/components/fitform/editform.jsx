@@ -6,28 +6,24 @@ class EditForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-
             
             title: this.props.workouts[0].title,
             date: this.props.workouts[0].date,
             length: this.props.workouts[0].length,
             calories: this.props.workouts[0].calories,
             details: this.props.workouts[0].details,
-            id: this.props.workouts[0].id
+            id: this.props.workouts[0]._id
         }
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-    componentDidMount(){
-        let urlElements = window.location.href.split('/');
-        let id = urlElements[urlElements.length-1];
+    // componentDidMount(){
+    //     // let urlElements = window.location.href.split('/');
+    //     // let id = urlElements[urlElements.length-1];
+    //     console.log(this.props);
 
-        console.log(this.props);
-
-     
-
-    }
+    // }
 
     
     handleSubmit(e){
@@ -36,12 +32,11 @@ class EditForm extends React.Component{
 
         console.log(this.state);
 
-
         let urlElements = window.location.href.split('/');
         let id = urlElements[urlElements.length-1];
 
-        // this.props.updateUserWorkout(id, this.state)
-        // .then(() => this.props.history.push('/dash'));
+        this.props.updateUserWorkout(id, this.state);
+        // this.props.history.push('/dash');
         
     }
 

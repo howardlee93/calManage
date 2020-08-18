@@ -20,6 +20,6 @@ export const deleteWorkout = id =>{
 
 
 export const updateWorkout = (id, data) =>{
-    return axios.put(`/api/workouts/${id}`, data)
+    return axios.post(`/api/workouts/${id}`, data)
 };
 

@@ -55,8 +55,8 @@ export const deleteUserWorkout = id => dispatch =>(
 );
 
 
-// export const updateUserWorkout = id => dispatch => {
-//     updateWorkout(id)
-//     .then(workout => dispatch(receiveUserWorkout(workout)))
-//     .catch(err => console.log(err))
-// }
+export const updateUserWorkout = (id, data) => dispatch => {
+    updateWorkout(id, data)
+    .then(workouts => dispatch(receiveWorkouts(workouts)))
+    .catch(err => console.log(err))
+}
