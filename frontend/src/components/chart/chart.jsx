@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {XYPlot, LineSeries, XAxis, YAxis, ChartLabel} from 'react-vis';
+import {XYPlot, LineSeries, XAxis, YAxis, ChartLabel, MarkSeries} from 'react-vis';
 
 // const data = [
 //   {_id: "5f284ccca2b86b67bac78a45", title: "run", time: "5:00", details: "testing", calories: 200},
@@ -57,7 +57,7 @@ const Chart = (props) =>{
             }}
             />
 
-            <LineSeries data={workouts} />
+            <MarkSeries data={workouts} />
 
           </XYPlot>   
           </div> 
